@@ -87,16 +87,16 @@ p{margin:0}
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);
   backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
-.nav{position:relative;display:flex;justify-content:space-between;align-items:center;gap:26px;height:72px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:22px;letter-spacing:.02em;line-height:1}
+.nav{display:flex;align-items:center;gap:28px;height:72px}
+.brand{flex:none;display:flex;align-items:center;gap:11px;font-weight:800;font-size:22px;letter-spacing:.02em;line-height:1}
 .brand .logo{width:36px;height:36px;border-radius:9px;background:var(--ink);
   display:grid;place-items:center;color:var(--accent-2);flex:none}
 .brand small{display:block;font-size:10px;font-weight:600;letter-spacing:.2em;line-height:1;
   text-transform:uppercase;color:var(--muted);margin-top:4px}
-.nav .menu{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+.nav .menu{flex:1 1 auto;justify-content:center;
   display:flex;gap:26px;font-weight:600;font-size:15px;color:var(--ink-soft);white-space:nowrap}
 .nav .menu a:hover{color:var(--accent)}
-.nav .right{display:flex;align-items:center;gap:18px}
+.nav .right{flex:none;display:flex;align-items:center;gap:18px}
 .logo-img{height:44px;width:auto;display:block}
 @media(max-width:520px){.logo-img{height:34px}}
 /* блок преимуществ (полоса под hero) */
@@ -240,11 +240,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);
 .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 @media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.steps{grid-template-columns:1fr}}
-.step{position:relative;padding-top:20px;border-top:2px solid var(--line-dark)}
+.step{position:relative;padding-top:20px;border-top:2px solid var(--ink)}
 .step::before{counter-increment:s;content:"0" counter(s);font-weight:800;font-size:15px;
-  color:var(--accent-2);letter-spacing:.1em}
+  color:var(--accent);letter-spacing:.1em}
 .step h3{font-size:18px;margin:10px 0 8px}
-.step p{color:#aeb9c0;font-size:15px}
+.step p{color:var(--ink-soft);font-size:15px}
 
 /* ---------- gallery ---------- */
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
@@ -391,7 +391,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 
     <div class="cards">
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/shower.jpg')"><span class="lbl">фото · душевые</span></div>
+        <div class="ph" style="--img:url('img/shower-14.jpg')"><span class="lbl">фото · душевые</span></div>
         <div class="body">
           <h3>Душевые перегородки</h3>
           <p>Распашные, раздвижные и неподвижные экраны без рамы — под ваш проём и планировку санузла.</p>
@@ -466,8 +466,22 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   </div>
 </section>
 
+<!-- ================= ВИДЫ СТЕКЛА ================= -->
+<section class="section section--tight" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="head reveal" style="justify-content:center;text-align:center"><div>
+      <span class="eyebrow">Материалы</span>
+      <h2 style="margin-top:14px">Виды стекла</h2>
+      <p class="lead" style="margin:14px auto 0">Прозрачное, тонированное и матовое стекло «мателюкс» — подберём оттенок и фактуру под ваш интерьер и задачу.</p>
+    </div></div>
+    <figure class="reveal" style="max-width:940px;margin:36px auto 0;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)">
+      <img src="img/glass-types.jpg" alt="Виды стекла: бесцветное, бронза, осветлённое, серое, чёрное и матовое мателюкс" style="width:100%;display:block" loading="lazy">
+    </figure>
+  </div>
+</section>
+
 <!-- ================= SERVICES ================= -->
-<section class="section section--tight" id="services" style="background:var(--paper-2)">
+<section class="section section--tight" id="services">
   <div class="wrap">
     <div class="head reveal"><div>
       <span class="eyebrow">Полный цикл</span>
@@ -499,11 +513,11 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 </section>
 
 <!-- ================= STEPS (dark) ================= -->
-<section class="section" id="steps" style="background:var(--ink);color:#fff">
+<section class="section" id="steps" style="background:var(--paper-2)">
   <div class="wrap">
     <div class="head reveal"><div>
-      <span class="eyebrow" style="color:var(--accent-2)">Как мы работаем</span>
-      <h2 style="margin-top:14px;color:#fff">Прозрачный процесс без сюрпризов</h2>
+      <span class="eyebrow">Как мы работаем</span>
+      <h2 style="margin-top:14px">Прозрачный процесс без сюрпризов</h2>
     </div></div>
     <div class="steps">
       <div class="step reveal"><h3>Заявка</h3><p>Оставляете заявку на сайте или пишете в мессенджер. Отвечаем в течение рабочего дня.</p></div>
@@ -518,17 +532,20 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 <section class="section" id="works">
   <div class="wrap">
     <div class="head reveal"><div>
-      <span class="eyebrow">Наши работы</span>
-      <h2 style="margin-top:14px">Объекты, которые мы остеклили</h2>
-      <p class="lead">Реальные проекты в квартирах, домах и коммерческих помещениях Новосибирска.</p>
+      <span class="eyebrow">Душевые из стекла</span>
+      <h2 style="margin-top:14px">Наши душевые перегородки</h2>
+      <p class="lead">Более 15 моделей — распашные, раздвижные и неподвижные экраны из закалённого стекла. Подберём под ваш санузел и цвет фурнитуры.</p>
     </div></div>
     <div class="gallery reveal">
-      <div class="ph g1" style="--img:url('img/work-1.jpg')"><span class="lbl">фото работы</span></div>
-      <div class="ph" style="--img:url('img/work-2.jpg')"><span class="lbl">фото</span></div>
-      <div class="ph" style="--img:url('img/work-3.jpg')"><span class="lbl">фото</span></div>
-      <div class="ph g4" style="--img:url('img/work-4.jpg')"><span class="lbl">фото работы</span></div>
-      <div class="ph" style="--img:url('img/work-5.jpg')"><span class="lbl">фото</span></div>
-      <div class="ph" style="--img:url('img/work-6.jpg')"><span class="lbl">фото</span></div>
+      <div class="ph g1" style="--img:url('img/shower-14.jpg')"></div>
+      <div class="ph" style="--img:url('img/shower-08.jpg')"></div>
+      <div class="ph" style="--img:url('img/shower-01.jpg')"></div>
+      <div class="ph g4" style="--img:url('img/shower-10.jpg')"></div>
+      <div class="ph" style="--img:url('img/shower-06.jpg')"></div>
+      <div class="ph" style="--img:url('img/shower-11.jpg')"></div>
+    </div>
+    <div style="text-align:center;margin-top:30px" class="reveal">
+      <a href="#contact" class="btn btn--dark btn--lg">Подобрать душевую</a>
     </div>
   </div>
 </section>
