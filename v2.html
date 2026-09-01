@@ -16,7 +16,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
@@ -31,6 +31,9 @@
   --accent-2:#c2915f;
   --muted:#8c8173;
   --shadow:0 18px 50px -22px rgba(60,45,30,.30);
+  /* «хорошая» мягкая тень из нескольких слоёв, чуть тёплая — не плоская дефолтная */
+  --shadow-soft:0 1px 2px rgba(60,45,30,.05),0 6px 16px -6px rgba(60,45,30,.10),0 20px 40px -18px rgba(60,45,30,.14);
+  --shadow-lift:0 2px 4px rgba(60,45,30,.06),0 14px 30px -8px rgba(90,60,35,.16),0 36px 64px -26px rgba(120,80,45,.24);
   --radius:16px;
   --maxw:1200px;
 }
@@ -44,13 +47,13 @@ body{
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.02em;font-weight:800}
-h2{font-size:clamp(28px,4.4vw,44px)}
-h3{font-size:20px;letter-spacing:-.01em}
+h1,h2{margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;line-height:.98;letter-spacing:0}
+h2{font-size:clamp(32px,5vw,52px)}
+h3{margin:0;font-weight:800;line-height:1.15;letter-spacing:-.01em}
+h3{font-size:20px}
 p{margin:0}
-.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-.eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
+.eyebrow{display:inline-block;font-size:12.5px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
 .section{padding:88px 0}
 .section--tight{padding:64px 0}
 .lead{color:var(--ink-soft);font-size:clamp(16px,1.6vw,19px);max-width:620px}
@@ -139,28 +142,37 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
 .hero .marks div{display:flex;align-items:center;gap:10px;font-weight:600;color:#dbe2e6;font-size:15px}
 .hero .marks svg{color:var(--accent-2);flex:none}
 
-/* ---------- hero (вариант 2, светлый как arkada) ---------- */
-.hero2{background:linear-gradient(180deg,var(--cream),var(--paper-2));border-bottom:1px solid var(--line);overflow:hidden}
-.hero2-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;padding:72px 0 80px}
-.hero2-text h1{font-size:clamp(32px,5vw,56px);margin-top:16px}
+/* ---------- hero (светлый, дизайнерская композиция без бокса-маски) ---------- */
+.hero2{position:relative;background:var(--cream);overflow:hidden}
+.hero2-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 22px}
+.hero2-text{max-width:600px;padding:106px 0 116px}
+.hero2 .eyebrow{margin-bottom:20px}
+.hero2-text h1{font-size:clamp(40px,7vw,78px);line-height:.95}
 .hero2 .tag{color:var(--accent)}
-.hero2-text .sub{margin-top:20px;max-width:52ch;color:var(--ink-soft);font-size:clamp(16px,1.7vw,19px)}
-.hero2-text .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
-.hero2-text .marks{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px 28px}
+.hero2-text .sub{margin-top:24px;max-width:46ch;color:var(--ink-soft);font-size:clamp(16px,1.7vw,19px)}
+.hero2-text .cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
+.hero2-text .marks{margin-top:40px;display:flex;flex-wrap:wrap;gap:12px 28px}
 .hero2-text .marks div{display:flex;align-items:center;gap:9px;font-weight:600;color:var(--ink-soft);font-size:15px}
 .hero2-text .marks svg{color:var(--accent);flex:none}
-.hero2-media{position:relative}
-.slideshow{position:relative;width:100%;aspect-ratio:4/3;border-radius:22px;overflow:hidden;
-  box-shadow:0 44px 84px -38px rgba(60,45,30,.55);border:1px solid var(--line);background:var(--paper-2)}
+/* фото упирается в правый край экрана и растворяется в крем слева — не floating-бокс */
+.hero2-media{position:absolute;top:0;right:0;bottom:0;width:48vw;max-width:900px;z-index:1}
+.hero2-media .slideshow{position:absolute;inset:0;border-radius:0;border:0;box-shadow:none;background:var(--paper-2);overflow:hidden}
+.hero2-media::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(90deg,var(--cream) 1%,rgba(247,241,230,0) 27%)}
 .slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   opacity:0;transition:opacity 1.6s ease;transform:scale(1.06);will-change:opacity,transform}
 .slideshow img.active{opacity:1;animation:kenburns 8s ease-out forwards}
 @keyframes kenburns{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.13) translate(-2%,-1.5%)}}
 @media (prefers-reduced-motion:reduce){.slideshow img{transition:none}.slideshow img.active{animation:none;transform:none}}
-.hero2-badge{position:absolute;left:-14px;bottom:26px;background:var(--accent);color:#fff;
-  font-weight:700;font-size:14px;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow)}
-@media(max-width:860px){.hero2-grid{grid-template-columns:1fr;gap:30px;padding:44px 0 54px}
-  .hero2-media{order:-1}.hero2-badge{left:10px}}
+.hero2-badge{position:absolute;left:28px;bottom:32px;z-index:3;background:rgba(43,37,29,.68);color:#fff;
+  -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);
+  font-weight:600;font-size:14px;padding:11px 17px;border-radius:12px}
+@media(max-width:900px){
+  .hero2-media{position:relative;width:auto;max-width:none;height:60vw;max-height:430px}
+  .hero2-media::after{background:linear-gradient(0deg,var(--cream) 1%,rgba(247,241,230,0) 34%)}
+  .hero2-badge{left:20px}
+  .hero2-text{padding:46px 0 22px;max-width:none}
+}
 .btn--outline{background:transparent;border-color:var(--line-dark);color:var(--ink)}
 .btn--outline:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 
@@ -233,16 +245,21 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 @media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.cards{grid-template-columns:1fr}}
-.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
-  overflow:hidden;display:flex;flex-direction:column;transition:.25s transform,.25s box-shadow}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow-soft);
+  overflow:hidden;display:flex;flex-direction:column;transition:.28s transform,.28s box-shadow}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
 .card .ph{aspect-ratio:4/3}
 .card .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
 .card h3{font-size:19px}
 .card p{color:var(--ink-soft);font-size:15px}
 .card .price{margin-top:auto;padding-top:12px;font-weight:800;font-size:18px}
 .card .price small{display:block;font-weight:600;font-size:13px;color:var(--muted)}
-.card .more{color:var(--accent);font-weight:700;font-size:15px;display:inline-flex;gap:6px;align-items:center}
+.card .more{color:var(--accent);font-weight:700;font-size:15px;display:inline-flex;gap:7px;align-items:center}
+.card .more::after{content:"";width:15px;height:15px;background:currentColor;
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l6 6-6 6'/%3E%3C/svg%3E") center/contain no-repeat;
+  transition:transform .2s}
+.card:hover .more::after{transform:translateX(3px)}
 
 /* image placeholder (пока нет фото) */
 .ph{position:relative;background:linear-gradient(135deg,#e8ddcd,#f3ece0);
@@ -256,7 +273,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
 .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 @media(max-width:900px){.svc{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.svc{grid-template-columns:1fr}}
-.svc .item{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px}
+.svc .item{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:28px 24px;transition:.28s transform,.28s box-shadow}
+.svc .item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .svc .ic{width:52px;height:52px;border-radius:13px;background:var(--paper-2);
   display:grid;place-items:center;color:var(--accent);margin-bottom:16px}
 .svc h3{font-size:18px;margin-bottom:8px}
@@ -308,9 +326,9 @@ form.lead-form h3{font-size:22px;margin-bottom:6px}
 form.lead-form .fh{color:var(--ink-soft);font-size:15px;margin-bottom:20px}
 .field{margin-bottom:14px}
 .field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;color:var(--ink-soft)}
-.field input,.field select,.field textarea{width:100%;padding:14px 16px;border:1px solid var(--line);
-  border-radius:11px;font:inherit;font-size:16px;background:var(--paper-2);color:var(--ink);transition:.15s border-color,.15s background}
-.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);background:#fff}
+.field input,.field select,.field textarea{width:100%;padding:14px 16px;border:0;
+  border-radius:11px;font:inherit;font-size:16px;background:var(--paper-2);color:var(--ink);transition:.15s box-shadow,.15s background}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;background:#fff;box-shadow:0 0 0 2px var(--accent)}
 .field textarea{min-height:96px;resize:vertical}
 .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:6px 0 18px}
 .consent input{margin-top:3px}
@@ -360,8 +378,8 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 .htrack-wrap{position:relative;height:300vh;background:var(--paper-2)}
 .htrack-stage{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
 .htrack{display:flex;gap:22px;padding:0 6vw;will-change:transform}
-.hcard{flex:none;width:min(340px,74vw);background:var(--paper);border:1px solid var(--line);
-  border-radius:20px;overflow:hidden;box-shadow:0 22px 50px -34px rgba(60,45,30,.5)}
+.hcard{flex:none;width:min(340px,74vw);background:var(--paper);
+  border-radius:20px;overflow:hidden;box-shadow:var(--shadow-soft)}
 .hcard .im{aspect-ratio:4/3;background:#e8ddcd;background-size:cover;background-position:center}
 .hcard .tx{padding:20px 22px 24px}
 .hcard h3{font-size:19px;margin-bottom:8px}
@@ -435,7 +453,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <a href="#contact">Контакты</a>
     </nav>
     <div class="right">
-      <a class="phone" href="tel:+79139899929">+7 913 989-99-29<small>Новосибирск · пн–пт 9:00–18:00</small></a>
+      <a class="phone" href="tel:+79139899929">+7 913 989-99-29<small>Новосибирск, пн–пт 9:00–18:00</small></a>
       <a href="#contact" class="btn btn--accent">Оставить заявку</a>
       <button class="burger" aria-label="Меню" onclick="document.getElementById('m').scrollIntoView()"><span></span><span></span><span></span></button>
     </div>
@@ -444,11 +462,21 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 
 <!-- ================= HERO (вариант 2, светлый) ================= -->
 <section class="hero2">
-  <div class="wrap hero2-grid">
+  <div class="hero2-media reveal">
+    <div class="slideshow" id="heroShow">
+      <img src="img/shower-15.jpg" alt="Душевая перегородка из закалённого стекла" class="active">
+      <img src="img/shower-09.jpg" alt="" loading="lazy">
+      <img src="img/shower-11.jpg" alt="" loading="lazy">
+      <img src="img/shower-14.jpg" alt="" loading="lazy">
+      <img src="img/shower-10.jpg" alt="" loading="lazy">
+    </div>
+    <span class="hero2-badge">15+ моделей душевых</span>
+  </div>
+  <div class="hero2-inner">
     <div class="hero2-text reveal">
-      <span class="eyebrow">СтеклА · Ваш стиль в прозрачном исполнении</span>
+      <span class="eyebrow">Ваш стиль в прозрачном исполнении</span>
       <h1>Конструкции из <span class="tag">закалённого&nbsp;стекла</span> под ключ</h1>
-      <p class="sub">Душевые и межкомнатные перегородки, стеклянные перила, козырьки, остекление террас и облицовка стеклом. Бесплатный замер по городу, изготовление по вашим размерам и монтаж под ключ — Новосибирск.</p>
+      <p class="sub">Душевые и межкомнатные перегородки, стеклянные перила, козырьки, остекление террас и облицовка стеклом. Бесплатный замер по городу, изготовление по вашим размерам и монтаж под ключ в Новосибирске.</p>
       <div class="cta">
         <a href="#contact" class="btn btn--accent btn--lg">Рассчитать стоимость</a>
         <a href="#works" class="btn btn--outline btn--lg">Посмотреть душевые</a>
@@ -458,16 +486,6 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Бесплатный замер в черте города</div>
         <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Монтаж под ключ</div>
       </div>
-    </div>
-    <div class="hero2-media reveal">
-      <div class="slideshow" id="heroShow">
-        <img src="img/shower-15.jpg" alt="Душевая перегородка из закалённого стекла" class="active">
-        <img src="img/shower-09.jpg" alt="" loading="lazy">
-        <img src="img/shower-11.jpg" alt="" loading="lazy">
-        <img src="img/shower-14.jpg" alt="" loading="lazy">
-        <img src="img/shower-10.jpg" alt="" loading="lazy">
-      </div>
-      <span class="hero2-badge">15+ моделей душевых</span>
     </div>
   </div>
 </section>
@@ -489,7 +507,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   <div class="sticky-stage">
     <div class="bgim" id="stickyBg" style="background-image:url('img/shower-15.jpg')"></div>
     <div class="sticky-inner">
-      <span class="kicker">СтеклА · Новосибирск</span>
+      <span class="kicker">СтеклА, Новосибирск</span>
       <div class="sticky-words" id="stickyWords">
         <span class="on">Прозрачность</span>
         <span>Точность до миллиметра</span>
@@ -526,75 +544,75 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   <div class="wrap">
     <div class="head reveal">
       <div>
-        <span class="eyebrow">Что мы делаем</span>
-        <h2 style="margin-top:14px">Конструкции из закалённого стекла</h2>
-        <p class="lead">Изготавливаем по вашим размерам. Стоимость зависит от площади, толщины стекла и фурнитуры — точную цену называем после бесплатного замера.</p>
+        <span class="eyebrow">Каталог</span>
+        <h2 style="margin-top:14px">Все конструкции по вашим размерам</h2>
+        <p class="lead">Стоимость зависит от площади, толщины стекла и фурнитуры — точную цену называем после бесплатного замера.</p>
       </div>
     </div>
 
     <div class="cards">
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/shower-14.jpg')"><span class="lbl">фото · душевые</span></div>
+        <div class="ph" style="--img:url('img/shower-14.jpg')"><span class="lbl">душевые</span></div>
         <div class="body">
           <h3>Душевые перегородки</h3>
           <p>Распашные, раздвижные и неподвижные экраны без рамы — под ваш проём и планировку санузла.</p>
-          <a href="#contact" class="more">Рассчитать →</a>
+          <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/partition.jpg')"><span class="lbl">фото · перегородки</span></div>
+        <div class="ph" style="--img:url('img/partition.jpg')"><span class="lbl">перегородки</span></div>
         <div class="body">
           <h3>Межкомнатные и цельностеклянные перегородки</h3>
           <p>Зонирование квартир и офисов без потери света. Прозрачные, матовые, тонированные.</p>
-          <a href="#contact" class="more">Рассчитать →</a>
+          <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/railing.jpg')"><span class="lbl">фото · перила</span></div>
+        <div class="ph" style="--img:url('img/railing.jpg')"><span class="lbl">перила</span></div>
         <div class="body">
           <h3>Стеклянные перила лестниц</h3>
           <p>Цельностеклянные ограждения лестниц на точечном креплении или в профиле. Триплекс для безопасности.</p>
-          <a href="#contact" class="more">Рассчитать →</a>
+          <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/terrace.jpg')"><span class="lbl">фото · террасы</span></div>
+        <div class="ph" style="--img:url('img/terrace.jpg')"><span class="lbl">террасы</span></div>
         <div class="body">
           <h3>Остекление террас</h3>
           <p>Панорамное остекление террас и веранд — больше света и защита от ветра и осадков.</p>
-          <a href="#contact" class="more">Рассчитать →</a>
+          <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/canopy.jpg')"><span class="lbl">фото · козырьки</span></div>
+        <div class="ph" style="--img:url('img/canopy.jpg')"><span class="lbl">козырьки</span></div>
         <div class="body">
           <h3>Стеклянные козырьки</h3>
           <p>Козырьки над входом на нержавеющих кронштейнах. Закалённый триплекс, устойчивый к нагрузке и снегу.</p>
-          <a href="#contact" class="more">Рассчитать →</a>
+          <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/atrium.jpg')"><span class="lbl">фото · ограждения</span></div>
+        <div class="ph" style="--img:url('img/atrium.jpg')"><span class="lbl">ограждения</span></div>
         <div class="body">
           <h3>Атриумные ограждения</h3>
           <p>Ограждения балконов, антресолей и атриумов — прозрачные конструкции без громоздкого каркаса.</p>
-          <a href="#contact" class="more">Рассчитать →</a>
+          <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/cladding.jpg')"><span class="lbl">фото · облицовка</span></div>
+        <div class="ph" style="--img:url('img/cladding.jpg')"><span class="lbl">облицовка</span></div>
         <div class="body">
           <h3>Облицовка стеклом</h3>
           <p>Облицовка стен и фартуков стеклом, скинали. Прочно, гигиенично и стильно.</p>
-          <a href="#contact" class="more">Рассчитать →</a>
+          <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/vitrine.jpg')"><span class="lbl">фото · витрины / тамбуры</span></div>
+        <div class="ph" style="--img:url('img/vitrine.jpg')"><span class="lbl">витрины / тамбуры</span></div>
         <div class="body">
           <h3>Витрины ТЦ и стеклянные тамбуры</h3>
           <p>Витрины для торговых центров и входные цельностеклянные тамбуры с автоматикой по желанию.</p>
-          <a href="#contact" class="more">Рассчитать →</a>
+          <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
       <!-- CTA-карточка -->
@@ -617,7 +635,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <h2 style="margin-top:14px">Виды стекла</h2>
       <p class="lead" style="margin:14px auto 0">Прозрачное, тонированное и матовое стекло «мателюкс» — подберём оттенок и фактуру под ваш интерьер и задачу.</p>
     </div></div>
-    <figure class="reveal-img" style="max-width:940px;margin:36px auto 0;border:1px solid var(--line);box-shadow:var(--shadow)">
+    <figure class="reveal-img" style="max-width:940px;margin:36px auto 0;box-shadow:var(--shadow-soft)">
       <img src="img/glass-types.jpg" alt="Виды стекла: бесцветное, бронза, осветлённое, серое, чёрное и матовое мателюкс" style="width:100%;display:block" loading="lazy">
     </figure>
   </div>
@@ -735,7 +753,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         </a>
         <a class="chan" href="tel:+79139899929">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-          <span><b>+7 913 989-99-29</b><span>Позвонить · пн–пт 9:00–18:00</span></span>
+          <span><b>+7 913 989-99-29</b><span>Позвонить, пн–пт 9:00–18:00</span></span>
         </a>
         <a class="chan" href="mailto:stekla_info@mail.ru">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3zM3 7l9 6 9-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
@@ -803,9 +821,9 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <div class="col">
         <h4>Контакты</h4>
         <p><a href="tel:+79139899929">+7 913 989-99-29</a></p>
-        <p><a href="https://max.ru/">MAX</a> · <a href="https://wa.me/79139899929">WhatsApp</a> · <a href="https://t.me/+79139899929">Telegram</a></p>
+        <p><a href="https://max.ru/">MAX</a> / <a href="https://wa.me/79139899929">WhatsApp</a> / <a href="https://t.me/+79139899929">Telegram</a></p>
         <p><a href="mailto:stekla_info@mail.ru">stekla_info@mail.ru</a></p>
-        <p>Пн–пт 9:00–18:00 · Новосибирск</p>
+        <p>Пн–пт 9:00–18:00, Новосибирск</p>
       </div>
     </div>
     <div class="bottom">
