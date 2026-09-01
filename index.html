@@ -311,6 +311,18 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   box-shadow:0 10px 26px -8px rgba(0,0,0,.5);transition:.2s transform}
 .fab a:hover{transform:scale(1.07)}
 .fab .wa{background:#25d366}.fab .tg{background:#2aabee}
+
+/* lightbox — фото на весь экран */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(10,12,14,.93);display:none;align-items:center;justify-content:center;padding:28px}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:86vh;border-radius:10px;box-shadow:0 30px 90px -20px rgba(0,0,0,.8);cursor:default}
+.lb-btn{position:absolute;background:rgba(255,255,255,.12);border:0;color:#fff;cursor:pointer;display:grid;place-items:center;border-radius:50%;transition:.2s background}
+.lb-btn:hover{background:rgba(255,255,255,.26)}
+.lb-close{top:20px;right:24px;width:46px;height:46px;font-size:24px}
+.lb-nav{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:30px;line-height:1}
+.lb-prev{left:20px}.lb-next{right:20px}
+.lb-count{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:#e8edf0;font-size:14px;font-weight:600;letter-spacing:.05em}
+@media(max-width:600px){.lb-nav{width:44px;height:44px;font-size:26px}.lb-prev{left:10px}.lb-next{right:10px}}
 </style>
 </head>
 <body>
@@ -677,6 +689,15 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   </div>
 </footer>
 
+<!-- lightbox -->
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb-btn lb-close" id="lbClose" aria-label="Закрыть">✕</button>
+  <button class="lb-btn lb-nav lb-prev" id="lbPrev" aria-label="Назад">‹</button>
+  <img id="lbImg" src="" alt="Душевая перегородка из закалённого стекла">
+  <button class="lb-btn lb-nav lb-next" id="lbNext" aria-label="Вперёд">›</button>
+  <div class="lb-count" id="lbCount"></div>
+</div>
+
 <!-- floating messengers -->
 <div class="fab">
   <a class="wa" href="https://wa.me/79139899929" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
@@ -717,7 +738,7 @@ document.querySelectorAll('.ph[style*="--img"]').forEach(ph=>{
   if(!m)return;const img=new Image();img.onload=()=>{ph.style.backgroundImage="var(--img)";ph.setAttribute('data-img','')};img.src=m[2];
 });
 // hero фон
-(function(){const b=document.getElementById('heroBg');const m=b.style.getPropertyValue('--hero-img').match(/url\((['"]?)(.*?)\1\)/);if(!m)return;const i=new Image();i.onload=()=>b.classList.add('hasimg');i.src=m[2];})();
+(function(){const b=document.getElementById('heroBg');if(!b)return;const m=b.style.getPropertyValue('--hero-img').match(/url\((['"]?)(.*?)\1\)/);if(!m)return;const i=new Image();i.onload=()=>b.classList.add('hasimg');i.src=m[2];})();
 
 // форма: аккуратная отправка через fetch, показ спасибо
 const f=document.getElementById('leadForm');
@@ -729,6 +750,24 @@ f&&f.addEventListener('submit',async(ev)=>{
     f.querySelector('#okMsg').style.display='block';f.reset();
   }catch(e){f.submit();}
 });
+
+// lightbox: открыть фото душевых на весь экран
+(function(){
+  const tiles=[...document.querySelectorAll('.gallery .ph')];
+  if(!tiles.length)return;
+  const urls=tiles.map(t=>{const m=t.style.getPropertyValue('--img').match(/url\((['"]?)(.*?)\1\)/);return m?m[2]:null;}).filter(Boolean);
+  const lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cnt=document.getElementById('lbCount');
+  let i=0;
+  const show=n=>{i=(n+urls.length)%urls.length;img.src=urls[i];cnt.textContent=(i+1)+' / '+urls.length;};
+  const open=n=>{show(n);lb.classList.add('open');document.body.style.overflow='hidden';};
+  const close=()=>{lb.classList.remove('open');document.body.style.overflow='';};
+  tiles.forEach((t,n)=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>open(n));});
+  document.getElementById('lbClose').onclick=close;
+  document.getElementById('lbPrev').onclick=e=>{e.stopPropagation();show(i-1);};
+  document.getElementById('lbNext').onclick=e=>{e.stopPropagation();show(i+1);};
+  lb.addEventListener('click',e=>{if(e.target===lb)close();});
+  document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});
+})();
 </script>
 </body>
 </html>
