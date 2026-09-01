@@ -122,10 +122,16 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);
 
 /* ---------- hero ---------- */
 .hero{position:relative;background:var(--ink);color:#fff;overflow:hidden}
-.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;
-  background-image:linear-gradient(180deg,rgba(12,16,19,.55),rgba(12,16,19,.82)),
-    linear-gradient(120deg,#1a252c,#0e1418);}
-.hero .bg.hasimg{background-image:linear-gradient(90deg,rgba(12,16,19,.9) 0%,rgba(12,16,19,.55) 55%,rgba(12,16,19,.35) 100%),var(--hero-img)}
+.hero .bg{position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(11,15,18,.93) 0%,rgba(11,15,18,.66) 50%,rgba(11,15,18,.44) 100%),
+    linear-gradient(180deg,rgba(11,15,18,.25),rgba(11,15,18,.8));}
+/* слайдшоу холодных работ фоном за панелями */
+.hero-slides{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;
+  transition:opacity 1.8s ease;transform:scale(1.06);filter:brightness(.9) saturate(.82)}
+.hero-slides img.active{opacity:1;animation:kbcool 10s ease-out forwards}
+@keyframes kbcool{from{transform:scale(1.03)}to{transform:scale(1.14)}}
+@media (prefers-reduced-motion:reduce){.hero-slides img{transition:none}.hero-slides img.active{animation:none;transform:none}}
 /* тонкий «стеклянный» паттерн-каркас поверх фона */
 .hero .grid-lines{position:absolute;inset:0;opacity:.14;
   background-image:linear-gradient(90deg,#fff 1px,transparent 1px);background-size:120px 100%}
@@ -353,7 +359,14 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 <!-- ================= HERO ================= -->
 <section class="hero">
   <!-- при добавлении фото: раскомментируй style и файл img/hero.jpg -->
-  <div class="bg" id="heroBg" style="--hero-img:url('img/hero.jpg')"></div>
+  <div class="hero-slides" id="heroSlides" aria-hidden="true">
+    <img src="img/shower-01.jpg" alt="" class="active">
+    <img src="img/shower-08.jpg" alt="" loading="lazy">
+    <img src="img/shower-05.jpg" alt="" loading="lazy">
+    <img src="img/shower-12.jpg" alt="" loading="lazy">
+    <img src="img/shower-02.jpg" alt="" loading="lazy">
+  </div>
+  <div class="bg" id="heroBg"></div>
   <div class="grid-lines"></div>
   <div class="glass-scene" aria-hidden="true">
     <span class="glow"></span>
@@ -720,6 +733,15 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
     scene.style.setProperty('--mx',0); scene.style.setProperty('--my',0);
     scene.classList.remove('lit');
   });
+})();
+
+// hero: слайдшоу холодных работ фоном за стеклянными панелями
+(function(){
+  const box=document.getElementById('heroSlides');if(!box)return;
+  const imgs=[...box.querySelectorAll('img')];if(imgs.length<2)return;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  let n=0;
+  setInterval(()=>{imgs[n].classList.remove('active');n=(n+1)%imgs.length;imgs[n].classList.add('active');},5200);
 })();
 
 // reveal on scroll
