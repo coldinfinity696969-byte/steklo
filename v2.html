@@ -150,8 +150,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
 .hero2-text .marks div{display:flex;align-items:center;gap:9px;font-weight:600;color:var(--ink-soft);font-size:15px}
 .hero2-text .marks svg{color:var(--accent);flex:none}
 .hero2-media{position:relative}
-.hero2-media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:22px;
-  box-shadow:0 44px 84px -38px rgba(60,45,30,.55);border:1px solid var(--line)}
+.slideshow{position:relative;width:100%;aspect-ratio:4/3;border-radius:22px;overflow:hidden;
+  box-shadow:0 44px 84px -38px rgba(60,45,30,.55);border:1px solid var(--line);background:var(--paper-2)}
+.slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:0;transition:opacity 1.6s ease;transform:scale(1.06);will-change:opacity,transform}
+.slideshow img.active{opacity:1;animation:kenburns 8s ease-out forwards}
+@keyframes kenburns{from{transform:scale(1.02) translate(0,0)}to{transform:scale(1.13) translate(-2%,-1.5%)}}
+@media (prefers-reduced-motion:reduce){.slideshow img{transition:none}.slideshow img.active{animation:none;transform:none}}
 .hero2-badge{position:absolute;left:-14px;bottom:26px;background:var(--accent);color:#fff;
   font-weight:700;font-size:14px;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow)}
 @media(max-width:860px){.hero2-grid{grid-template-columns:1fr;gap:30px;padding:44px 0 54px}
@@ -389,7 +394,13 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       </div>
     </div>
     <div class="hero2-media reveal">
-      <img src="img/shower-14.jpg" alt="Душевая перегородка из закалённого стекла">
+      <div class="slideshow" id="heroShow">
+        <img src="img/shower-15.jpg" alt="Душевая перегородка из закалённого стекла" class="active">
+        <img src="img/shower-09.jpg" alt="" loading="lazy">
+        <img src="img/shower-11.jpg" alt="" loading="lazy">
+        <img src="img/shower-14.jpg" alt="" loading="lazy">
+        <img src="img/shower-10.jpg" alt="" loading="lazy">
+      </div>
       <span class="hero2-badge">15+ моделей душевых</span>
     </div>
   </div>
@@ -738,6 +749,15 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
     scene.style.setProperty('--mx',0); scene.style.setProperty('--my',0);
     scene.classList.remove('lit');
   });
+})();
+
+// hero: плавное слайдшоу работ (кроссфейд + ken burns, тёплая гамма)
+(function(){
+  const box=document.getElementById('heroShow');if(!box)return;
+  const imgs=[...box.querySelectorAll('img')];if(imgs.length<2)return;
+  if(window.matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  let n=0;
+  setInterval(()=>{imgs[n].classList.remove('active');n=(n+1)%imgs.length;imgs[n].classList.add('active');},4500);
 })();
 
 // reveal on scroll
