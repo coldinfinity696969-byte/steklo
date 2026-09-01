@@ -1,46 +1,49 @@
 ФОТО ДЛЯ САЙТА «СтеклА» — промты для GPT Image / nano-banana
 ============================================================
-Правила: генерим реалистичные фото, БЕЗ текста и водяных знаков.
+Правила: реалистичные фото, БЕЗ текста и водяных знаков.
 Финал кладём в папку img/ с ИМЕНАМИ, как ниже. Формат JPG.
-После генерации сжимаем через Pillow (цель <300 КБ, ширина ~1600 px).
+После генерации сжать (Pillow, <300 КБ, ширина ~1600 px).
 Стиль: современный, светлый, «архитектурный», чистое стекло, дневной свет,
-матовый металл/хром фурнитуры. Никаких людей крупным планом, никакого текста.
+матовый металл/хром фурнитуры. Без людей крупным планом, без текста.
+Лучший вариант для галереи — реальные фото работ заказчика.
 
---- ГЛАВНОЕ ФОТО (hero.jpg), 16:9, «воздух» слева под текст ---
-Modern minimalist bathroom with a frameless tempered glass shower enclosure,
-clear glass panels with chrome hardware, bright natural daylight, soft
-reflections, architectural interior photography, wide shot with empty darker
-space on the left for text overlay, photorealistic, no text, no watermark
+--- ГЛАВНОЕ ФОТО (hero.jpg), 16:9, тёмный «воздух» слева под текст ---
+Modern minimalist interior with a frameless tempered glass partition and glass
+railing, clear glass panels with slim steel hardware, bright natural daylight,
+soft reflections, architectural photography, wide shot with empty darker space
+on the left for text overlay, photorealistic, no text, no watermark
 
 --- КАТАЛОГ (4:3 каждое) ---
-shower.jpg  — Frameless tempered glass shower screen in a modern bathroom,
-clear glass, chrome fittings, clean tiles, daylight, photorealistic, no text
+shower.jpg     — Frameless tempered glass shower screen in a modern bathroom,
+clear glass, chrome fittings, clean tiles, daylight, photorealistic, no text, no watermark
 
-partition.jpg — Glass partition wall dividing a bright modern living room /
-office, clear tempered glass with slim black profile, minimalist interior,
-daylight, photorealistic, no text, no watermark
-
-railing.jpg — Frameless glass railing on a staircase inside a modern home,
-tempered glass balustrade with stainless steel point fixings, warm daylight,
+partition.jpg  — Full-height glass partition dividing a bright living room / office,
+clear tempered glass with slim black profile, minimalist interior, daylight,
 photorealistic, no text, no watermark
 
-canopy.jpg — Glass canopy / awning over an entrance door of a building,
-tempered laminated glass on stainless steel brackets, exterior, daylight,
-photorealistic, no text, no watermark
+railing.jpg    — Frameless glass railing on an interior staircase, tempered glass
+balustrade with stainless steel point fixings, warm daylight, photorealistic, no text
 
-door.jpg — Frameless tempered glass swing door in a modern office / shop
-entrance, clear glass with metal handle and hinges, bright interior,
-photorealistic, no text, no watermark
+terrace.jpg    — Glazed terrace / veranda with panoramic frameless glass walls,
+cozy modern exterior, daylight, photorealistic, no text, no watermark
 
---- ГАЛЕРЕЯ РАБОТ (work-1.jpg … work-6.jpg), 4:3 ---
-Разные реальные ракурсы готовых конструкций из стекла в интерьере:
-work-1.jpg (крупное, витринное) — luxury bathroom with large frameless glass
-shower, wide angle, daylight, photorealistic, no text
-work-2.jpg — glass office partition, close detail of hardware
-work-3.jpg — glass staircase railing detail
-work-4.jpg — glass door in a retail interior, wide
-work-5.jpg — glass shower corner, matte finish
-work-6.jpg — glass balcony railing, city view behind
+canopy.jpg     — Glass canopy over an entrance door of a building, tempered
+laminated glass on stainless steel brackets, exterior, daylight, photorealistic, no text
 
-ПОДСКАЗКА: если своих реальных фото объектов нет — на галерею лучше взять
-реальные снимки выполненных работ у заказчика (они убедительнее стоков).
+atrium.jpg     — Frameless glass balcony / atrium railing inside a modern building,
+clear tempered glass, minimal steel fixings, daylight, photorealistic, no text
+
+cladding.jpg   — Interior wall clad with glass panels / glass kitchen backsplash
+(skinali), glossy tempered glass, modern interior, daylight, photorealistic, no text
+
+vitrine.jpg    — Frameless glass shopfront / storefront vitrine of a retail unit
+in a shopping mall, clear tempered glass with metal profiles, photorealistic, no text
+
+--- ГАЛЕРЕЯ РАБОТ (work-1.jpg … work-6.jpg), 4:3, разные ракурсы готовых работ ---
+work-1 (крупное) luxury bathroom with large frameless glass shower, wide angle, daylight
+work-2 glass office partition, close detail of hardware
+work-3 frameless glass staircase railing detail, stainless steel fixings
+work-4 glazed terrace with panoramic glass, wide shot
+work-5 glass canopy over entrance, exterior detail
+work-6 glass balcony / atrium railing with interior view behind
+(all: photorealistic, no text, no watermark)

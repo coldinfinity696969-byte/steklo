@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>СтеклА — конструкции из закалённого стекла в Новосибирске</title>
-<meta name="description" content="Душевые перегородки, стеклянные ограждения, козырьки, перегородки и двери из закалённого стекла. Свой замер, изготовление и монтаж под ключ. Новосибирск.">
+<meta name="description" content="СтеклА, Новосибирск — конструкции из закалённого стекла: душевые и межкомнатные перегородки, стеклянные перила, козырьки, остекление террас, облицовка стеклом. Бесплатный замер и монтаж под ключ.">
+<link rel="icon" href="img/emblem.svg" type="image/svg+xml">
 
 <!-- ============================================================
      СтеклА · сайт-визитка · конструкции из закалённого стекла
@@ -96,6 +97,16 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);
   display:flex;gap:26px;font-weight:600;font-size:15px;color:var(--ink-soft);white-space:nowrap}
 .nav .menu a:hover{color:var(--accent)}
 .nav .right{display:flex;align-items:center;gap:18px}
+.logo-img{height:44px;width:auto;display:block}
+@media(max-width:520px){.logo-img{height:34px}}
+/* блок преимуществ (полоса под hero) */
+.adv{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 34px;padding:32px 0}
+.advitem{display:flex;gap:13px;align-items:flex-start}
+.advitem .ac{flex:none;width:26px;height:26px;border-radius:7px;background:#e2efee;color:var(--accent);display:grid;place-items:center;margin-top:1px}
+.advitem b{display:block;font-size:16px;letter-spacing:-.01em}
+.advitem span{color:var(--muted);font-size:13.5px}
+@media(max-width:820px){.adv{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.adv{grid-template-columns:1fr}}
 .nav .phone{font-weight:800;font-size:18px;white-space:nowrap}
 .nav .phone small{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.04em}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
@@ -310,11 +321,8 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 <!-- ================= HEADER ================= -->
 <header>
   <div class="wrap nav">
-    <a href="#" class="brand">
-      <span class="logo" aria-hidden="true">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 3h16v18l-8-4-8 4V3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-      </span>
-      <span>СтеклА<small>закалённое стекло</small></span>
+    <a href="#" class="brand" aria-label="СтеклА — конструкции из закалённого стекла">
+      <img src="img/logo.svg" alt="СтеклА" class="logo-img" width="110" height="44">
     </a>
     <nav class="menu">
       <a href="#catalog">Конструкции</a>
@@ -324,8 +332,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <a href="#contact">Контакты</a>
     </nav>
     <div class="right">
-      <!-- ЗАМЕНИ: телефон компании -->
-      <a class="phone" href="tel:+73830000000">+7 (383) 000-00-00<small>Новосибирск · ежедневно 9:00–20:00</small></a>
+      <a class="phone" href="tel:+79139899929">+7 913 989-99-29<small>Новосибирск · пн–пт 9:00–18:00</small></a>
       <a href="#contact" class="btn btn--accent">Оставить заявку</a>
       <button class="burger" aria-label="Меню" onclick="document.getElementById('m').scrollIntoView()"><span></span><span></span><span></span></button>
     </div>
@@ -344,29 +351,30 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
     <span class="pane p3"><span class="pane-face"><span class="edge"></span></span></span>
   </div>
   <div class="wrap inner">
-    <span class="eyebrow" style="color:var(--accent-2)">Новосибирск · свой цех и монтаж</span>
+    <span class="eyebrow" style="color:var(--accent-2)">СтеклА · Ваш стиль в прозрачном исполнении</span>
     <h1>Конструкции из <span class="tag">закалённого&nbsp;стекла</span> под ключ</h1>
-    <p class="sub">Душевые, перегородки, ограждения, козырьки и цельностеклянные двери. Бесплатный замер, изготовление в собственном цехе и аккуратный монтаж — от заявки до готовой конструкции.</p>
+    <p class="sub">Душевые и межкомнатные перегородки, стеклянные перила, козырьки, остекление террас и облицовка стеклом. Бесплатный замер по городу, изготовление по вашим размерам и монтаж под ключ — Новосибирск.</p>
     <div class="cta">
       <a href="#contact" class="btn btn--glass-accent btn--lg">Рассчитать стоимость</a>
       <a href="#works" class="btn btn--glass btn--lg">Посмотреть работы</a>
     </div>
     <div class="marks">
       <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Закалённое стекло 6–12 мм</div>
-      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Бесплатный замер</div>
-      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Гарантия на монтаж</div>
+      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Бесплатный замер в черте города</div>
+      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Монтаж под ключ</div>
     </div>
   </div>
 </section>
 
-<!-- ================= TRUST STRIP ================= -->
-<!-- ЗАМЕНИ цифры на реальные, либо удали блок, если фактуры нет -->
+<!-- ================= ПРЕИМУЩЕСТВА ================= -->
 <section class="strip">
-  <div class="wrap row">
-    <div><div class="num"><span>10</span> лет</div><div class="cap">на рынке стекла</div></div>
-    <div><div class="num"><span>500+</span></div><div class="cap">объектов сдано</div></div>
-    <div><div class="num"><span>6–12</span> мм</div><div class="cap">закалённое стекло</div></div>
-    <div><div class="num">от <span>3</span> дней</div><div class="cap">срок изготовления</div></div>
+  <div class="wrap adv">
+    <div class="advitem"><span class="ac"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Монтаж под ключ</b><span>От замера до установки — всё сами</span></div></div>
+    <div class="advitem"><span class="ac"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Бесплатный замер</b><span>В черте города, современным оборудованием</span></div></div>
+    <div class="advitem"><span class="ac"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Уникальные решения</b><span>Проектируем под ваш объект и задачу</span></div></div>
+    <div class="advitem"><span class="ac"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Профессионализм</b><span>Опытные замерщики и монтажники</span></div></div>
+    <div class="advitem"><span class="ac"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Ответственный подход</b><span>Отвечаем за каждый шов и стык</span></div></div>
+    <div class="advitem"><span class="ac"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Сервис</b><span>На связи с вами на всех этапах</span></div></div>
   </div>
 </section>
 
@@ -377,66 +385,80 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <div>
         <span class="eyebrow">Что мы делаем</span>
         <h2 style="margin-top:14px">Конструкции из закалённого стекла</h2>
-        <p class="lead">Изготовим по вашим размерам. Финальную стоимость называем после бесплатного замера — она зависит от площади, толщины стекла и фурнитуры.</p>
+        <p class="lead">Изготавливаем по вашим размерам. Стоимость зависит от площади, толщины стекла и фурнитуры — точную цену называем после бесплатного замера.</p>
       </div>
     </div>
 
     <div class="cards">
-      <!-- КАРТОЧКА 1 -->
       <article class="card reveal">
         <div class="ph" style="--img:url('img/shower.jpg')"><span class="lbl">фото · душевые</span></div>
         <div class="body">
-          <h3>Душевые перегородки и уголки</h3>
-          <p>Распашные, раздвижные и неподвижные экраны без рамы. Стекло 8 мм, антикальциевое покрытие по желанию.</p>
-          <div class="price">от 12 000 ₽ / м²<small>точная цена — после замера</small></div>
+          <h3>Душевые перегородки</h3>
+          <p>Распашные, раздвижные и неподвижные экраны без рамы — под ваш проём и планировку санузла.</p>
           <a href="#contact" class="more">Рассчитать →</a>
         </div>
       </article>
-      <!-- КАРТОЧКА 2 -->
       <article class="card reveal">
         <div class="ph" style="--img:url('img/partition.jpg')"><span class="lbl">фото · перегородки</span></div>
         <div class="body">
-          <h3>Стеклянные перегородки</h3>
-          <p>Для квартир и офисов — зонирование пространства без потери света. Прозрачные, матовые, тонированные.</p>
-          <div class="price">от 10 000 ₽ / м²<small>точная цена — после замера</small></div>
+          <h3>Межкомнатные и цельностеклянные перегородки</h3>
+          <p>Зонирование квартир и офисов без потери света. Прозрачные, матовые, тонированные.</p>
           <a href="#contact" class="more">Рассчитать →</a>
         </div>
       </article>
-      <!-- КАРТОЧКА 3 -->
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/railing.jpg')"><span class="lbl">фото · ограждения</span></div>
+        <div class="ph" style="--img:url('img/railing.jpg')"><span class="lbl">фото · перила</span></div>
         <div class="body">
-          <h3>Ограждения лестниц и балконов</h3>
-          <p>Цельностеклянные ограждения на точечном креплении или в профиле. Триплекс для повышенной безопасности.</p>
-          <div class="price">от 14 000 ₽ / м²<small>точная цена — после замера</small></div>
+          <h3>Стеклянные перила лестниц</h3>
+          <p>Цельностеклянные ограждения лестниц на точечном креплении или в профиле. Триплекс для безопасности.</p>
           <a href="#contact" class="more">Рассчитать →</a>
         </div>
       </article>
-      <!-- КАРТОЧКА 4 -->
+      <article class="card reveal">
+        <div class="ph" style="--img:url('img/terrace.jpg')"><span class="lbl">фото · террасы</span></div>
+        <div class="body">
+          <h3>Остекление террас</h3>
+          <p>Панорамное остекление террас и веранд — больше света и защита от ветра и осадков.</p>
+          <a href="#contact" class="more">Рассчитать →</a>
+        </div>
+      </article>
       <article class="card reveal">
         <div class="ph" style="--img:url('img/canopy.jpg')"><span class="lbl">фото · козырьки</span></div>
         <div class="body">
-          <h3>Козырьки и навесы</h3>
-          <p>Стеклянные козырьки над входом на нержавеющих кронштейнах. Закалённый триплекс, устойчивый к нагрузке и снегу.</p>
-          <div class="price">от 16 000 ₽ / м²<small>точная цена — после замера</small></div>
+          <h3>Стеклянные козырьки</h3>
+          <p>Козырьки над входом на нержавеющих кронштейнах. Закалённый триплекс, устойчивый к нагрузке и снегу.</p>
           <a href="#contact" class="more">Рассчитать →</a>
         </div>
       </article>
-      <!-- КАРТОЧКА 5 -->
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/door.jpg')"><span class="lbl">фото · двери</span></div>
+        <div class="ph" style="--img:url('img/atrium.jpg')"><span class="lbl">фото · ограждения</span></div>
         <div class="body">
-          <h3>Цельностеклянные двери</h3>
-          <p>Маятниковые и раздвижные двери из закалённого стекла с доводчиком. Для дома, офиса, магазина.</p>
-          <div class="price">от 18 000 ₽ / шт.<small>точная цена — после замера</small></div>
+          <h3>Атриумные ограждения</h3>
+          <p>Ограждения балконов, антресолей и атриумов — прозрачные конструкции без громоздкого каркаса.</p>
           <a href="#contact" class="more">Рассчитать →</a>
         </div>
       </article>
-      <!-- КАРТОЧКА 6 · доп / CTA -->
+      <article class="card reveal">
+        <div class="ph" style="--img:url('img/cladding.jpg')"><span class="lbl">фото · облицовка</span></div>
+        <div class="body">
+          <h3>Облицовка стеклом</h3>
+          <p>Облицовка стен и фартуков стеклом, скинали. Прочно, гигиенично и стильно.</p>
+          <a href="#contact" class="more">Рассчитать →</a>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="ph" style="--img:url('img/vitrine.jpg')"><span class="lbl">фото · витрины / тамбуры</span></div>
+        <div class="body">
+          <h3>Витрины ТЦ и стеклянные тамбуры</h3>
+          <p>Витрины для торговых центров и входные цельностеклянные тамбуры с автоматикой по желанию.</p>
+          <a href="#contact" class="more">Рассчитать →</a>
+        </div>
+      </article>
+      <!-- CTA-карточка -->
       <article class="card reveal" style="background:var(--ink);color:#fff;border-color:var(--ink)">
         <div class="body" style="justify-content:center;gap:16px">
-          <h3 style="color:#fff;font-size:22px">Нужна нестандартная конструкция?</h3>
-          <p style="color:#b7c1c7">Изготовим по индивидуальному проекту — витрины, экраны, столешницы, полки из стекла.</p>
+          <h3 style="color:#fff;font-size:21px">Нестандартная конструкция?</h3>
+          <p style="color:#b7c1c7">Спроектируем и изготовим по индивидуальному проекту под ваш объект.</p>
           <a href="#contact" class="btn btn--accent" style="align-self:flex-start;margin-top:6px">Обсудить проект</a>
         </div>
       </article>
@@ -455,12 +477,12 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <div class="item reveal">
         <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 21l6-6M14 4l6 6M9 15l6-11 5 5-11 6-2-2 2 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <h3>Замер</h3>
-        <p>Бесплатно приедем на объект, снимем точные размеры и предложим решение под ваш проём.</p>
+        <p>Бесплатно приедем на объект в черте города, снимем точные размеры современным оборудованием.</p>
       </div>
       <div class="item reveal">
         <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
         <h3>Изготовление</h3>
-        <p>Режем, закаляем и обрабатываем кромку в собственном цехе — контролируем качество на каждом этапе.</p>
+        <p>Изготавливаем по вашим размерам, обрабатываем кромку и контролируем качество на каждом этапе.</p>
       </div>
       <div class="item reveal">
         <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 13l2-7h14l2 7M5 13h14v5H5zM7 18v2M17 18v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -486,7 +508,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
     <div class="steps">
       <div class="step reveal"><h3>Заявка</h3><p>Оставляете заявку на сайте или пишете в мессенджер. Отвечаем в течение рабочего дня.</p></div>
       <div class="step reveal"><h3>Замер и расчёт</h3><p>Бесплатно выезжаем, снимаем размеры и называем точную стоимость.</p></div>
-      <div class="step reveal"><h3>Договор и изготовление</h3><p>Фиксируем цену и сроки в договоре, изготавливаем конструкцию в цехе.</p></div>
+      <div class="step reveal"><h3>Договор и изготовление</h3><p>Фиксируем цену и сроки в договоре, изготавливаем конструкцию по размерам.</p></div>
       <div class="step reveal"><h3>Монтаж и гарантия</h3><p>Устанавливаем, проверяем и выдаём гарантию. Готово — можно пользоваться.</p></div>
     </div>
   </div>
@@ -520,7 +542,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
     </div></div>
     <div class="faq reveal">
       <details open><summary>Насколько безопасно закалённое стекло?</summary><p>Закалённое стекло в 5–7 раз прочнее обычного и при разрушении рассыпается на мелкие безопасные осколки без острых краёв. Для ограждений и козырьков используем триплекс — он держит форму даже при повреждении.</p></details>
-      <details><summary>Сколько занимает изготовление?</summary><p>В среднем от 3 до 10 рабочих дней в зависимости от сложности конструкции и загрузки цеха. Точный срок фиксируем в договоре после замера.</p></details>
+      <details><summary>Сколько занимает изготовление?</summary><p>В среднем от 3 до 10 рабочих дней в зависимости от сложности конструкции. Точный срок фиксируем в договоре после замера.</p></details>
       <details><summary>Замер действительно бесплатный?</summary><p>Да. Мастер приезжает на объект, снимает размеры и предлагает решение — это ни к чему вас не обязывает.</p></details>
       <details><summary>От чего зависит цена?</summary><p>От площади конструкции, толщины стекла (6–12 мм), типа фурнитуры, обработки кромки и покрытий. Итоговую сумму называем после замера — без скрытых доплат.</p></details>
       <details><summary>Даёте ли гарантию?</summary><p>Да, предоставляем гарантию на изделие и монтаж. Условия прописываем в договоре.</p></details>
@@ -534,34 +556,35 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
     <div class="reveal">
       <span class="eyebrow" style="color:var(--accent-2)">Оставить заявку</span>
       <h2 style="margin-top:14px">Обсудим ваш проект</h2>
-      <p class="lead">Напишите или позвоните — ответим на вопросы, посчитаем стоимость и запишем на бесплатный замер.</p>
+      <p class="lead">Напишите в мессенджер, позвоните или оставьте заявку — ответим в рабочее время, посчитаем стоимость и запишем на бесплатный замер по городу.</p>
 
       <div class="channels">
-        <!-- ЗАМЕНИ: телефон -->
-        <a class="chan" href="tel:+73830000000">
-          <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-          <span><b>+7 (383) 000-00-00</b><span>Позвонить · ежедневно 9:00–20:00</span></span>
+        <!-- MAX — предпочтительный канал для заявок. ЗАМЕНИ href на профиль компании в MAX -->
+        <a class="chan" href="https://max.ru/" target="_blank" rel="noopener">
+          <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 3V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <span><b>MAX — заявки удобнее сюда</b><span>Написать в мессенджере MAX</span></span>
         </a>
-        <!-- ЗАМЕНИ: номер WhatsApp в формате 79xxxxxxxxx -->
-        <a class="chan" href="https://wa.me/79990000000" target="_blank" rel="noopener">
+        <a class="chan" href="https://wa.me/79139899929" target="_blank" rel="noopener">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-          <span><b>WhatsApp</b><span>Написать в WhatsApp</span></span>
+          <span><b>WhatsApp</b><span>+7 913 989-99-29</span></span>
         </a>
-        <!-- ЗАМЕНИ: username или номер Telegram -->
-        <a class="chan" href="https://t.me/79990000000" target="_blank" rel="noopener">
+        <a class="chan" href="https://t.me/+79139899929" target="_blank" rel="noopener">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 5L3 12l6 2 2 6 3-4 4 3 3-14z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-          <span><b>Telegram</b><span>Написать в Telegram</span></span>
+          <span><b>Telegram</b><span>+7 913 989-99-29</span></span>
         </a>
-        <!-- ЗАМЕНИ: адрес (из 2ГИС) -->
-        <a class="chan" href="https://2gis.ru/novosibirsk" target="_blank" rel="noopener">
-          <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.3 7-11a7 7 0 10-14 0c0 4.7 7 11 7 11z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg></span>
-          <span><b>Новосибирск, ул. ________</b><span>Показать на карте 2ГИС</span></span>
+        <a class="chan" href="tel:+79139899929">
+          <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <span><b>+7 913 989-99-29</b><span>Позвонить · пн–пт 9:00–18:00</span></span>
+        </a>
+        <a class="chan" href="mailto:stekla_info@mail.ru">
+          <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3zM3 7l9 6 9-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <span><b>stekla_info@mail.ru</b><span>Написать на почту</span></span>
         </a>
       </div>
     </div>
 
-    <!-- ЗАМЕНИ e-mail в action на почту компании (сервис FormSubmit подтверждается по первому письму). -->
-    <form class="lead-form reveal" id="leadForm" action="https://formsubmit.co/EMAIL@EXAMPLE.RU" method="POST">
+    <!-- Заявки идут на почту клиента через FormSubmit (при первой отправке письмо активации на stekla_info@mail.ru). -->
+    <form class="lead-form reveal" id="leadForm" action="https://formsubmit.co/stekla_info@mail.ru" method="POST">
       <h3>Заявка на расчёт</h3>
       <p class="fh">Заполните форму — перезвоним в течение рабочего дня.</p>
       <div class="field">
@@ -576,10 +599,13 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <label for="type">Что интересует</label>
         <select id="type" name="Конструкция">
           <option>Душевая перегородка</option>
-          <option>Стеклянная перегородка</option>
-          <option>Ограждение лестницы / балкона</option>
-          <option>Козырёк / навес</option>
-          <option>Стеклянная дверь</option>
+          <option>Межкомнатная / цельностеклянная перегородка</option>
+          <option>Стеклянные перила лестницы</option>
+          <option>Остекление террасы</option>
+          <option>Стеклянный козырёк</option>
+          <option>Атриумное ограждение</option>
+          <option>Облицовка стеклом</option>
+          <option>Витрина ТЦ / тамбур</option>
           <option>Другое / не определился</option>
         </select>
       </div>
@@ -603,39 +629,35 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   <div class="wrap">
     <div class="top">
       <div class="col">
-        <div class="brand" style="font-size:22px;margin-bottom:14px">
-          <span class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 3h16v18l-8-4-8 4V3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
-          <span style="color:#fff">СтеклА</span>
-        </div>
+        <img src="img/logo-white.svg" alt="СтеклА" style="height:46px;width:auto;margin-bottom:16px">
         <p>Конструкции из закалённого стекла в Новосибирске. Замер, изготовление и монтаж под ключ.</p>
       </div>
       <div class="col">
         <h4>Конструкции</h4>
         <p><a href="#catalog">Душевые перегородки</a></p>
-        <p><a href="#catalog">Стеклянные перегородки</a></p>
-        <p><a href="#catalog">Ограждения</a></p>
-        <p><a href="#catalog">Козырьки и двери</a></p>
+        <p><a href="#catalog">Перегородки и перила</a></p>
+        <p><a href="#catalog">Козырьки и ограждения</a></p>
+        <p><a href="#catalog">Остекление и облицовка</a></p>
       </div>
       <div class="col">
         <h4>Контакты</h4>
-        <!-- ЗАМЕНИ контакты -->
-        <p><a href="tel:+73830000000">+7 (383) 000-00-00</a></p>
-        <p><a href="https://wa.me/79990000000">WhatsApp</a> · <a href="https://t.me/79990000000">Telegram</a></p>
-        <p>Новосибирск, ул. ________</p>
-        <p>Ежедневно 9:00–20:00</p>
+        <p><a href="tel:+79139899929">+7 913 989-99-29</a></p>
+        <p><a href="https://max.ru/">MAX</a> · <a href="https://wa.me/79139899929">WhatsApp</a> · <a href="https://t.me/+79139899929">Telegram</a></p>
+        <p><a href="mailto:stekla_info@mail.ru">stekla_info@mail.ru</a></p>
+        <p>Пн–пт 9:00–18:00 · Новосибирск</p>
       </div>
     </div>
     <div class="bottom">
-      <span>© 2026 СтеклА. Все права защищены.</span>
-      <span>Работаем в Новосибирске и области</span>
+      <span>© 2026 СтеклА. Ваш стиль в прозрачном исполнении.</span>
+      <span>Юр. адрес: г. Новосибирск, ул. Обская, 46/2, оф. 341</span>
     </div>
   </div>
 </footer>
 
 <!-- floating messengers -->
 <div class="fab">
-  <a class="wa" href="https://wa.me/79990000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
-  <a class="tg" href="https://t.me/79990000000" target="_blank" rel="noopener" aria-label="Telegram"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M21 5L3 12l6 2 2 6 3-4 4 3 3-14z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
+  <a class="wa" href="https://wa.me/79139899929" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
+  <a class="tg" href="https://t.me/+79139899929" target="_blank" rel="noopener" aria-label="Telegram"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M21 5L3 12l6 2 2 6 3-4 4 3 3-14z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
 </div>
 
 <script>
