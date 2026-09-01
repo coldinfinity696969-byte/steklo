@@ -1,0 +1,46 @@
+ФОТО ДЛЯ САЙТА «СтеклА» — промты для GPT Image / nano-banana
+============================================================
+Правила: генерим реалистичные фото, БЕЗ текста и водяных знаков.
+Финал кладём в папку img/ с ИМЕНАМИ, как ниже. Формат JPG.
+После генерации сжимаем через Pillow (цель <300 КБ, ширина ~1600 px).
+Стиль: современный, светлый, «архитектурный», чистое стекло, дневной свет,
+матовый металл/хром фурнитуры. Никаких людей крупным планом, никакого текста.
+
+--- ГЛАВНОЕ ФОТО (hero.jpg), 16:9, «воздух» слева под текст ---
+Modern minimalist bathroom with a frameless tempered glass shower enclosure,
+clear glass panels with chrome hardware, bright natural daylight, soft
+reflections, architectural interior photography, wide shot with empty darker
+space on the left for text overlay, photorealistic, no text, no watermark
+
+--- КАТАЛОГ (4:3 каждое) ---
+shower.jpg  — Frameless tempered glass shower screen in a modern bathroom,
+clear glass, chrome fittings, clean tiles, daylight, photorealistic, no text
+
+partition.jpg — Glass partition wall dividing a bright modern living room /
+office, clear tempered glass with slim black profile, minimalist interior,
+daylight, photorealistic, no text, no watermark
+
+railing.jpg — Frameless glass railing on a staircase inside a modern home,
+tempered glass balustrade with stainless steel point fixings, warm daylight,
+photorealistic, no text, no watermark
+
+canopy.jpg — Glass canopy / awning over an entrance door of a building,
+tempered laminated glass on stainless steel brackets, exterior, daylight,
+photorealistic, no text, no watermark
+
+door.jpg — Frameless tempered glass swing door in a modern office / shop
+entrance, clear glass with metal handle and hinges, bright interior,
+photorealistic, no text, no watermark
+
+--- ГАЛЕРЕЯ РАБОТ (work-1.jpg … work-6.jpg), 4:3 ---
+Разные реальные ракурсы готовых конструкций из стекла в интерьере:
+work-1.jpg (крупное, витринное) — luxury bathroom with large frameless glass
+shower, wide angle, daylight, photorealistic, no text
+work-2.jpg — glass office partition, close detail of hardware
+work-3.jpg — glass staircase railing detail
+work-4.jpg — glass door in a retail interior, wide
+work-5.jpg — glass shower corner, matte finish
+work-6.jpg — glass balcony railing, city view behind
+
+ПОДСКАЗКА: если своих реальных фото объектов нет — на галерею лучше взять
+реальные снимки выполненных работ у заказчика (они убедительнее стоков).

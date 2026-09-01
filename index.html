@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>СтеклА — конструкции из закалённого стекла в Новосибирске</title>
+<meta name="description" content="Душевые перегородки, стеклянные ограждения, козырьки, перегородки и двери из закалённого стекла. Свой замер, изготовление и монтаж под ключ. Новосибирск.">
+
+<!-- ============================================================
+     СтеклА · сайт-визитка · конструкции из закалённого стекла
+     Single-file. Фото кладём в папку img/ (см. img/PROMPTS.txt).
+     Плейсхолдеры "ЗАМЕНИ:" помечены в коде — там вписываем реальные
+     телефон / WhatsApp / Telegram / e-mail / адрес.
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#12171b;          /* основной тёмный текст / тёмные секции */
+  --ink-soft:#3a444c;
+  --paper:#ffffff;
+  --paper-2:#f2f4f5;      /* светлые секции */
+  --line:#e2e6e8;
+  --line-dark:#26313a;
+  --accent:#1f7a83;       /* глубокий стеклянно-бирюзовый акцент */
+  --accent-2:#2aa0aa;
+  --muted:#7d8890;
+  --shadow:0 18px 50px -22px rgba(18,23,27,.35);
+  --radius:16px;
+  --maxw:1200px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:'Manrope',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.02em;font-weight:800}
+h2{font-size:clamp(28px,4.4vw,44px)}
+h3{font-size:20px;letter-spacing:-.01em}
+p{margin:0}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--accent);border-radius:2px}
+.section{padding:88px 0}
+.section--tight{padding:64px 0}
+.lead{color:var(--ink-soft);font-size:clamp(16px,1.6vw,19px);max-width:620px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 26px;border-radius:999px;font-weight:700;font-size:16px;cursor:pointer;
+  border:1px solid transparent;transition:.2s transform,.2s background,.2s box-shadow,.2s border-color;white-space:nowrap}
+.btn:active{transform:translateY(1px)}
+.btn--accent{background:var(--accent);color:#fff}
+.btn--accent:hover{background:var(--accent-2);box-shadow:0 12px 30px -12px rgba(31,122,131,.7)}
+.btn--ghost{background:transparent;border-color:rgba(255,255,255,.35);color:#fff}
+.btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.btn--dark{background:var(--ink);color:#fff}
+.btn--dark:hover{background:#1d262d}
+.btn--lg{padding:17px 32px;font-size:17px}
+
+/* ---------- стеклянные кнопки (фишка) ---------- */
+.btn--glass,.btn--glass-accent{position:relative;overflow:hidden;color:#fff;
+  -webkit-backdrop-filter:blur(12px) saturate(150%);backdrop-filter:blur(12px) saturate(150%)}
+.btn--glass{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.30);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -10px 24px rgba(255,255,255,.04),0 12px 30px -14px rgba(0,0,0,.55)}
+.btn--glass:hover{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.55);transform:translateY(-2px)}
+.btn--glass-accent{border-color:rgba(140,235,240,.55);
+  background:linear-gradient(180deg,rgba(52,190,200,.55),rgba(31,122,131,.42));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),inset 0 -12px 26px rgba(31,122,131,.25),0 16px 40px -16px rgba(31,122,131,.7)}
+.btn--glass-accent:hover{background:linear-gradient(180deg,rgba(64,205,215,.7),rgba(37,140,150,.55));transform:translateY(-2px)}
+/* «блик» проходит по стеклу кнопки при наведении */
+.btn--glass::after,.btn--glass-accent::after{content:"";position:absolute;top:0;left:-130%;width:55%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-18deg)}
+.btn--glass:hover::after,.btn--glass-accent:hover::after{animation:btnshine .85s ease}
+@keyframes btnshine{to{left:150%}}
+@media (prefers-reduced-motion:reduce){.btn--glass:hover::after,.btn--glass-accent:hover::after{animation:none}}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);
+  backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:26px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:22px;letter-spacing:.02em}
+.brand .logo{width:34px;height:34px;border-radius:9px;background:var(--ink);
+  display:grid;place-items:center;color:var(--accent-2);flex:none}
+.brand small{display:block;font-size:10.5px;font-weight:600;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--muted);margin-top:1px}
+.nav .menu{display:flex;gap:24px;margin-left:14px;font-weight:600;font-size:15px;color:var(--ink-soft)}
+.nav .menu a:hover{color:var(--accent)}
+.nav .right{margin-left:auto;display:flex;align-items:center;gap:18px}
+.nav .phone{font-weight:800;font-size:18px;white-space:nowrap}
+.nav .phone small{display:block;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:.04em}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:24px;height:2px;background:var(--ink);border-radius:2px}
+@media(max-width:960px){
+  .nav .menu{display:none}
+  .nav .phone small{display:none}
+}
+@media(max-width:640px){
+  .burger{display:flex}
+  .nav .right .btn{display:none}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden}
+.hero .bg{position:absolute;inset:0;background-size:cover;background-position:center;
+  background-image:linear-gradient(180deg,rgba(12,16,19,.55),rgba(12,16,19,.82)),
+    linear-gradient(120deg,#1a252c,#0e1418);}
+.hero .bg.hasimg{background-image:linear-gradient(90deg,rgba(12,16,19,.9) 0%,rgba(12,16,19,.55) 55%,rgba(12,16,19,.35) 100%),var(--hero-img)}
+/* тонкий «стеклянный» паттерн-каркас поверх фона */
+.hero .grid-lines{position:absolute;inset:0;opacity:.14;
+  background-image:linear-gradient(90deg,#fff 1px,transparent 1px);background-size:120px 100%}
+.hero .inner{position:relative;z-index:2;padding:104px 0 96px}
+.hero h1{font-size:clamp(34px,6vw,64px);max-width:15ch}
+.hero .tag{color:var(--accent-2);font-weight:800}
+.hero p.sub{margin-top:22px;max-width:52ch;color:#c8d1d6;font-size:clamp(16px,1.8vw,20px)}
+.hero .cta{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px}
+.hero .marks{margin-top:46px;display:flex;flex-wrap:wrap;gap:14px 34px}
+.hero .marks div{display:flex;align-items:center;gap:10px;font-weight:600;color:#dbe2e6;font-size:15px}
+.hero .marks svg{color:var(--accent-2);flex:none}
+
+/* ---------- стеклянная визуализация hero ---------- */
+.glass-scene{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.glass-scene .glow{position:absolute;width:60vw;height:60vw;max-width:760px;max-height:760px;
+  right:-8%;top:-16%;border-radius:50%;
+  background:radial-gradient(circle at 50% 50%,rgba(42,160,170,.28),rgba(42,160,170,0) 62%);
+  filter:blur(6px);animation:glowdrift 16s ease-in-out infinite alternate}
+.pane{position:absolute;border-radius:20px;
+  background:linear-gradient(135deg,rgba(255,255,255,.14),rgba(255,255,255,.03) 46%,rgba(42,160,170,.10));
+  border:1px solid rgba(255,255,255,.18);
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 0 40px rgba(255,255,255,.04),0 40px 80px -40px rgba(0,0,0,.7);
+  overflow:hidden;will-change:transform}
+/* блик, проходящий по стеклу */
+.pane::before{content:"";position:absolute;top:-60%;left:-40%;width:55%;height:220%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:skewX(-16deg);animation:sweep 6.5s ease-in-out infinite}
+.pane.p1{width:300px;height:380px;right:9%;top:16%;transform:rotate(-9deg);animation:float1 11s ease-in-out infinite}
+.pane.p2{width:220px;height:300px;right:26%;top:40%;transform:rotate(7deg);animation:float2 13s ease-in-out infinite;opacity:.92}
+.pane.p3{width:160px;height:210px;right:3%;top:52%;transform:rotate(-4deg);animation:float1 9s ease-in-out infinite reverse;opacity:.85}
+.pane.p2::before{animation-delay:2.2s}
+.pane.p3::before{animation-delay:3.6s}
+@keyframes sweep{0%{left:-45%}55%{left:135%}100%{left:135%}}
+@keyframes float1{0%,100%{transform:translateY(0) rotate(-9deg)}50%{transform:translateY(-22px) rotate(-7deg)}}
+@keyframes float2{0%,100%{transform:translateY(0) rotate(7deg)}50%{transform:translateY(18px) rotate(9deg)}}
+@keyframes glowdrift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-6%,6%) scale(1.12)}}
+@media(max-width:820px){.glass-scene{opacity:.5}.pane.p2,.pane.p3{display:none}.pane.p1{right:-14%;top:8%}}
+@media (prefers-reduced-motion:reduce){.pane,.pane::before,.glass-scene .glow{animation:none}}
+
+/* ---------- trust strip ---------- */
+.strip{background:var(--paper-2);border-bottom:1px solid var(--line)}
+.strip .row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:34px 0}
+.strip .num{font-size:clamp(26px,3.4vw,38px);font-weight:800;letter-spacing:-.02em}
+.strip .num span{color:var(--accent)}
+.strip .cap{color:var(--muted);font-weight:600;font-size:14px;margin-top:2px}
+@media(max-width:720px){.strip .row{grid-template-columns:repeat(2,1fr);gap:26px 16px}}
+
+/* ---------- catalog ---------- */
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:40px}
+.head .lead{margin-top:14px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.cards{grid-template-columns:1fr}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;display:flex;flex-direction:column;transition:.25s transform,.25s box-shadow}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.card .ph{aspect-ratio:4/3}
+.card .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:19px}
+.card p{color:var(--ink-soft);font-size:15px}
+.card .price{margin-top:auto;padding-top:12px;font-weight:800;font-size:18px}
+.card .price small{display:block;font-weight:600;font-size:13px;color:var(--muted)}
+.card .more{color:var(--accent);font-weight:700;font-size:15px;display:inline-flex;gap:6px;align-items:center}
+
+/* image placeholder (пока нет фото) */
+.ph{position:relative;background:linear-gradient(135deg,#dfe6e8,#eef2f3);
+  background-size:cover;background-position:center;display:grid;place-items:center}
+.ph[data-img]{background-image:var(--img)}
+.ph .lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:#8a979d;background:rgba(255,255,255,.7);padding:6px 12px;border-radius:999px}
+.ph[data-img] .lbl{display:none}
+
+/* ---------- services ---------- */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:900px){.svc{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.svc{grid-template-columns:1fr}}
+.svc .item{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px}
+.svc .ic{width:52px;height:52px;border-radius:13px;background:var(--paper-2);
+  display:grid;place-items:center;color:var(--accent);margin-bottom:16px}
+.svc h3{font-size:18px;margin-bottom:8px}
+.svc p{color:var(--ink-soft);font-size:15px}
+
+/* ---------- steps ---------- */
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+@media(max-width:900px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.step{position:relative;padding-top:20px;border-top:2px solid var(--line-dark)}
+.step::before{counter-increment:s;content:"0" counter(s);font-weight:800;font-size:15px;
+  color:var(--accent-2);letter-spacing:.1em}
+.step h3{font-size:18px;margin:10px 0 8px}
+.step p{color:#aeb9c0;font-size:15px}
+
+/* ---------- gallery ---------- */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+.gallery .ph{border-radius:14px;overflow:hidden}
+.gallery .g1{grid-column:span 2;grid-row:span 2}
+.gallery .g4{grid-column:span 2}
+@media(max-width:820px){.gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:170px}
+  .gallery .g1{grid-column:span 2;grid-row:span 1}.gallery .g4{grid-column:span 2}}
+
+/* ---------- faq ---------- */
+.faq{max-width:820px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line);padding:6px 0}
+.faq summary{list-style:none;cursor:pointer;padding:20px 44px 20px 4px;position:relative;
+  font-weight:700;font-size:18px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:6px;top:16px;font-size:26px;font-weight:600;
+  color:var(--accent);transition:.2s transform}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{padding:0 4px 22px;color:var(--ink-soft);font-size:16px}
+
+/* ---------- contact / form ---------- */
+.contact{background:var(--ink);color:#fff}
+.contact .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
+@media(max-width:880px){.contact .grid{grid-template-columns:1fr;gap:40px}}
+.contact h2{color:#fff}
+.contact .lead{color:#b7c1c7}
+.channels{margin-top:30px;display:flex;flex-direction:column;gap:14px}
+.chan{display:flex;align-items:center;gap:16px;padding:16px 18px;border:1px solid var(--line-dark);
+  border-radius:14px;transition:.2s border-color,.2s background}
+.chan:hover{border-color:var(--accent);background:rgba(42,160,170,.06)}
+.chan .ci{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;flex:none;background:#1c262d;color:var(--accent-2)}
+.chan b{display:block;font-size:16px}
+.chan span{color:var(--muted);font-size:14px}
+form.lead-form{background:#fff;border-radius:var(--radius);padding:30px;color:var(--ink)}
+form.lead-form h3{font-size:22px;margin-bottom:6px}
+form.lead-form .fh{color:var(--ink-soft);font-size:15px;margin-bottom:20px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px;color:var(--ink-soft)}
+.field input,.field select,.field textarea{width:100%;padding:14px 16px;border:1px solid var(--line);
+  border-radius:11px;font:inherit;font-size:16px;background:var(--paper-2);color:var(--ink);transition:.15s border-color,.15s background}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);background:#fff}
+.field textarea{min-height:96px;resize:vertical}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--muted);margin:6px 0 18px}
+.consent input{margin-top:3px}
+.form-note{margin-top:14px;font-size:13px;color:var(--muted);text-align:center}
+.ok-msg{display:none;padding:20px;border-radius:12px;background:#e8f6f5;color:#12655c;font-weight:600;text-align:center}
+
+/* ---------- footer ---------- */
+footer{background:#0c1013;color:#9aa5ac;padding:56px 0 30px;font-size:15px}
+footer .top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px;padding-bottom:34px;border-bottom:1px solid #1b242a}
+@media(max-width:760px){footer .top{grid-template-columns:1fr;gap:26px}}
+footer .brand{color:#fff}
+footer .brand .logo{background:#1b242a}
+footer h4{color:#fff;font-size:14px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 14px}
+footer a:hover{color:#fff}
+footer .col p{margin-bottom:9px}
+footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:13px;color:#5f6a71}
+
+/* reveal on scroll */
+.reveal{opacity:0;transform:translateY(22px);transition:.6s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* floating messenger buttons */
+.fab{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;gap:12px}
+.fab a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;
+  box-shadow:0 10px 26px -8px rgba(0,0,0,.5);transition:.2s transform}
+.fab a:hover{transform:scale(1.07)}
+.fab .wa{background:#25d366}.fab .tg{background:#2aabee}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand">
+      <span class="logo" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 3h16v18l-8-4-8 4V3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </span>
+      <span>СтеклА<small>закалённое стекло</small></span>
+    </a>
+    <nav class="menu">
+      <a href="#catalog">Конструкции</a>
+      <a href="#services">Услуги</a>
+      <a href="#steps">Как работаем</a>
+      <a href="#works">Работы</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <div class="right">
+      <!-- ЗАМЕНИ: телефон компании -->
+      <a class="phone" href="tel:+73830000000">+7 (383) 000-00-00<small>Новосибирск · ежедневно 9:00–20:00</small></a>
+      <a href="#contact" class="btn btn--accent">Оставить заявку</a>
+      <button class="burger" aria-label="Меню" onclick="document.getElementById('m').scrollIntoView()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <!-- при добавлении фото: раскомментируй style и файл img/hero.jpg -->
+  <div class="bg" id="heroBg" style="--hero-img:url('img/hero.jpg')"></div>
+  <div class="grid-lines"></div>
+  <div class="glass-scene" aria-hidden="true">
+    <span class="glow"></span>
+    <span class="pane p1"></span>
+    <span class="pane p2"></span>
+    <span class="pane p3"></span>
+  </div>
+  <div class="wrap inner">
+    <span class="eyebrow" style="color:var(--accent-2)">Новосибирск · свой цех и монтаж</span>
+    <h1>Конструкции из <span class="tag">закалённого&nbsp;стекла</span> под ключ</h1>
+    <p class="sub">Душевые, перегородки, ограждения, козырьки и цельностеклянные двери. Бесплатный замер, изготовление в собственном цехе и аккуратный монтаж — от заявки до готовой конструкции.</p>
+    <div class="cta">
+      <a href="#contact" class="btn btn--glass-accent btn--lg">Рассчитать стоимость</a>
+      <a href="#works" class="btn btn--glass btn--lg">Посмотреть работы</a>
+    </div>
+    <div class="marks">
+      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Закалённое стекло 6–12 мм</div>
+      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Бесплатный замер</div>
+      <div><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg> Гарантия на монтаж</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST STRIP ================= -->
+<!-- ЗАМЕНИ цифры на реальные, либо удали блок, если фактуры нет -->
+<section class="strip">
+  <div class="wrap row">
+    <div><div class="num"><span>10</span> лет</div><div class="cap">на рынке стекла</div></div>
+    <div><div class="num"><span>500+</span></div><div class="cap">объектов сдано</div></div>
+    <div><div class="num"><span>6–12</span> мм</div><div class="cap">закалённое стекло</div></div>
+    <div><div class="num">от <span>3</span> дней</div><div class="cap">срок изготовления</div></div>
+  </div>
+</section>
+
+<!-- ================= CATALOG ================= -->
+<section class="section" id="catalog">
+  <div class="wrap">
+    <div class="head reveal">
+      <div>
+        <span class="eyebrow">Что мы делаем</span>
+        <h2 style="margin-top:14px">Конструкции из закалённого стекла</h2>
+        <p class="lead">Изготовим по вашим размерам. Финальную стоимость называем после бесплатного замера — она зависит от площади, толщины стекла и фурнитуры.</p>
+      </div>
+    </div>
+
+    <div class="cards">
+      <!-- КАРТОЧКА 1 -->
+      <article class="card reveal">
+        <div class="ph" style="--img:url('img/shower.jpg')"><span class="lbl">фото · душевые</span></div>
+        <div class="body">
+          <h3>Душевые перегородки и уголки</h3>
+          <p>Распашные, раздвижные и неподвижные экраны без рамы. Стекло 8 мм, антикальциевое покрытие по желанию.</p>
+          <div class="price">от 12 000 ₽ / м²<small>точная цена — после замера</small></div>
+          <a href="#contact" class="more">Рассчитать →</a>
+        </div>
+      </article>
+      <!-- КАРТОЧКА 2 -->
+      <article class="card reveal">
+        <div class="ph" style="--img:url('img/partition.jpg')"><span class="lbl">фото · перегородки</span></div>
+        <div class="body">
+          <h3>Стеклянные перегородки</h3>
+          <p>Для квартир и офисов — зонирование пространства без потери света. Прозрачные, матовые, тонированные.</p>
+          <div class="price">от 10 000 ₽ / м²<small>точная цена — после замера</small></div>
+          <a href="#contact" class="more">Рассчитать →</a>
+        </div>
+      </article>
+      <!-- КАРТОЧКА 3 -->
+      <article class="card reveal">
+        <div class="ph" style="--img:url('img/railing.jpg')"><span class="lbl">фото · ограждения</span></div>
+        <div class="body">
+          <h3>Ограждения лестниц и балконов</h3>
+          <p>Цельностеклянные ограждения на точечном креплении или в профиле. Триплекс для повышенной безопасности.</p>
+          <div class="price">от 14 000 ₽ / м²<small>точная цена — после замера</small></div>
+          <a href="#contact" class="more">Рассчитать →</a>
+        </div>
+      </article>
+      <!-- КАРТОЧКА 4 -->
+      <article class="card reveal">
+        <div class="ph" style="--img:url('img/canopy.jpg')"><span class="lbl">фото · козырьки</span></div>
+        <div class="body">
+          <h3>Козырьки и навесы</h3>
+          <p>Стеклянные козырьки над входом на нержавеющих кронштейнах. Закалённый триплекс, устойчивый к нагрузке и снегу.</p>
+          <div class="price">от 16 000 ₽ / м²<small>точная цена — после замера</small></div>
+          <a href="#contact" class="more">Рассчитать →</a>
+        </div>
+      </article>
+      <!-- КАРТОЧКА 5 -->
+      <article class="card reveal">
+        <div class="ph" style="--img:url('img/door.jpg')"><span class="lbl">фото · двери</span></div>
+        <div class="body">
+          <h3>Цельностеклянные двери</h3>
+          <p>Маятниковые и раздвижные двери из закалённого стекла с доводчиком. Для дома, офиса, магазина.</p>
+          <div class="price">от 18 000 ₽ / шт.<small>точная цена — после замера</small></div>
+          <a href="#contact" class="more">Рассчитать →</a>
+        </div>
+      </article>
+      <!-- КАРТОЧКА 6 · доп / CTA -->
+      <article class="card reveal" style="background:var(--ink);color:#fff;border-color:var(--ink)">
+        <div class="body" style="justify-content:center;gap:16px">
+          <h3 style="color:#fff;font-size:22px">Нужна нестандартная конструкция?</h3>
+          <p style="color:#b7c1c7">Изготовим по индивидуальному проекту — витрины, экраны, столешницы, полки из стекла.</p>
+          <a href="#contact" class="btn btn--accent" style="align-self:flex-start;margin-top:6px">Обсудить проект</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section section--tight" id="services" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="head reveal"><div>
+      <span class="eyebrow">Полный цикл</span>
+      <h2 style="margin-top:14px">Всё под ключ — от замера до монтажа</h2>
+    </div></div>
+    <div class="svc">
+      <div class="item reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 21l6-6M14 4l6 6M9 15l6-11 5 5-11 6-2-2 2 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Замер</h3>
+        <p>Бесплатно приедем на объект, снимем точные размеры и предложим решение под ваш проём.</p>
+      </div>
+      <div class="item reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Изготовление</h3>
+        <p>Режем, закаляем и обрабатываем кромку в собственном цехе — контролируем качество на каждом этапе.</p>
+      </div>
+      <div class="item reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 13l2-7h14l2 7M5 13h14v5H5zM7 18v2M17 18v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Доставка</h3>
+        <p>Аккуратно доставим готовые конструкции по Новосибирску и области в защитной упаковке.</p>
+      </div>
+      <div class="item reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 4l6 6-9 9H5v-6l9-9zM3 21h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Монтаж</h3>
+        <p>Устанавливаем своими бригадами с гарантией. После монтажа убираем за собой.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STEPS (dark) ================= -->
+<section class="section" id="steps" style="background:var(--ink);color:#fff">
+  <div class="wrap">
+    <div class="head reveal"><div>
+      <span class="eyebrow" style="color:var(--accent-2)">Как мы работаем</span>
+      <h2 style="margin-top:14px;color:#fff">Прозрачный процесс без сюрпризов</h2>
+    </div></div>
+    <div class="steps">
+      <div class="step reveal"><h3>Заявка</h3><p>Оставляете заявку на сайте или пишете в мессенджер. Отвечаем в течение рабочего дня.</p></div>
+      <div class="step reveal"><h3>Замер и расчёт</h3><p>Бесплатно выезжаем, снимаем размеры и называем точную стоимость.</p></div>
+      <div class="step reveal"><h3>Договор и изготовление</h3><p>Фиксируем цену и сроки в договоре, изготавливаем конструкцию в цехе.</p></div>
+      <div class="step reveal"><h3>Монтаж и гарантия</h3><p>Устанавливаем, проверяем и выдаём гарантию. Готово — можно пользоваться.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="section" id="works">
+  <div class="wrap">
+    <div class="head reveal"><div>
+      <span class="eyebrow">Наши работы</span>
+      <h2 style="margin-top:14px">Объекты, которые мы остеклили</h2>
+      <p class="lead">Реальные проекты в квартирах, домах и коммерческих помещениях Новосибирска.</p>
+    </div></div>
+    <div class="gallery reveal">
+      <div class="ph g1" style="--img:url('img/work-1.jpg')"><span class="lbl">фото работы</span></div>
+      <div class="ph" style="--img:url('img/work-2.jpg')"><span class="lbl">фото</span></div>
+      <div class="ph" style="--img:url('img/work-3.jpg')"><span class="lbl">фото</span></div>
+      <div class="ph g4" style="--img:url('img/work-4.jpg')"><span class="lbl">фото работы</span></div>
+      <div class="ph" style="--img:url('img/work-5.jpg')"><span class="lbl">фото</span></div>
+      <div class="ph" style="--img:url('img/work-6.jpg')"><span class="lbl">фото</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section section--tight" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="head reveal" style="justify-content:center;text-align:center"><div>
+      <span class="eyebrow">Вопросы и ответы</span>
+      <h2 style="margin-top:14px">Частые вопросы</h2>
+    </div></div>
+    <div class="faq reveal">
+      <details open><summary>Насколько безопасно закалённое стекло?</summary><p>Закалённое стекло в 5–7 раз прочнее обычного и при разрушении рассыпается на мелкие безопасные осколки без острых краёв. Для ограждений и козырьков используем триплекс — он держит форму даже при повреждении.</p></details>
+      <details><summary>Сколько занимает изготовление?</summary><p>В среднем от 3 до 10 рабочих дней в зависимости от сложности конструкции и загрузки цеха. Точный срок фиксируем в договоре после замера.</p></details>
+      <details><summary>Замер действительно бесплатный?</summary><p>Да. Мастер приезжает на объект, снимает размеры и предлагает решение — это ни к чему вас не обязывает.</p></details>
+      <details><summary>От чего зависит цена?</summary><p>От площади конструкции, толщины стекла (6–12 мм), типа фурнитуры, обработки кромки и покрытий. Итоговую сумму называем после замера — без скрытых доплат.</p></details>
+      <details><summary>Даёте ли гарантию?</summary><p>Да, предоставляем гарантию на изделие и монтаж. Условия прописываем в договоре.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT + FORM ================= -->
+<section class="section contact" id="contact">
+  <div class="wrap grid">
+    <div class="reveal">
+      <span class="eyebrow" style="color:var(--accent-2)">Оставить заявку</span>
+      <h2 style="margin-top:14px">Обсудим ваш проект</h2>
+      <p class="lead">Напишите или позвоните — ответим на вопросы, посчитаем стоимость и запишем на бесплатный замер.</p>
+
+      <div class="channels">
+        <!-- ЗАМЕНИ: телефон -->
+        <a class="chan" href="tel:+73830000000">
+          <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <span><b>+7 (383) 000-00-00</b><span>Позвонить · ежедневно 9:00–20:00</span></span>
+        </a>
+        <!-- ЗАМЕНИ: номер WhatsApp в формате 79xxxxxxxxx -->
+        <a class="chan" href="https://wa.me/79990000000" target="_blank" rel="noopener">
+          <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <span><b>WhatsApp</b><span>Написать в WhatsApp</span></span>
+        </a>
+        <!-- ЗАМЕНИ: username или номер Telegram -->
+        <a class="chan" href="https://t.me/79990000000" target="_blank" rel="noopener">
+          <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 5L3 12l6 2 2 6 3-4 4 3 3-14z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <span><b>Telegram</b><span>Написать в Telegram</span></span>
+        </a>
+        <!-- ЗАМЕНИ: адрес (из 2ГИС) -->
+        <a class="chan" href="https://2gis.ru/novosibirsk" target="_blank" rel="noopener">
+          <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.3 7-11a7 7 0 10-14 0c0 4.7 7 11 7 11z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg></span>
+          <span><b>Новосибирск, ул. ________</b><span>Показать на карте 2ГИС</span></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ЗАМЕНИ e-mail в action на почту компании (сервис FormSubmit подтверждается по первому письму). -->
+    <form class="lead-form reveal" id="leadForm" action="https://formsubmit.co/EMAIL@EXAMPLE.RU" method="POST">
+      <h3>Заявка на расчёт</h3>
+      <p class="fh">Заполните форму — перезвоним в течение рабочего дня.</p>
+      <div class="field">
+        <label for="name">Как к вам обращаться</label>
+        <input id="name" name="Имя" type="text" placeholder="Имя" required>
+      </div>
+      <div class="field">
+        <label for="phone">Телефон</label>
+        <input id="phone" name="Телефон" type="tel" placeholder="+7 (___) ___-__-__" required>
+      </div>
+      <div class="field">
+        <label for="type">Что интересует</label>
+        <select id="type" name="Конструкция">
+          <option>Душевая перегородка</option>
+          <option>Стеклянная перегородка</option>
+          <option>Ограждение лестницы / балкона</option>
+          <option>Козырёк / навес</option>
+          <option>Стеклянная дверь</option>
+          <option>Другое / не определился</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="msg">Комментарий (не обязательно)</label>
+        <textarea id="msg" name="Комментарий" placeholder="Размеры, пожелания, адрес объекта"></textarea>
+      </div>
+      <label class="consent"><input type="checkbox" required> Согласен на обработку персональных данных и с <a href="#" style="color:var(--accent)">политикой конфиденциальности</a>.</label>
+      <input type="hidden" name="_subject" value="Заявка с сайта СтеклА">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <button type="submit" class="btn btn--accent btn--lg" style="width:100%">Отправить заявку</button>
+      <div class="ok-msg" id="okMsg">Спасибо! Заявка отправлена — мы свяжемся с вами в ближайшее время.</div>
+      <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="m">
+  <div class="wrap">
+    <div class="top">
+      <div class="col">
+        <div class="brand" style="font-size:22px;margin-bottom:14px">
+          <span class="logo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 3h16v18l-8-4-8 4V3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+          <span style="color:#fff">СтеклА</span>
+        </div>
+        <p>Конструкции из закалённого стекла в Новосибирске. Замер, изготовление и монтаж под ключ.</p>
+      </div>
+      <div class="col">
+        <h4>Конструкции</h4>
+        <p><a href="#catalog">Душевые перегородки</a></p>
+        <p><a href="#catalog">Стеклянные перегородки</a></p>
+        <p><a href="#catalog">Ограждения</a></p>
+        <p><a href="#catalog">Козырьки и двери</a></p>
+      </div>
+      <div class="col">
+        <h4>Контакты</h4>
+        <!-- ЗАМЕНИ контакты -->
+        <p><a href="tel:+73830000000">+7 (383) 000-00-00</a></p>
+        <p><a href="https://wa.me/79990000000">WhatsApp</a> · <a href="https://t.me/79990000000">Telegram</a></p>
+        <p>Новосибирск, ул. ________</p>
+        <p>Ежедневно 9:00–20:00</p>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 СтеклА. Все права защищены.</span>
+      <span>Работаем в Новосибирске и области</span>
+    </div>
+  </div>
+</footer>
+
+<!-- floating messengers -->
+<div class="fab">
+  <a class="wa" href="https://wa.me/79990000000" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
+  <a class="tg" href="https://t.me/79990000000" target="_blank" rel="noopener" aria-label="Telegram"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M21 5L3 12l6 2 2 6 3-4 4 3 3-14z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
+</div>
+
+<script>
+// reveal on scroll
+const io=new IntersectionObserver((e)=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// показать реальное фото в плейсхолдерах, если файл существует
+document.querySelectorAll('.ph[style*="--img"]').forEach(ph=>{
+  const m=getComputedStyle(ph).getPropertyValue('--img').match(/url\((['"]?)(.*?)\1\)/);
+  if(!m)return;const img=new Image();img.onload=()=>{ph.style.backgroundImage="var(--img)";ph.setAttribute('data-img','')};img.src=m[2];
+});
+// hero фон
+(function(){const b=document.getElementById('heroBg');const m=b.style.getPropertyValue('--hero-img').match(/url\((['"]?)(.*?)\1\)/);if(!m)return;const i=new Image();i.onload=()=>b.classList.add('hasimg');i.src=m[2];})();
+
+// форма: аккуратная отправка через fetch, показ спасибо
+const f=document.getElementById('leadForm');
+f&&f.addEventListener('submit',async(ev)=>{
+  if(f.action.includes('EMAIL@EXAMPLE.RU'))return; // почта ещё не вписана — обычный переход
+  ev.preventDefault();
+  try{
+    await fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}});
+    f.querySelector('#okMsg').style.display='block';f.reset();
+  }catch(e){f.submit();}
+});
+</script>
+</body>
+</html>
