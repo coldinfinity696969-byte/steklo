@@ -279,6 +279,15 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
 .svc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 @media(max-width:900px){.svc{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.svc{grid-template-columns:1fr}}
+/* двухколоночная: шаги 2x2 + резкое фото справа */
+.svc-split{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:stretch}
+.svc-split .svc{grid-template-columns:repeat(2,1fr);gap:18px}
+.svc-photo{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);background:linear-gradient(135deg,#e8ddcd,#f3ece0);display:grid;place-items:center}
+.svc-photo img{position:relative;z-index:1;width:100%;height:100%;min-height:340px;object-fit:cover;display:block}
+.svc-photo-lbl{position:absolute;z-index:0;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a08f79}
+@media(max-width:900px){.svc-split{grid-template-columns:1fr;gap:24px}
+  .svc-photo{order:-1;aspect-ratio:16/10}.svc-photo img{min-height:0}}
+@media(max-width:520px){.svc-split .svc{grid-template-columns:1fr}}
 .svc .item{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:28px 24px;transition:.28s transform,.28s box-shadow}
 .svc .item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .svc .ic{width:52px;height:52px;border-radius:13px;background:var(--paper-2);
@@ -654,6 +663,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <span class="eyebrow">Полный цикл</span>
       <h2 style="margin-top:14px">Всё под ключ — от замера до монтажа</h2>
     </div></div>
+    <div class="svc-split">
     <div class="svc">
       <div class="item reveal">
         <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 21l6-6M14 4l6 6M9 15l6-11 5 5-11 6-2-2 2 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -675,6 +685,11 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <h3>Монтаж</h3>
         <p>Устанавливаем своими бригадами с гарантией. После монтажа убираем за собой.</p>
       </div>
+    </div>
+    <figure class="svc-photo reveal">
+      <span class="svc-photo-lbl">фото: макро стекла</span>
+      <img src="img/process.jpg" alt="Торец закалённого стекла и чёрная фурнитура крупным планом" loading="lazy" onerror="this.style.display='none'">
+    </figure>
     </div>
   </div>
 </section>
