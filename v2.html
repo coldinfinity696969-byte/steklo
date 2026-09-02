@@ -445,6 +445,19 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 .fab a:hover{transform:scale(1.07)}
 .fab .wa{background:#25d366}.fab .tg{background:#2aabee}
 
+/* закреплённая CTA-плашка (мобилка) — одна акцентная кнопка на скролле */
+.cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  padding:11px 14px calc(11px + env(safe-area-inset-bottom,0px));
+  background:rgba(247,241,230,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  border-top:1px solid var(--line);transform:translateY(130%);transition:transform .32s cubic-bezier(.2,.8,.2,1)}
+.cta-bar.show{transform:none}
+.cta-bar .btn{width:100%}
+@media(max-width:640px){
+  .cta-bar{display:block}
+  .fab{bottom:86px}
+  .card .more{display:none}   /* на мобилке конверсию ведёт закреплённая плашка, карточки чистые */
+}
+
 /* lightbox — фото на весь экран */
 .lb{position:fixed;inset:0;z-index:100;background:rgba(20,15,10,.93);display:none;align-items:center;justify-content:center;padding:28px}
 .lb.open{display:flex}
@@ -662,6 +675,27 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   </div>
 </section>
 
+<!-- ================= НАШИ РАБОТЫ ================= -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <div class="head reveal"><div>
+      <span class="eyebrow">Наши работы</span>
+      <h2 style="margin-top:14px">Решения из стекла — для дома и бизнеса</h2>
+      <p class="lead">Перегородки, стеклянные перила, остекление террас, козырьки, облицовка и витрины — конструкции из закалённого стекла под ваш интерьер и задачу.</p>
+    </div></div>
+    <div class="gallery reveal">
+      <div class="ph" style="--img:url('img/work-01.jpg')"></div>
+      <div class="ph" style="--img:url('img/work-02.jpg')"></div>
+      <div class="ph" style="--img:url('img/work-03.jpg')"></div>
+      <div class="ph" style="--img:url('img/work-04.jpg')"></div>
+      <div class="ph" style="--img:url('img/work-05.jpg')"></div>
+      <div class="ph" style="--img:url('img/work-06.jpg')"></div>
+      <div class="ph" style="--img:url('img/work-07.jpg')"></div>
+      <div class="ph" style="--img:url('img/work-08.jpg')"></div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= STEPS (dark) ================= -->
 <section class="section" id="steps" style="background:var(--paper-2)">
   <div class="wrap">
@@ -831,6 +865,11 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   <div class="lb-count" id="lbCount"></div>
 </div>
 
+<!-- закреплённая CTA-плашка (мобилка) -->
+<div class="cta-bar" id="ctaBar">
+  <a href="#contact" class="btn btn--accent btn--lg">Рассчитать стоимость</a>
+</div>
+
 <!-- floating messengers -->
 <div class="fab">
   <a class="wa" href="https://wa.me/79139899929" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
@@ -904,7 +943,7 @@ const RM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   if(mobile){
     // на мобилке нет sticky-скролла — авто-ротация по таймеру, полоски работают
     let k=0; apply(0);
-    setInterval(()=>{k=(k+1)%words.length; apply(k);}, 1500);
+    setInterval(()=>{k=(k+1)%words.length; apply(k);}, 2000);
   } else {
     const upd=()=>{
       const total=wrap.offsetHeight-innerHeight;if(total<=0)return;
@@ -955,6 +994,18 @@ const RM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   els.forEach(el=>o.observe(el));
 })();
 
+// закреплённая CTA-плашка: показать после hero, спрятать над блоком контактов
+(function(){
+  const bar=document.getElementById('ctaBar');if(!bar)return;
+  const hero=document.querySelector('.hero2'), contact=document.getElementById('contact');
+  const on=()=>{
+    const pastHero = hero ? hero.getBoundingClientRect().bottom < 40 : scrollY>400;
+    const nearContact = contact ? contact.getBoundingClientRect().top < innerHeight*0.85 : false;
+    bar.classList.toggle('show', pastHero && !nearContact);
+  };
+  let t=false;addEventListener('scroll',()=>{if(!t){t=true;requestAnimationFrame(()=>{on();t=false;});}},{passive:true});on();
+})();
+
 // reveal on scroll
 const io=new IntersectionObserver((e)=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
@@ -978,19 +1029,20 @@ f&&f.addEventListener('submit',async(ev)=>{
   }catch(e){f.submit();}
 });
 
-// lightbox: галерея всех 15 душевых (на главной показаны только лучшие)
+// lightbox: две галереи — душевые и работы (у каждой свой набор)
 (function(){
   const ALL=['img/shower-01.jpg','img/shower-02.jpg','img/shower-03.jpg','img/shower-04.jpg','img/shower-05.jpg','img/shower-06.jpg','img/shower-07.jpg','img/shower-08.jpg','img/shower-09.jpg','img/shower-10.jpg'];
-  const tiles=[...document.querySelectorAll('.gallery .ph')];
+  const WORKS=['img/work-01.jpg','img/work-02.jpg','img/work-03.jpg','img/work-04.jpg','img/work-05.jpg','img/work-06.jpg','img/work-07.jpg','img/work-08.jpg'];
   const lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cnt=document.getElementById('lbCount');
   if(!lb)return;
-  let i=0;
-  const show=n=>{i=(n+ALL.length)%ALL.length;img.src=ALL[i];cnt.textContent=(i+1)+' / '+ALL.length;};
-  const open=n=>{show(n);lb.classList.add('open');document.body.style.overflow='hidden';};
+  let arr=ALL, i=0;
+  const show=n=>{i=(n+arr.length)%arr.length;img.src=arr[i];cnt.textContent=(i+1)+' / '+arr.length;};
+  const open=(n,a)=>{arr=a;show(n);lb.classList.add('open');document.body.style.overflow='hidden';};
   const close=()=>{lb.classList.remove('open');document.body.style.overflow='';};
-  tiles.forEach(t=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>open(+t.dataset.idx||0));});
+  document.querySelectorAll('#works .gallery .ph').forEach(t=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>open(+t.dataset.idx||0,ALL));});
+  document.querySelectorAll('#projects .gallery .ph').forEach((t,idx)=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>open(idx,WORKS));});
   const all=document.getElementById('galleryAll');
-  if(all)all.addEventListener('click',e=>{e.preventDefault();open(0);});
+  if(all)all.addEventListener('click',e=>{e.preventDefault();open(0,ALL);});
   document.getElementById('lbClose').onclick=close;
   document.getElementById('lbPrev').onclick=e=>{e.stopPropagation();show(i-1);};
   document.getElementById('lbNext').onclick=e=>{e.stopPropagation();show(i+1);};
