@@ -19,6 +19,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+/* фирменный шрифт логотипа — Futura PT (локально, из папки fonts/) */
+@font-face{font-family:'Futura PT';src:url('fonts/futura_pt_light.woff2') format('woff2');font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:'Futura PT';src:url('fonts/futura_pt_book.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'Futura PT';src:url('fonts/futura_pt_medium.woff2') format('woff2');font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:'Futura PT';src:url('fonts/futura_pt_demi.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:'Futura PT';src:url('fonts/futura_pt_bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
 :root{
   --ink:#2b251d;          /* тёплый тёмно-коричневый текст / тёмные секции */
   --ink-soft:#5c5348;
@@ -47,7 +53,7 @@ body{
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-h1,h2{margin:0;font-family:'Jost','Manrope',system-ui,sans-serif;font-weight:600;line-height:1.02;letter-spacing:-.01em}
+h1,h2{margin:0;font-family:'Futura PT','Jost','Manrope',system-ui,sans-serif;font-weight:600;line-height:1.04;letter-spacing:-.005em}
 h2{font-size:clamp(30px,4.6vw,46px)}
 h3{margin:0;font-weight:800;line-height:1.15;letter-spacing:-.01em}
 h3{font-size:20px}
@@ -739,7 +745,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 
       <div class="channels">
         <!-- MAX — предпочтительный канал для заявок. ЗАМЕНИ href на профиль компании в MAX -->
-        <a class="chan" href="https://max.ru/" target="_blank" rel="noopener">
+        <a class="chan" href="https://max.ru/u/f9LHodD0cOKJfU9q7vRUQ7HlTOAw7GGYHYRYHELlha74lchOGIXQSi6N_yo" target="_blank" rel="noopener">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 3V5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
           <span><b>MAX — заявки удобнее сюда</b><span>Написать в мессенджере MAX</span></span>
         </a>
@@ -821,7 +827,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <div class="col">
         <h4>Контакты</h4>
         <p><a href="tel:+79139899929">+7 913 989-99-29</a></p>
-        <p><a href="https://max.ru/">MAX</a> / <a href="https://wa.me/79139899929">WhatsApp</a> / <a href="https://t.me/+79139899929">Telegram</a></p>
+        <p><a href="https://max.ru/u/f9LHodD0cOKJfU9q7vRUQ7HlTOAw7GGYHYRYHELlha74lchOGIXQSi6N_yo">MAX</a> / <a href="https://wa.me/79139899929">WhatsApp</a> / <a href="https://t.me/+79139899929">Telegram</a></p>
         <p><a href="mailto:stekla_info@mail.ru">stekla_info@mail.ru</a></p>
         <p>Пн–пт 9:00–18:00, Новосибирск</p>
       </div>
