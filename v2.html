@@ -904,7 +904,7 @@ const RM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   if(mobile){
     // на мобилке нет sticky-скролла — авто-ротация по таймеру, полоски работают
     let k=0; apply(0);
-    setInterval(()=>{k=(k+1)%words.length; apply(k);}, 3000);
+    setInterval(()=>{k=(k+1)%words.length; apply(k);}, 1500);
   } else {
     const upd=()=>{
       const total=wrap.offsetHeight-innerHeight;if(total<=0)return;
