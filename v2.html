@@ -150,10 +150,11 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
 
 /* ---------- hero (светлый, дизайнерская композиция без бокса-маски) ---------- */
 .hero2{position:relative;background:var(--cream);overflow:hidden}
-.hero2-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 22px}
-.hero2-text{max-width:600px;padding:106px 0 116px}
-.hero2 .eyebrow{margin-bottom:20px}
-.hero2-text h1{font-size:clamp(38px,6.2vw,70px);line-height:1.02;letter-spacing:-.015em}
+.hero2-inner{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;padding:0 22px;
+  display:flex;align-items:center;min-height:min(90vh,820px)}
+.hero2-text{max-width:600px;padding:48px 0}
+.hero2 .eyebrow{margin-bottom:22px}
+.hero2-text h1{font-size:clamp(46px,7vw,84px);line-height:.97;letter-spacing:-.02em}
 .hero2 .tag{color:var(--accent)}
 .hero2-text .sub{margin-top:24px;max-width:46ch;color:var(--ink-soft);font-size:clamp(16px,1.7vw,19px)}
 .hero2-text .cta{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px}
@@ -164,7 +165,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
 .hero2-media{position:absolute;top:0;right:0;bottom:0;width:48vw;max-width:900px;z-index:1}
 .hero2-media .slideshow{position:absolute;inset:0;border-radius:0;border:0;box-shadow:none;background:var(--paper-2);overflow:hidden}
 .hero2-media::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:linear-gradient(90deg,var(--cream) 1%,rgba(247,241,230,0) 27%)}
+  background:linear-gradient(90deg,var(--cream) 0%,rgba(247,241,230,0) 18%)}
 .slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   opacity:0;transition:opacity 1.6s ease;transform:scale(1.06);will-change:opacity,transform}
 .slideshow img.active{opacity:1;animation:kenburns 8s ease-out forwards}
@@ -174,6 +175,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
   -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);
   font-weight:600;font-size:14px;padding:11px 17px;border-radius:12px}
 @media(max-width:900px){
+  .hero2-inner{display:block;min-height:0}
   .hero2-media{position:relative;width:auto;max-width:none;height:60vw;max-height:430px}
   .hero2-media::after{background:linear-gradient(0deg,var(--cream) 1%,rgba(247,241,230,0) 34%)}
   .hero2-badge{left:20px}
@@ -280,14 +282,18 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
 @media(max-width:900px){.svc{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.svc{grid-template-columns:1fr}}
 /* двухколоночная: шаги 2x2 + резкое фото справа */
-.svc-split{display:grid;grid-template-columns:1.15fr .85fr;gap:34px;align-items:stretch}
-.svc-split .svc{grid-template-columns:repeat(2,1fr);gap:18px}
-.svc-photo{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);background:linear-gradient(135deg,#e8ddcd,#f3ece0);display:grid;place-items:center}
-.svc-photo img{position:relative;z-index:1;width:100%;height:100%;min-height:340px;object-fit:cover;display:block}
+.svc-split{display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;align-items:stretch}
+.svc-photo{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);background:linear-gradient(135deg,#e8ddcd,#f3ece0);display:grid;place-items:center;min-height:420px}
+.svc-photo img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
 .svc-photo-lbl{position:absolute;z-index:0;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a08f79}
-@media(max-width:900px){.svc-split{grid-template-columns:1fr;gap:24px}
-  .svc-photo{order:-1;aspect-ratio:16/10}.svc-photo img{min-height:0}}
-@media(max-width:520px){.svc-split .svc{grid-template-columns:1fr}}
+.svc-list{display:flex;flex-direction:column;justify-content:space-between}
+.svc-step{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line);align-items:baseline}
+.svc-step:first-child{border-top:0;padding-top:4px}
+.svc-num{font-family:'Futura PT','Jost',sans-serif;font-size:20px;font-weight:600;color:var(--accent);line-height:1;letter-spacing:.02em}
+.svc-step h3{font-size:19px;margin-bottom:5px}
+.svc-step p{color:var(--ink-soft);font-size:15px;line-height:1.5}
+@media(max-width:900px){.svc-split{grid-template-columns:1fr;gap:26px}
+  .svc-photo{order:-1;min-height:0;aspect-ratio:16/10}}
 .svc .item{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:28px 24px;transition:.28s transform,.28s box-shadow}
 .svc .item:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift)}
 .svc .ic{width:52px;height:52px;border-radius:13px;background:var(--paper-2);
@@ -664,32 +670,16 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <h2 style="margin-top:14px">Всё под ключ — от замера до монтажа</h2>
     </div></div>
     <div class="svc-split">
-    <div class="svc">
-      <div class="item reveal">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 21l6-6M14 4l6 6M9 15l6-11 5 5-11 6-2-2 2 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Замер</h3>
-        <p>Бесплатно приедем на объект в черте города, снимем точные размеры современным оборудованием.</p>
+      <figure class="svc-photo reveal">
+        <span class="svc-photo-lbl">фото: макро стекла</span>
+        <img src="img/process.jpg" alt="Торец закалённого стекла и чёрная фурнитура крупным планом" loading="lazy" onerror="this.style.display='none'">
+      </figure>
+      <div class="svc-list reveal">
+        <div class="svc-step"><span class="svc-num">01</span><div><h3>Замер</h3><p>Бесплатно приедем на объект в черте города, снимем точные размеры современным оборудованием.</p></div></div>
+        <div class="svc-step"><span class="svc-num">02</span><div><h3>Изготовление</h3><p>Изготавливаем по вашим размерам, обрабатываем кромку и контролируем качество на каждом этапе.</p></div></div>
+        <div class="svc-step"><span class="svc-num">03</span><div><h3>Доставка</h3><p>Аккуратно доставим готовые конструкции по Новосибирску и области в защитной упаковке.</p></div></div>
+        <div class="svc-step"><span class="svc-num">04</span><div><h3>Монтаж</h3><p>Устанавливаем своими бригадами с гарантией. После монтажа убираем за собой.</p></div></div>
       </div>
-      <div class="item reveal">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-        <h3>Изготовление</h3>
-        <p>Изготавливаем по вашим размерам, обрабатываем кромку и контролируем качество на каждом этапе.</p>
-      </div>
-      <div class="item reveal">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 13l2-7h14l2 7M5 13h14v5H5zM7 18v2M17 18v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Доставка</h3>
-        <p>Аккуратно доставим готовые конструкции по Новосибирску и области в защитной упаковке.</p>
-      </div>
-      <div class="item reveal">
-        <div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 4l6 6-9 9H5v-6l9-9zM3 21h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Монтаж</h3>
-        <p>Устанавливаем своими бригадами с гарантией. После монтажа убираем за собой.</p>
-      </div>
-    </div>
-    <figure class="svc-photo reveal">
-      <span class="svc-photo-lbl">фото: макро стекла</span>
-      <img src="img/process.jpg" alt="Торец закалённого стекла и чёрная фурнитура крупным планом" loading="lazy" onerror="this.style.display='none'">
-    </figure>
     </div>
   </div>
 </section>
