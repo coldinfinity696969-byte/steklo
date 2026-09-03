@@ -259,6 +259,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
 .card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
 .card .ph{aspect-ratio:4/3}
 .card .body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+/* значок «несколько фото» на фото карточки — сигнал кликабельности */
+.catph{position:relative}
+.catph::after{content:"";position:absolute;right:10px;bottom:10px;z-index:2;width:32px;height:32px;border-radius:9px;
+  background:rgba(43,37,29,.58) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='13' height='13' rx='2'/%3E%3Cpath d='M8 21h11a2 2 0 0 0 2-2V8'/%3E%3C/svg%3E") center/17px no-repeat;
+  -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:.9;transition:.2s}
+.card:hover .catph::after{opacity:1;background-color:rgba(43,37,29,.82)}
 .card h3{font-size:19px}
 .card p{color:var(--ink-soft);font-size:15px}
 .card .price{margin-top:auto;padding-top:12px;font-weight:800;font-size:18px}
@@ -577,7 +583,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 
     <div class="cards">
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/shower-01.jpg')"><span class="lbl">душевые</span></div>
+        <div class="ph catph" data-cat="dush" style="--img:url('img/shower-01.jpg')"><span class="lbl">душевые</span></div>
         <div class="body">
           <h3>Душевые перегородки</h3>
           <p>Распашные, раздвижные и стационарные экраны — под ваш проём и планировку.</p>
@@ -585,7 +591,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/partition.jpg')"><span class="lbl">перегородки</span></div>
+        <div class="ph catph" data-cat="mezh" style="--img:url('img/partition.jpg')"><span class="lbl">перегородки</span></div>
         <div class="body">
           <h3>Межкомнатные и цельностеклянные перегородки</h3>
           <p>Зонирование квартир и офисов без потери света.</p>
@@ -593,7 +599,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/railing.jpg')"><span class="lbl">перила</span></div>
+        <div class="ph catph" data-cat="perila" style="--img:url('img/railing.jpg')"><span class="lbl">перила</span></div>
         <div class="body">
           <h3>Стеклянные перила лестниц</h3>
           <p>Цельностеклянные ограждения лестниц на точечном креплении или в профиле. Триплекс для безопасности.</p>
@@ -601,7 +607,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/terrace.jpg')"><span class="lbl">террасы</span></div>
+        <div class="ph catph" data-cat="terr" style="--img:url('img/terrace.jpg')"><span class="lbl">террасы</span></div>
         <div class="body">
           <h3>Остекление террас</h3>
           <p>Панорамное остекление террас и веранд — больше света и защита от ветра и осадков.</p>
@@ -609,7 +615,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/canopy.jpg')"><span class="lbl">козырьки</span></div>
+        <div class="ph catph" data-cat="kozyr" style="--img:url('img/canopy.jpg')"><span class="lbl">козырьки</span></div>
         <div class="body">
           <h3>Стеклянные козырьки</h3>
           <p>Козырьки над входом. Закалённый триплекс, устойчивый к нагрузке и снегу.</p>
@@ -617,7 +623,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/atrium.jpg')"><span class="lbl">ограждения</span></div>
+        <div class="ph catph" data-cat="atrium" style="--img:url('img/atrium.jpg')"><span class="lbl">ограждения</span></div>
         <div class="body">
           <h3>Атриумные ограждения</h3>
           <p>Ограждения балконов, антресолей и атриумов — максимальная прозрачность.</p>
@@ -625,7 +631,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/cladding.jpg')"><span class="lbl">облицовка</span></div>
+        <div class="ph catph" data-cat="oblic" style="--img:url('img/cladding.jpg')"><span class="lbl">облицовка</span></div>
         <div class="body">
           <h3>Облицовка стеклом</h3>
           <p>Облицовка стен и фартуков стеклом, скинали. Прочно, гигиенично и стильно.</p>
@@ -633,7 +639,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph" style="--img:url('img/vitrine.jpg')"><span class="lbl">витрины / тамбуры</span></div>
+        <div class="ph catph" data-cat="vitr" style="--img:url('img/vitrine.jpg')"><span class="lbl">витрины / тамбуры</span></div>
         <div class="body">
           <h3>Витрины ТЦ и стеклянные тамбуры</h3>
           <p>Витрины для торговых центров и входные цельностеклянные тамбуры.</p>
@@ -748,7 +754,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 <section class="section section--tight" id="projects">
   <div class="wrap">
     <div class="head reveal"><div>
-      <span class="eyebrow">Наши работы</span>
+      <span class="eyebrow">Примеры решений</span>
       <h2 style="margin-top:14px">Решения из стекла — для дома и бизнеса</h2>
       <p class="lead">Перегородки, стеклянные перила, остекление террас, козырьки, облицовка и витрины — под ваш интерьер и задачу.</p>
     </div></div>
@@ -866,7 +872,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   <div class="wrap">
     <div class="top">
       <div class="col">
-        <img src="img/logo-white.svg" alt="СтеклА" style="height:46px;width:auto;margin-bottom:16px">
+        <img src="img/logo-footer.svg" alt="СтеклА" style="height:52px;width:auto;margin-bottom:16px">
         <p>Конструкции из закалённого стекла в Новосибирске. Замер, изготовление и монтаж под ключ.</p>
       </div>
       <div class="col">
@@ -1086,6 +1092,18 @@ f&&f.addEventListener('submit',async(ev)=>{
   const close=()=>{lb.classList.remove('open');document.body.style.overflow='';};
   document.querySelectorAll('#works .gallery .ph').forEach(t=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>open(+t.dataset.idx||0,ALL));});
   document.querySelectorAll('#projects .marquee-item').forEach(t=>{t.addEventListener('click',()=>open(+t.dataset.idx||0,WORKS));});
+  // каталог: клик по фото карточки -> варианты монтажа этого типа
+  const CATS={
+    dush:['img/shower-01.jpg','img/shower-02.jpg','img/shower-03.jpg','img/shower-04.jpg','img/shower-05.jpg','img/shower-06.jpg'],
+    mezh:['img/g-mezh-1.jpg','img/g-mezh-2.jpg','img/g-mezh-3.jpg','img/g-mezh-4.jpg','img/g-mezh-5.jpg'],
+    perila:['img/g-perila-1.jpg','img/g-perila-2.jpg','img/g-perila-3.jpg','img/g-perila-4.jpg','img/g-perila-5.jpg'],
+    terr:['img/g-terr-1.jpg','img/g-terr-2.jpg','img/g-terr-3.jpg','img/g-terr-4.jpg','img/g-terr-5.jpg'],
+    kozyr:['img/g-kozyr-1.jpg','img/g-kozyr-2.jpg','img/g-kozyr-3.jpg','img/g-kozyr-4.jpg','img/g-kozyr-5.jpg'],
+    atrium:['img/g-atrium-1.jpg','img/g-atrium-3.jpg','img/g-atrium-4.jpg'],
+    oblic:['img/g-oblic-1.jpg','img/g-oblic-2.jpg','img/g-oblic-3.jpg','img/g-oblic-4.jpg'],
+    vitr:['img/g-vitr-1.jpg','img/g-vitr-2.jpg','img/g-vitr-3.jpg','img/g-vitr-4.jpg','img/g-vitr-5.jpg']
+  };
+  document.querySelectorAll('#catalog .catph').forEach(t=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>{const a=CATS[t.dataset.cat];if(a&&a.length)open(0,a);});});
   const all=document.getElementById('galleryAll');
   if(all)all.addEventListener('click',e=>{e.preventDefault();open(0,ALL);});
   document.getElementById('lbClose').onclick=close;
