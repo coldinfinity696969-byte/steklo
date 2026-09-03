@@ -108,8 +108,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
   display:flex;gap:26px;font-weight:600;font-size:15px;color:var(--ink-soft);white-space:nowrap}
 .nav .menu a:hover{color:var(--accent)}
 .nav .right{flex:none;display:flex;align-items:center;gap:18px}
-.logo-img{height:44px;width:auto;display:block}
-@media(max-width:520px){.logo-img{height:34px}}
+.logo-img{height:56px;width:auto;display:block}
+@media(max-width:520px){.logo-img{height:44px}}
 /* блок преимуществ (полоса под hero) */
 .adv{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 34px;padding:32px 22px}
 .advitem{display:flex;gap:13px;align-items:flex-start}
@@ -492,7 +492,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 <header>
   <div class="wrap nav">
     <a href="#" class="brand" aria-label="СтеклА — конструкции из закалённого стекла">
-      <img src="img/logo.svg" alt="СтеклА" class="logo-img" width="110" height="44">
+      <img src="img/logo-black.svg" alt="СтеклА" class="logo-img" width="140" height="56">
     </a>
     <nav class="menu">
       <a href="#catalog">Конструкции</a>
@@ -580,7 +580,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <div class="ph" style="--img:url('img/shower-01.jpg')"><span class="lbl">душевые</span></div>
         <div class="body">
           <h3>Душевые перегородки</h3>
-          <p>Распашные, раздвижные и неподвижные экраны без рамы — под ваш проём и планировку санузла.</p>
+          <p>Распашные, раздвижные и стационарные экраны — под ваш проём и планировку.</p>
           <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
@@ -588,7 +588,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <div class="ph" style="--img:url('img/partition.jpg')"><span class="lbl">перегородки</span></div>
         <div class="body">
           <h3>Межкомнатные и цельностеклянные перегородки</h3>
-          <p>Зонирование квартир и офисов без потери света. Прозрачные, матовые, тонированные.</p>
+          <p>Зонирование квартир и офисов без потери света.</p>
           <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
@@ -612,7 +612,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <div class="ph" style="--img:url('img/canopy.jpg')"><span class="lbl">козырьки</span></div>
         <div class="body">
           <h3>Стеклянные козырьки</h3>
-          <p>Козырьки над входом на нержавеющих кронштейнах. Закалённый триплекс, устойчивый к нагрузке и снегу.</p>
+          <p>Козырьки над входом. Закалённый триплекс, устойчивый к нагрузке и снегу.</p>
           <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
@@ -620,7 +620,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <div class="ph" style="--img:url('img/atrium.jpg')"><span class="lbl">ограждения</span></div>
         <div class="body">
           <h3>Атриумные ограждения</h3>
-          <p>Ограждения балконов, антресолей и атриумов — прозрачные конструкции без громоздкого каркаса.</p>
+          <p>Ограждения балконов, антресолей и атриумов — максимальная прозрачность.</p>
           <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
@@ -636,7 +636,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <div class="ph" style="--img:url('img/vitrine.jpg')"><span class="lbl">витрины / тамбуры</span></div>
         <div class="body">
           <h3>Витрины ТЦ и стеклянные тамбуры</h3>
-          <p>Витрины для торговых центров и входные цельностеклянные тамбуры с автоматикой по желанию.</p>
+          <p>Витрины для торговых центров и входные цельностеклянные тамбуры.</p>
           <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
@@ -658,7 +658,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
     <div class="head reveal" style="justify-content:center;text-align:center"><div>
       <span class="eyebrow">Материалы</span>
       <h2 style="margin-top:14px">Виды стекла</h2>
-      <p class="lead" style="margin:14px auto 0">Прозрачное, тонированное и матовое стекло «мателюкс» — подберём оттенок и фактуру под ваш интерьер и задачу.</p>
+      <p class="lead" style="margin:14px auto 0">Прозрачное, тонированное и матовое стекло — подберём оттенок и фактуру под ваш интерьер и задачу.</p>
     </div></div>
     <figure class="reveal-img" style="max-width:940px;margin:36px auto 0;box-shadow:var(--shadow-soft)">
       <img src="img/glass-types.jpg" alt="Виды стекла: бесцветное, бронза, осветлённое, серое, чёрное и матовое мателюкс" style="width:100%;display:block" loading="lazy">
@@ -680,9 +680,9 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       </figure>
       <div class="svc-list reveal">
         <div class="svc-step"><span class="svc-num">01</span><div><h3>Замер</h3><p>Бесплатно приедем на объект в черте города, снимем точные размеры современным оборудованием.</p></div></div>
-        <div class="svc-step"><span class="svc-num">02</span><div><h3>Изготовление</h3><p>Изготавливаем по вашим размерам, обрабатываем кромку и контролируем качество на каждом этапе.</p></div></div>
+        <div class="svc-step"><span class="svc-num">02</span><div><h3>Изготовление</h3><p>Изготавливаем по вашим размерам, контролируем качество на каждом этапе.</p></div></div>
         <div class="svc-step"><span class="svc-num">03</span><div><h3>Доставка</h3><p>Аккуратно доставим готовые конструкции по Новосибирску и области в защитной упаковке.</p></div></div>
-        <div class="svc-step"><span class="svc-num">04</span><div><h3>Монтаж</h3><p>Устанавливаем своими бригадами с гарантией. После монтажа убираем за собой.</p></div></div>
+        <div class="svc-step"><span class="svc-num">04</span><div><h3>Монтаж</h3><p>Устанавливаем с гарантией. После монтажа убираем за собой.</p></div></div>
       </div>
     </div>
   </div>
@@ -710,7 +710,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
     <div class="head reveal"><div>
       <span class="eyebrow">Душевые из стекла</span>
       <h2 style="margin-top:14px">Наши душевые перегородки</h2>
-      <p class="lead">Более 15 моделей — распашные, раздвижные и неподвижные экраны из закалённого стекла. Подберём под ваш санузел и цвет фурнитуры.</p>
+      <p class="lead">Более 15 моделей — распашные, раздвижные и стационарные экраны из закалённого стекла.</p>
     </div></div>
     <!-- на главной — лучшие ТЁПЛЫЕ кадры (под тёплый дизайн); все 15 — в лайтбоксе -->
     <div class="gallery reveal">
@@ -736,9 +736,9 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
     </div></div>
     <div class="faq reveal">
       <details open><summary>Насколько безопасно закалённое стекло?</summary><p>Закалённое стекло в 5–7 раз прочнее обычного и при разрушении рассыпается на мелкие безопасные осколки без острых краёв. Для ограждений и козырьков используем триплекс — он держит форму даже при повреждении.</p></details>
-      <details><summary>Сколько занимает изготовление?</summary><p>В среднем от 3 до 10 рабочих дней в зависимости от сложности конструкции. Точный срок фиксируем в договоре после замера.</p></details>
+      <details><summary>Сколько занимает изготовление?</summary><p>Срок изготовления зависит от сложности конструкции, а точный период мы зафиксируем в договоре сразу после проведения замера.</p></details>
       <details><summary>Замер действительно бесплатный?</summary><p>Да. Мастер приезжает на объект, снимает размеры и предлагает решение — это ни к чему вас не обязывает.</p></details>
-      <details><summary>От чего зависит цена?</summary><p>От площади конструкции, толщины стекла (6–12 мм), типа фурнитуры, обработки кромки и покрытий. Итоговую сумму называем после замера — без скрытых доплат.</p></details>
+      <details><summary>От чего зависит цена?</summary><p>От площади конструкции, толщины стекла, типа фурнитуры и покрытий. Итоговую сумму называем после замера — без скрытых доплат.</p></details>
       <details><summary>Даёте ли гарантию?</summary><p>Да, предоставляем гарантию на изделие и монтаж. Условия прописываем в договоре.</p></details>
     </div>
   </div>
@@ -963,7 +963,7 @@ const RM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   const bg=document.getElementById('stickyBg');
   const subs=['Закалённое стекло меняет пространство — впускает свет и делает интерьер дороже.',
     'Замеряем современным оборудованием и изготавливаем точно по вашим размерам.',
-    'Закалённое стекло в 5–7 раз прочнее обычного и безопасно при разрушении.',
+    'Закалённое стекло в 5–7 раз прочнее обычного.',
     'Привозим, устанавливаем и убираем за собой. Вам остаётся только пользоваться.'];
   const pics=['img/shower-04.jpg','img/shower-02.jpg','img/shower-08.jpg','img/shower-06.jpg'];
   const sub=document.getElementById('stickySub');
