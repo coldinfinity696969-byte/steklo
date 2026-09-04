@@ -98,7 +98,7 @@ p{margin:0}
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
   backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:28px;height:82px}
+.nav{display:flex;align-items:center;gap:28px;height:96px}
 .brand{flex:none;display:flex;align-items:center;gap:11px;font-weight:800;font-size:22px;letter-spacing:.02em;line-height:1}
 .brand .logo{width:36px;height:36px;border-radius:9px;background:var(--ink);
   display:grid;place-items:center;color:var(--accent-2);flex:none}
@@ -108,8 +108,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
   display:flex;gap:26px;font-weight:600;font-size:15px;color:var(--ink-soft);white-space:nowrap}
 .nav .menu a:hover{color:var(--accent)}
 .nav .right{flex:none;display:flex;align-items:center;gap:18px}
-.logo-img{height:64px;width:auto;display:block}
-@media(max-width:520px){.logo-img{height:50px}}
+.logo-img{height:78px;width:auto;display:block}
+@media(max-width:520px){.logo-img{height:58px}}
 /* блок преимуществ (полоса под hero) */
 .adv{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 34px;padding:32px 22px}
 .advitem{display:flex;gap:13px;align-items:flex-start}
@@ -175,21 +175,20 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
 .hero2-badge{position:absolute;left:28px;bottom:32px;z-index:3;background:rgba(43,37,29,.68);color:#fff;
   -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);
   font-weight:600;font-size:14px;padding:11px 17px;border-radius:12px}
-.hero2-types{position:absolute;left:26px;bottom:28px;z-index:3;display:flex;flex-direction:column;gap:1px;max-width:78%}
-.hero2-types::before{content:"";position:absolute;left:-22px;right:-40px;top:-18px;bottom:-18px;z-index:-1;
-  background:linear-gradient(112deg,rgba(10,8,5,.66),rgba(10,8,5,.34) 55%,rgba(10,8,5,0) 90%);
-  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);border-radius:18px}
-.hero2-types a{font-family:'Futura PT','Jost','Manrope',sans-serif;font-weight:600;width:max-content;max-width:100%;
-  font-size:clamp(13.5px,1.45vw,16px);line-height:1.52;letter-spacing:.01em;color:rgba(255,255,255,.86);
-  text-decoration:none;text-shadow:0 1px 12px rgba(0,0,0,.7),0 0 2px rgba(0,0,0,.4);transition:color .18s ease,transform .18s ease}
-.hero2-types a:hover{color:#fff;transform:translateX(3px)}
+.hero2-types{position:absolute;left:30px;bottom:30px;z-index:3;display:flex;flex-direction:column;gap:3px;max-width:80%}
+.hero2-types::before{content:"";position:absolute;left:-54px;right:-72px;top:-44px;bottom:-48px;z-index:-1;
+  background:radial-gradient(135% 125% at 16% 86%,rgba(12,17,23,.54),rgba(12,17,23,.15) 46%,transparent 70%)}
+.hero2-types a{font-family:'Futura PT','Jost','Manrope',sans-serif;font-weight:300;width:max-content;max-width:100%;
+  font-size:clamp(13px,1.35vw,15.5px);line-height:1.66;letter-spacing:.05em;color:rgba(255,255,255,.82);
+  text-decoration:none;text-shadow:0 1px 16px rgba(0,0,0,.5);transition:color .2s ease,letter-spacing .2s ease}
+.hero2-types a:hover{color:#fff;letter-spacing:.08em}
 @media(max-width:900px){
   .hero2-inner{display:block;min-height:0}
   .hero2-media{position:relative;width:auto;max-width:none;height:60vw;max-height:430px}
   .hero2-media::after{background:linear-gradient(0deg,var(--cream) 1%,rgba(247,241,230,0) 34%)}
   .hero2-badge{left:20px}
-  .hero2-types{left:18px;bottom:18px;gap:0}
-  .hero2-types a{font-size:13.5px;line-height:1.46}
+  .hero2-types{left:20px;bottom:20px;gap:2px}
+  .hero2-types a{font-size:13px;line-height:1.62}
   .hero2-text{padding:46px 0 22px;max-width:none}
 }
 .btn--outline{background:transparent;border-color:var(--line-dark);color:var(--ink)}
@@ -469,10 +468,16 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 
 /* floating messenger buttons */
 .fab{position:fixed;right:18px;bottom:18px;z-index:60;display:flex;flex-direction:column;gap:12px}
-.fab a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;
+.fab a{position:relative;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;
   box-shadow:0 10px 26px -8px rgba(0,0,0,.5);transition:.2s transform}
 .fab a:hover{transform:scale(1.07)}
 .fab .wa{background:#25d366}.fab .tg{background:#2aabee}.fab .mx{background:#5b6ef5}
+.fab a::after{content:attr(data-label);position:absolute;right:64px;top:50%;transform:translateY(-50%);
+  background:var(--ink);color:#fff;font-weight:600;font-size:13px;letter-spacing:.01em;padding:7px 13px;border-radius:10px;
+  white-space:nowrap;box-shadow:var(--shadow-soft);pointer-events:none}
+.fab a::before{content:"";position:absolute;right:57px;top:50%;transform:translateY(-50%) rotate(45deg);
+  width:9px;height:9px;background:var(--ink);pointer-events:none}
+@media(max-width:900px){.fab a::after,.fab a::before{display:none}}
 
 /* закреплённая CTA-плашка (мобилка) — одна акцентная кнопка на скролле */
 .cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
@@ -962,9 +967,9 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 
 <!-- floating messengers -->
 <div class="fab">
-  <a class="mx" href="https://max.ru/u/f9LHodD0cOKJfU9q7vRUQ7HlTOAw7GGYHYRYHELlha74lchOGIXQSi6N_yo" target="_blank" rel="noopener" aria-label="MAX"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 3V5z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
-  <a class="wa" href="https://wa.me/79139899929" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
-  <a class="tg" href="https://t.me/+79139899929" target="_blank" rel="noopener" aria-label="Telegram"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M21 5L3 12l6 2 2 6 3-4 4 3 3-14z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
+  <a class="mx" data-label="MAX" href="https://max.ru/u/f9LHodD0cOKJfU9q7vRUQ7HlTOAw7GGYHYRYHELlha74lchOGIXQSi6N_yo" target="_blank" rel="noopener" aria-label="MAX"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 3V5z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
+  <a class="wa" data-label="WhatsApp" href="https://wa.me/79139899929" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
+  <a class="tg" data-label="Telegram" href="https://t.me/+79139899929" target="_blank" rel="noopener" aria-label="Telegram"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M21 5L3 12l6 2 2 6 3-4 4 3 3-14z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
 </div>
 
 <script>
