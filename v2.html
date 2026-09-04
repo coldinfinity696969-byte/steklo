@@ -98,7 +98,7 @@ p{margin:0}
 /* ---------- header ---------- */
 header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
   backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;gap:28px;height:72px}
+.nav{display:flex;align-items:center;gap:28px;height:82px}
 .brand{flex:none;display:flex;align-items:center;gap:11px;font-weight:800;font-size:22px;letter-spacing:.02em;line-height:1}
 .brand .logo{width:36px;height:36px;border-radius:9px;background:var(--ink);
   display:grid;place-items:center;color:var(--accent-2);flex:none}
@@ -108,8 +108,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
   display:flex;gap:26px;font-weight:600;font-size:15px;color:var(--ink-soft);white-space:nowrap}
 .nav .menu a:hover{color:var(--accent)}
 .nav .right{flex:none;display:flex;align-items:center;gap:18px}
-.logo-img{height:56px;width:auto;display:block}
-@media(max-width:520px){.logo-img{height:44px}}
+.logo-img{height:64px;width:auto;display:block}
+@media(max-width:520px){.logo-img{height:50px}}
 /* блок преимуществ (полоса под hero) */
 .adv{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 34px;padding:32px 22px}
 .advitem{display:flex;gap:13px;align-items:flex-start}
@@ -462,7 +462,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 .fab a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;
   box-shadow:0 10px 26px -8px rgba(0,0,0,.5);transition:.2s transform}
 .fab a:hover{transform:scale(1.07)}
-.fab .wa{background:#25d366}.fab .tg{background:#2aabee}
+.fab .wa{background:#25d366}.fab .tg{background:#2aabee}.fab .mx{background:#5b6ef5}
 
 /* закреплённая CTA-плашка (мобилка) — одна акцентная кнопка на скролле */
 .cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
@@ -508,7 +508,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <a href="#contact">Контакты</a>
     </nav>
     <div class="right">
-      <a class="phone" href="tel:+79139899929">+7 913 989-99-29<small>Новосибирск, пн–пт 9:00–18:00</small></a>
+      <a class="phone" href="tel:+79139899929">+7 913 989-99-29<small>Новосибирск, пн–вс 9:00–18:00</small></a>
       <a href="#contact" class="btn btn--accent">Оставить заявку</a>
       <button class="burger" aria-label="Меню" onclick="document.getElementById('m').scrollIntoView()"><span></span><span></span><span></span></button>
     </div>
@@ -560,8 +560,8 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <span class="kicker">СтеклА, Новосибирск</span>
       <div class="sticky-words" id="stickyWords">
         <span class="on">Прозрачность</span>
-        <span>Точность до миллиметра</span>
         <span>Безопасность</span>
+        <span>Точность до миллиметра</span>
         <span>Монтаж под ключ</span>
       </div>
       <p class="sticky-sub" id="stickySub">Закалённое стекло меняет пространство — впускает свет и делает интерьер дороже.</p>
@@ -639,19 +639,19 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         </div>
       </article>
       <article class="card reveal">
-        <div class="ph catph" data-cat="vitr" style="--img:url('img/vitrine.jpg')"><span class="lbl">витрины / тамбуры</span></div>
+        <div class="ph catph" data-cat="vitr" style="--img:url('img/vitrine.jpg')"><span class="lbl">витрины</span></div>
         <div class="body">
-          <h3>Витрины ТЦ и стеклянные тамбуры</h3>
-          <p>Витрины для торговых центров и входные цельностеклянные тамбуры.</p>
+          <h3>Витрины ТЦ</h3>
+          <p>Витрины для торговых центров — прозрачные фасады магазинов.</p>
           <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
-      <!-- CTA-карточка -->
-      <article class="card reveal" style="background:var(--ink);color:#fff;border-color:var(--ink)">
-        <div class="body" style="justify-content:center;gap:16px">
-          <h3 style="color:#fff;font-size:21px">Нестандартная конструкция?</h3>
-          <p style="color:#b7c1c7">Спроектируем и изготовим по индивидуальному проекту под ваш объект.</p>
-          <a href="#contact" class="btn btn--accent" style="align-self:flex-start;margin-top:6px">Обсудить проект</a>
+      <article class="card reveal">
+        <div class="ph catph" data-cat="tamb" style="--img:url('img/g-vitr-4.jpg')"><span class="lbl">тамбуры</span></div>
+        <div class="body">
+          <h3>Стеклянные тамбуры</h3>
+          <p>Входные цельностеклянные тамбуры и входные группы.</p>
+          <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
     </div>
@@ -687,7 +687,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <div class="svc-list reveal">
         <div class="svc-step"><span class="svc-num">01</span><div><h3>Замер</h3><p>Бесплатно приедем на объект в черте города, снимем точные размеры современным оборудованием.</p></div></div>
         <div class="svc-step"><span class="svc-num">02</span><div><h3>Изготовление</h3><p>Изготавливаем по вашим размерам, контролируем качество на каждом этапе.</p></div></div>
-        <div class="svc-step"><span class="svc-num">03</span><div><h3>Доставка</h3><p>Аккуратно доставим готовые конструкции по Новосибирску и области в защитной упаковке.</p></div></div>
+        <div class="svc-step"><span class="svc-num">03</span><div><h3>Доставка</h3><p>Аккуратно доставим готовые конструкции.</p></div></div>
         <div class="svc-step"><span class="svc-num">04</span><div><h3>Монтаж</h3><p>Устанавливаем с гарантией. После монтажа убираем за собой.</p></div></div>
       </div>
     </div>
@@ -702,7 +702,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <h2 style="margin-top:14px">Прозрачный процесс без сюрпризов</h2>
     </div></div>
     <div class="steps">
-      <div class="step reveal"><h3>Заявка</h3><p>Оставляете заявку на сайте или пишете в мессенджер. Отвечаем в течение рабочего дня.</p></div>
+      <div class="step reveal"><h3>Заявка</h3><p>Оставляете заявку на сайте или пишете в мессенджер, и мы обязательно с вами свяжемся.</p></div>
       <div class="step reveal"><h3>Замер и расчёт</h3><p>Бесплатно выезжаем, снимаем размеры и называем точную стоимость.</p></div>
       <div class="step reveal"><h3>Договор и изготовление</h3><p>Фиксируем цену и сроки в договоре, изготавливаем конструкцию по размерам.</p></div>
       <div class="step reveal"><h3>Монтаж и гарантия</h3><p>Устанавливаем, проверяем и выдаём гарантию. Готово — можно пользоваться.</p></div>
@@ -817,7 +817,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         </a>
         <a class="chan" href="tel:+79139899929">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-          <span><b>+7 913 989-99-29</b><span>Позвонить, пн–пт 9:00–18:00</span></span>
+          <span><b>+7 913 989-99-29</b><span>Позвонить, пн–вс 9:00–18:00</span></span>
         </a>
         <a class="chan" href="mailto:stekla_info@mail.ru">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3zM3 7l9 6 9-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
@@ -878,9 +878,14 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <div class="col">
         <h4>Конструкции</h4>
         <p><a href="#catalog">Душевые перегородки</a></p>
-        <p><a href="#catalog">Перегородки и перила</a></p>
-        <p><a href="#catalog">Козырьки и ограждения</a></p>
-        <p><a href="#catalog">Остекление и облицовка</a></p>
+        <p><a href="#catalog">Межкомнатные перегородки</a></p>
+        <p><a href="#catalog">Стеклянные перила лестниц</a></p>
+        <p><a href="#catalog">Остекление террас</a></p>
+        <p><a href="#catalog">Стеклянные козырьки</a></p>
+        <p><a href="#catalog">Атриумные ограждения</a></p>
+        <p><a href="#catalog">Облицовка стеклом</a></p>
+        <p><a href="#catalog">Витрины ТЦ</a></p>
+        <p><a href="#catalog">Стеклянные тамбуры</a></p>
       </div>
       <div class="col">
         <h4>Контакты</h4>
@@ -913,6 +918,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 
 <!-- floating messengers -->
 <div class="fab">
+  <a class="mx" href="https://max.ru/u/f9LHodD0cOKJfU9q7vRUQ7HlTOAw7GGYHYRYHELlha74lchOGIXQSi6N_yo" target="_blank" rel="noopener" aria-label="MAX"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 5h16v11H8l-4 3V5z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
   <a class="wa" href="https://wa.me/79139899929" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 00-7.7 13.6L3 21l4.5-1.2A9 9 0 1012 3z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
   <a class="tg" href="https://t.me/+79139899929" target="_blank" rel="noopener" aria-label="Telegram"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M21 5L3 12l6 2 2 6 3-4 4 3 3-14z" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></a>
 </div>
@@ -968,10 +974,10 @@ const RM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   const dots=[...document.querySelectorAll('#stickyDots i')];
   const bg=document.getElementById('stickyBg');
   const subs=['Закалённое стекло меняет пространство — впускает свет и делает интерьер дороже.',
-    'Замеряем современным оборудованием и изготавливаем точно по вашим размерам.',
     'Закалённое стекло в 5–7 раз прочнее обычного.',
+    'Замеряем современным оборудованием и изготавливаем точно по вашим размерам.',
     'Привозим, устанавливаем и убираем за собой. Вам остаётся только пользоваться.'];
-  const pics=['img/shower-04.jpg','img/shower-02.jpg','img/shower-08.jpg','img/shower-06.jpg'];
+  const pics=['img/shower-04.jpg','img/shower-08.jpg','img/shower-02.jpg','img/shower-06.jpg'];
   const sub=document.getElementById('stickySub');
   let cur=-1;
   const apply=(i)=>{if(i===cur)return;cur=i;
@@ -1094,14 +1100,15 @@ f&&f.addEventListener('submit',async(ev)=>{
   document.querySelectorAll('#projects .marquee-item').forEach(t=>{t.addEventListener('click',()=>open(+t.dataset.idx||0,WORKS));});
   // каталог: клик по фото карточки -> варианты монтажа этого типа
   const CATS={
-    dush:['img/shower-01.jpg','img/shower-02.jpg','img/shower-03.jpg','img/shower-04.jpg','img/shower-05.jpg','img/shower-06.jpg'],
-    mezh:['img/g-mezh-1.jpg','img/g-mezh-2.jpg','img/g-mezh-3.jpg','img/g-mezh-4.jpg','img/g-mezh-5.jpg'],
+    dush:['img/shower-01.jpg','img/shower-02.jpg','img/shower-03.jpg','img/shower-04.jpg','img/shower-05.jpg','img/shower-06.jpg','img/shower-07.jpg','img/shower-08.jpg','img/shower-09.jpg','img/shower-10.jpg','img/shower-11.jpg','img/shower-12.jpg','img/shower-13.jpg','img/shower-14.jpg','img/shower-15.jpg'],
+    mezh:['img/g-mezh-2.jpg','img/g-mezh-3.jpg','img/g-mezh-4.jpg'],
     perila:['img/g-perila-1.jpg','img/g-perila-2.jpg','img/g-perila-3.jpg','img/g-perila-4.jpg','img/g-perila-5.jpg'],
     terr:['img/g-terr-1.jpg','img/g-terr-2.jpg','img/g-terr-3.jpg','img/g-terr-4.jpg','img/g-terr-5.jpg'],
-    kozyr:['img/g-kozyr-1.jpg','img/g-kozyr-2.jpg','img/g-kozyr-3.jpg','img/g-kozyr-4.jpg','img/g-kozyr-5.jpg'],
-    atrium:['img/g-atrium-1.jpg','img/g-atrium-3.jpg','img/g-atrium-4.jpg'],
+    kozyr:['img/g-kozyr-1.jpg','img/g-kozyr-3.jpg','img/g-kozyr-4.jpg','img/g-kozyr-5.jpg'],
+    atrium:['img/g-atrium-1.jpg'],
     oblic:['img/g-oblic-1.jpg','img/g-oblic-2.jpg','img/g-oblic-3.jpg','img/g-oblic-4.jpg'],
-    vitr:['img/g-vitr-1.jpg','img/g-vitr-2.jpg','img/g-vitr-3.jpg','img/g-vitr-4.jpg','img/g-vitr-5.jpg']
+    vitr:['img/g-vitr-1.jpg','img/g-vitr-2.jpg','img/g-vitr-3.jpg'],
+    tamb:['img/g-vitr-4.jpg','img/g-vitr-5.jpg']
   };
   document.querySelectorAll('#catalog .catph').forEach(t=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>{const a=CATS[t.dataset.cat];if(a&&a.length)open(0,a);});});
   const all=document.getElementById('galleryAll');
