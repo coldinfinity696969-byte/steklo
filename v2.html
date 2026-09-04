@@ -175,11 +175,21 @@ header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
 .hero2-badge{position:absolute;left:28px;bottom:32px;z-index:3;background:rgba(43,37,29,.68);color:#fff;
   -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);
   font-weight:600;font-size:14px;padding:11px 17px;border-radius:12px}
+.hero2-types{position:absolute;left:26px;bottom:28px;z-index:3;display:flex;flex-direction:column;gap:1px;max-width:78%}
+.hero2-types::before{content:"";position:absolute;left:-22px;right:-40px;top:-18px;bottom:-18px;z-index:-1;
+  background:linear-gradient(112deg,rgba(10,8,5,.66),rgba(10,8,5,.34) 55%,rgba(10,8,5,0) 90%);
+  -webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);border-radius:18px}
+.hero2-types a{font-family:'Futura PT','Jost','Manrope',sans-serif;font-weight:600;width:max-content;max-width:100%;
+  font-size:clamp(13.5px,1.45vw,16px);line-height:1.52;letter-spacing:.01em;color:rgba(255,255,255,.86);
+  text-decoration:none;text-shadow:0 1px 12px rgba(0,0,0,.7),0 0 2px rgba(0,0,0,.4);transition:color .18s ease,transform .18s ease}
+.hero2-types a:hover{color:#fff;transform:translateX(3px)}
 @media(max-width:900px){
   .hero2-inner{display:block;min-height:0}
   .hero2-media{position:relative;width:auto;max-width:none;height:60vw;max-height:430px}
   .hero2-media::after{background:linear-gradient(0deg,var(--cream) 1%,rgba(247,241,230,0) 34%)}
   .hero2-badge{left:20px}
+  .hero2-types{left:18px;bottom:18px;gap:0}
+  .hero2-types a{font-size:13.5px;line-height:1.46}
   .hero2-text{padding:46px 0 22px;max-width:none}
 }
 .btn--outline{background:transparent;border-color:var(--line-dark);color:var(--ink)}
@@ -519,13 +529,29 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 <section class="hero2">
   <div class="hero2-media reveal">
     <div class="slideshow" id="heroShow">
-      <img src="img/shower-04.jpg" alt="Душевая перегородка из закалённого стекла" class="active">
-      <img src="img/shower-02.jpg" alt="" loading="lazy">
-      <img src="img/shower-08.jpg" alt="" loading="lazy">
-      <img src="img/shower-06.jpg" alt="" loading="lazy">
-      <img src="img/shower-01.jpg" alt="" loading="lazy">
+      <img src="img/hero-mix-03.jpg" alt="Конструкции из закалённого стекла — работы СтеклА" class="active">
+      <img src="img/hero-mix-05.jpg" alt="" loading="lazy">
+      <img src="img/hero-mix-11.jpg" alt="" loading="lazy">
+      <img src="img/hero-mix-07.jpg" alt="" loading="lazy">
+      <img src="img/hero-mix-13.jpg" alt="" loading="lazy">
+      <img src="img/hero-mix-01.jpg" alt="" loading="lazy">
+      <img src="img/hero-mix-09.jpg" alt="" loading="lazy">
+      <img src="img/hero-mix-14.jpg" alt="" loading="lazy">
+      <img src="img/hero-mix-12.jpg" alt="" loading="lazy">
+      <img src="img/hero-mix-15.jpg" alt="" loading="lazy">
     </div>
-    <span class="hero2-badge">15+ моделей душевых</span>
+    <nav class="hero2-types" aria-label="Типы конструкций">
+      <a href="#catalog" data-cat="dush">Душевые перегородки</a>
+      <a href="#catalog" data-cat="mezh">Межкомнатные перегородки</a>
+      <a href="#catalog" data-cat="celno">Цельностеклянные перегородки</a>
+      <a href="#catalog" data-cat="perila">Стеклянные перила лестниц</a>
+      <a href="#catalog" data-cat="terr">Остекление террас</a>
+      <a href="#catalog" data-cat="kozyr">Стеклянные козырьки</a>
+      <a href="#catalog" data-cat="atrium">Атриумные ограждения</a>
+      <a href="#catalog" data-cat="oblic">Облицовка стеклом</a>
+      <a href="#catalog" data-cat="vitr">Витрины</a>
+      <a href="#catalog" data-cat="tamb">Стеклянные тамбуры</a>
+    </nav>
   </div>
   <div class="hero2-inner">
     <div class="hero2-text reveal">
@@ -649,8 +675,8 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <article class="card reveal">
         <div class="ph catph" data-cat="vitr" style="--img:url('img/vitrine.jpg')"><span class="lbl">витрины</span></div>
         <div class="body">
-          <h3>Витрины ТЦ</h3>
-          <p>Витрины для торговых центров — прозрачные фасады магазинов.</p>
+          <h3>Витрины</h3>
+          <p>Прозрачные стеклянные фасады для магазинов и торговых точек.</p>
           <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
@@ -900,7 +926,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <p><a href="#catalog">Стеклянные козырьки</a></p>
         <p><a href="#catalog">Атриумные ограждения</a></p>
         <p><a href="#catalog">Облицовка стеклом</a></p>
-        <p><a href="#catalog">Витрины ТЦ</a></p>
+        <p><a href="#catalog">Витрины</a></p>
         <p><a href="#catalog">Стеклянные тамбуры</a></p>
       </div>
       <div class="col">
@@ -1128,6 +1154,7 @@ f&&f.addEventListener('submit',async(ev)=>{
     tamb:['img/g-vitr-4.jpg','img/g-vitr-5.jpg']
   };
   document.querySelectorAll('#catalog .catph').forEach(t=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>{const a=CATS[t.dataset.cat];if(a&&a.length)open(0,a);});});
+  document.querySelectorAll('.hero2-types a[data-cat]').forEach(l=>{l.addEventListener('click',e=>{const a=CATS[l.dataset.cat];if(a&&a.length){e.preventDefault();open(0,a);}});});
   const all=document.getElementById('galleryAll');
   if(all)all.addEventListener('click',e=>{e.preventDefault();open(0,ALL);});
   document.getElementById('lbClose').onclick=close;
