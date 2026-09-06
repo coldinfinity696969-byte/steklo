@@ -499,8 +499,14 @@ body{color:#e9eef4}
 h1,h2,h3,h4{color:#f2f6fa}
 .btn--outline{color:#e9eef4}
 .btn--outline:hover{background:#e9eef4;color:#0d1218;border-color:#e9eef4}
-.btn--accent{box-shadow:0 0 0 1px rgba(72,184,209,.4),0 10px 34px -10px rgba(72,184,209,.5)}
-.btn--accent:hover{box-shadow:0 0 0 1px rgba(72,184,209,.6),0 14px 40px -8px rgba(72,184,209,.7)}
+/* тёмный текст на ярком циане — читаемость + техничный вид */
+.btn--accent{color:#07161c;font-weight:700;box-shadow:0 0 0 1px rgba(72,184,209,.4),0 10px 34px -10px rgba(72,184,209,.5)}
+.btn--accent:hover{color:#07161c;box-shadow:0 0 0 1px rgba(72,184,209,.6),0 14px 40px -8px rgba(72,184,209,.7)}
+/* галочки преимуществ — тёмная плашка с циановой иконкой, а не светлый квадрат */
+.advitem .ac{background:rgba(72,184,209,.14);color:var(--accent);box-shadow:inset 0 0 0 1px rgba(72,184,209,.25)}
+/* плашки-заглушки на фото и подпись макро-фото — в тон тёмной теме */
+.ph .lbl{color:#8fa3ad;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.svc-photo-lbl{color:#6f7d87}
 /* карточки — hairline-рамка вместо тени (на тёмном тень не читается) */
 .card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.02),transparent),var(--paper)}
 .card:hover{border-color:rgba(72,184,209,.35)}
