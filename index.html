@@ -550,7 +550,7 @@ footer .bottom{color:#6b7680}
       <a href="#contact">Контакты</a>
     </nav>
     <div class="right">
-      <a class="phone" href="tel:+79139899929">+7 913 989-99-29<small>Новосибирск, пн–вс 9:00–18:00</small></a>
+      <a class="phone" href="tel:+79139899929">+7 913 989-99-29<small>Новосибирск, пн–вс 9.00–18.00</small></a>
       <a href="#contact" class="btn btn--accent">Оставить заявку</a>
       <button class="burger" aria-label="Меню" onclick="document.getElementById('m').scrollIntoView()"><span></span><span></span><span></span></button>
     </div>
@@ -789,21 +789,21 @@ footer .bottom{color:#6b7680}
 <section class="section" id="works">
   <div class="wrap">
     <div class="head reveal"><div>
-      <span class="eyebrow">Душевые из стекла</span>
-      <h2 style="margin-top:14px">Наши душевые перегородки</h2>
-      <p class="lead">Более 15 моделей — распашные, раздвижные и стационарные экраны из закалённого стекла.</p>
+      <span class="eyebrow">Наши работы</span>
+      <h2 style="margin-top:14px">Работы по всем типам конструкций</h2>
+      <p class="lead">Душевые и перегородки, перила, остекление террас, козырьки, витрины и тамбуры. Нажмите на фото — покажем варианты по этому типу.</p>
     </div></div>
     <!-- на главной — лучшие ТЁПЛЫЕ кадры (под тёплый дизайн); все 15 — в лайтбоксе -->
     <div class="gallery reveal">
-      <div class="ph big" data-idx="3" style="--img:url('img/shower-04.jpg')"></div>
-      <div class="ph" data-idx="1" style="--img:url('img/shower-02.jpg')"></div>
-      <div class="ph" data-idx="6" style="--img:url('img/shower-07.jpg')"></div>
-      <div class="ph" data-idx="7" style="--img:url('img/shower-08.jpg')"></div>
-      <div class="ph" data-idx="9" style="--img:url('img/shower-10.jpg')"></div>
+      <div class="ph big" data-cat="dush" style="--img:url('img/shower-04.jpg')"></div>
+      <div class="ph" data-cat="celno" style="--img:url('img/g-celno-1.jpg')"></div>
+      <div class="ph" data-cat="perila" style="--img:url('img/g-perila-2.jpg')"></div>
+      <div class="ph" data-cat="terr" style="--img:url('img/g-terr-3.jpg')"></div>
+      <div class="ph" data-cat="kozyr" style="--img:url('img/g-kozyr-1.jpg')"></div>
     </div>
     <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:30px" class="reveal">
-      <a href="#" id="galleryAll" class="btn btn--accent btn--lg">Смотреть все душевые</a>
-      <a href="#contact" class="btn btn--outline btn--lg">Подобрать душевую</a>
+      <a href="#catalog" class="btn btn--accent btn--lg">Смотреть все конструкции</a>
+      <a href="#contact" class="btn btn--outline btn--lg">Рассчитать стоимость</a>
     </div>
   </div>
 </section>
@@ -892,7 +892,7 @@ footer .bottom{color:#6b7680}
         </a>
         <a class="chan" href="tel:+79139899929">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-          <span><b>+7 913 989-99-29</b><span>Позвонить, пн–вс 9:00–18:00</span></span>
+          <span><b>+7 913 989-99-29</b><span>Позвонить, пн–вс 9.00–18.00</span></span>
         </a>
         <a class="chan" href="mailto:stekla_info@mail.ru">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3zM3 7l9 6 9-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
@@ -968,7 +968,7 @@ footer .bottom{color:#6b7680}
         <p><a href="tel:+79139899929">+7 913 989-99-29</a></p>
         <p><a href="https://max.ru/u/f9LHodD0cOKJfU9q7vRUQ7HlTOAw7GGYHYRYHELlha74lchOGIXQSi6N_yo">MAX</a> / <a href="https://wa.me/79139899929">WhatsApp</a> / <a href="https://t.me/+79139899929">Telegram</a></p>
         <p><a href="mailto:stekla_info@mail.ru">stekla_info@mail.ru</a></p>
-        <p>Пн–вс 9:00–18:00, Новосибирск</p>
+        <p>Пн–вс 9.00–18.00, Новосибирск</p>
       </div>
     </div>
     <div class="bottom">
@@ -1053,7 +1053,7 @@ const RM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
     'Закалённое стекло в 5–7 раз прочнее обычного.',
     'Замеряем современным оборудованием и изготавливаем точно по вашим размерам.',
     'Привозим, устанавливаем и убираем за собой. Вам остаётся только пользоваться.'];
-  const pics=['img/shower-04.jpg','img/shower-08.jpg','img/shower-02.jpg','img/shower-06.jpg'];
+  const pics=['img/g-celno-1.jpg','img/g-perila-2.jpg','img/shower-04.jpg','img/g-kozyr-1.jpg'];
   const sub=document.getElementById('stickySub');
   let cur=-1;
   const apply=(i)=>{if(i===cur)return;cur=i;
@@ -1172,7 +1172,6 @@ f&&f.addEventListener('submit',async(ev)=>{
   const show=n=>{i=(n+arr.length)%arr.length;img.src=arr[i];cnt.textContent=(i+1)+' / '+arr.length;};
   const open=(n,a)=>{arr=a;show(n);lb.classList.add('open');document.body.style.overflow='hidden';};
   const close=()=>{lb.classList.remove('open');document.body.style.overflow='';};
-  document.querySelectorAll('#works .gallery .ph').forEach(t=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>open(+t.dataset.idx||0,ALL));});
   document.querySelectorAll('#projects .marquee-item').forEach(t=>{t.addEventListener('click',()=>open(+t.dataset.idx||0,WORKS));});
   // каталог: клик по фото карточки -> варианты монтажа этого типа
   const CATS={
@@ -1187,7 +1186,7 @@ f&&f.addEventListener('submit',async(ev)=>{
     vitr:['img/g-vitr-1.jpg','img/g-vitr-2.jpg','img/g-vitr-3.jpg'],
     tamb:['img/g-vitr-4.jpg','img/g-vitr-5.jpg']
   };
-  document.querySelectorAll('#catalog .catph').forEach(t=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>{const a=CATS[t.dataset.cat];if(a&&a.length)open(0,a);});});
+  document.querySelectorAll('#catalog .catph, #works .gallery .ph').forEach(t=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>{const a=CATS[t.dataset.cat];if(a&&a.length)open(0,a);});});
   document.querySelectorAll('.hero2-types a[data-cat]').forEach(l=>{l.addEventListener('click',e=>{const a=CATS[l.dataset.cat];if(a&&a.length){e.preventDefault();open(0,a);}});});
   const all=document.getElementById('galleryAll');
   if(all)all.addEventListener('click',e=>{e.preventDefault();open(0,ALL);});
