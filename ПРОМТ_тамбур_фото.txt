@@ -1,0 +1,35 @@
+ЗАДАЧА: убрать с фото стеклянного тамбура (2-е фото в разделе «Стеклянные тамбуры»)
+машину на заднем плане и два красных стула.
+
+ФАЙЛ: C:\Users\NIKITA\steklo\img\g-vitr-5.jpg   (1200x900)
+
+ГДЕ ЧТО НАХОДИТСЯ:
+- Машина (серебристый внедорожник) — в центре кадра, видна через нижние стеклянные
+  панели входных дверей, примерно центральная треть по ширине.
+- Красный стул №1 — у левого края, на фоне вертикальных жалюзи.
+- Красный стул №2 — у правого края, рядом со стойкой и белой тюлевой шторой.
+
+--- ВАРИАНТ A: Magnific, инструмент Retouch / Erase (лучший результат) ---
+1) Загрузить g-vitr-5.jpg
+2) Кистью закрасить: машину за стеклом + оба красных стула
+3) Режим Erase (удалить), если просит промт — вставить:
+
+empty city street behind the glass entrance doors, clean asphalt and light snow,
+no cars, no people; on both sides plain office floor with vertical blinds and
+white curtain, no chairs, no furniture; keep the glass tambour structure,
+door frames, handles and reflections exactly as they are, photorealistic,
+consistent lighting and perspective, no text, no watermark
+
+--- ВАРИАНТ B: Nano Banana 2 / редактирование по тексту ---
+Remove the silver SUV visible through the glass entrance doors and replace it with
+an empty street: clean asphalt, light snow, the building opposite stays. Remove both
+red transparent chairs on the left and right sides, leaving clean floor. Do not change
+the glass tambour, its metal frames, door handles, ceiling or reflections. Keep the
+original camera angle, lighting and colors. Photorealistic, no text, no watermark.
+
+--- ПОСЛЕ ГЕНЕРАЦИИ ---
+Сохранить результат ЛЮБЫМ именем в папку:
+C:\Users\NIKITA\Desktop\логотип СтеклА\фото кабин\Стеклянные тамбуры и входные группы\
+и написать мне — я обработаю (4:3, сжатие <300 КБ) и поставлю на сайт вместо текущего.
+
+ВАЖНО: соотношение сторон оставить 4:3, иначе фото не сядет в плитку ровно.
