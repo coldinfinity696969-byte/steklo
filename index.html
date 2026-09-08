@@ -27,21 +27,21 @@
 @font-face{font-family:'Futura PT';src:url('fonts/futura_pt_demi.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
 @font-face{font-family:'Futura PT';src:url('fonts/futura_pt_bold.woff2') format('woff2');font-weight:700;font-style:normal;font-display:swap}
 :root{
-  --ink:#090d12;          /* глубокий графит — фон тёмных секций */
-  --ink-soft:#9aa7b3;     /* приглушённый светлый текст */
-  --paper:#151c24;        /* тёмная поверхность — карточки */
-  --paper-2:#10161d;      /* тёмная альт-секция */
-  --cream:#0d1218;        /* фон страницы */
-  --line:rgba(255,255,255,.09);
-  --line-dark:rgba(255,255,255,.17);
-  --accent:#8fa8b5;       /* стально-циановый хай-тек акцент */
-  --accent-2:#b7cad4;
-  --muted:#7b8792;
-  --shadow:0 18px 50px -22px rgba(0,0,0,.65);
-  /* холодная тень + тонкий внутренний блик (металл/стекло) */
-  --shadow-soft:0 1px 2px rgba(0,0,0,.45),0 10px 26px -12px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.045);
-  --shadow-lift:0 2px 6px rgba(0,0,0,.5),0 22px 48px -14px rgba(0,0,0,.62),inset 0 1px 0 rgba(255,255,255,.06);
-  --radius:12px;
+  --ink:#2b251d;          /* тёплый тёмно-коричневый текст / тёмные секции */
+  --ink-soft:#5c5348;
+  --paper:#fffdf8;        /* тёплый белый — карточки */
+  --paper-2:#f1e8da;      /* кремовый — альт. секции */
+  --cream:#f7f1e6;        /* фон страницы */
+  --line:#e7ddcc;
+  --line-dark:#3a332a;
+  --accent:#a9764a;       /* терракотово-бронзовый акцент */
+  --accent-2:#c2915f;
+  --muted:#8c8173;
+  --shadow:0 18px 50px -22px rgba(60,45,30,.30);
+  /* «хорошая» мягкая тень из нескольких слоёв, чуть тёплая — не плоская дефолтная */
+  --shadow-soft:0 1px 2px rgba(60,45,30,.05),0 6px 16px -6px rgba(60,45,30,.10),0 20px 40px -18px rgba(60,45,30,.14);
+  --shadow-lift:0 2px 4px rgba(60,45,30,.06),0 14px 30px -8px rgba(90,60,35,.16),0 36px 64px -26px rgba(120,80,45,.24);
+  --radius:16px;
   --maxw:1200px;
 }
 *{box-sizing:border-box}
@@ -96,7 +96,7 @@ p{margin:0}
 @media (prefers-reduced-motion:reduce){.btn--glass:hover::after,.btn--glass-accent:hover::after{animation:none}}
 
 /* ---------- header ---------- */
-header{position:sticky;top:0;z-index:50;background:rgba(13,18,24,.85);
+header{position:sticky;top:0;z-index:50;background:rgba(247,241,230,.85);
   backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
 .nav{display:flex;align-items:center;gap:28px;height:96px}
 .brand{flex:none;display:flex;align-items:center;gap:11px;font-weight:800;font-size:22px;letter-spacing:.02em;line-height:1}
@@ -113,7 +113,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,18,24,.85);
 /* блок преимуществ (полоса под hero) */
 .adv{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 34px;padding:32px 22px}
 .advitem{display:flex;gap:13px;align-items:flex-start}
-.advitem .ac{flex:none;width:26px;height:26px;border-radius:7px;background:#dfe6ec;color:var(--accent);display:grid;place-items:center;margin-top:1px}
+.advitem .ac{flex:none;width:26px;height:26px;border-radius:7px;background:#efe3d1;color:var(--accent);display:grid;place-items:center;margin-top:1px}
 .advitem b{display:block;font-size:16px;letter-spacing:-.01em}
 .advitem span{color:var(--muted);font-size:13.5px}
 @media(max-width:820px){.adv{grid-template-columns:repeat(2,1fr)}}
@@ -173,7 +173,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,18,24,.85);
 .hero2-media{position:absolute;top:0;right:0;bottom:0;width:46vw;max-width:880px;z-index:1}
 .hero2-media .slideshow{position:absolute;inset:0;border-radius:0;border:0;box-shadow:none;background:var(--cream);overflow:hidden}
 .hero2-media::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
-  background:linear-gradient(90deg,var(--cream) 0%,rgba(13,18,24,0) 18%)}
+  background:linear-gradient(90deg,var(--cream) 0%,rgba(247,241,230,0) 18%)}
 .slideshow img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
   opacity:0;transition:opacity 1.6s ease;transform:scale(1);will-change:opacity,transform}
 .slideshow img.active{opacity:1;animation:kenburns 12s ease-out forwards}
@@ -191,7 +191,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,18,24,.85);
 @media(max-width:900px){
   .hero2-inner{display:block;min-height:0}
   .hero2-media{position:relative;width:auto;max-width:none;height:74vw;max-height:470px}
-  .hero2-media::after{background:linear-gradient(0deg,var(--cream) 1%,rgba(13,18,24,0) 16%)}
+  .hero2-media::after{background:linear-gradient(0deg,var(--cream) 1%,rgba(247,241,230,0) 16%)}
     .hero2-types{left:16px;right:14px;bottom:10px;grid-template-columns:repeat(2,1fr);gap:0 12px}
   .hero2-types a{font-size:11.5px;line-height:1.72;letter-spacing:.02em;text-underline-offset:3px}
   .hero2-text{padding:46px 0 22px;max-width:none}
@@ -230,7 +230,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,18,24,.85);
 .glass-scene.lit .pane-face::after{opacity:.9}
 /* рефракшн-край: переливающаяся радужная кромка (маска padding-box рисует только 1.5px рамку) */
 .edge{position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;
-  background:conic-gradient(from 130deg,#7af8ff,#7ab6ff,#64ffda,#8ad0ff,#9ec2ff,#7af8ff);
+  background:conic-gradient(from 130deg,#7af8ff,#b98cff,#64ffda,#ffd28c,#ff9ec7,#7af8ff);
   -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
   -webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
   mask-composite:exclude;opacity:.55;mix-blend-mode:screen;
@@ -276,9 +276,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,18,24,.85);
 /* значок «несколько фото» на фото карточки — сигнал кликабельности */
 .catph{position:relative}
 .catph::after{content:"";position:absolute;right:10px;bottom:10px;z-index:2;width:32px;height:32px;border-radius:9px;
-  background:rgba(28,34,40,.58) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='13' height='13' rx='2'/%3E%3Cpath d='M8 21h11a2 2 0 0 0 2-2V8'/%3E%3C/svg%3E") center/17px no-repeat;
+  background:rgba(43,37,29,.58) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='13' height='13' rx='2'/%3E%3Cpath d='M8 21h11a2 2 0 0 0 2-2V8'/%3E%3C/svg%3E") center/17px no-repeat;
   -webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);opacity:.9;transition:.2s}
-.card:hover .catph::after{opacity:1;background-color:rgba(28,34,40,.82)}
+.card:hover .catph::after{opacity:1;background-color:rgba(43,37,29,.82)}
 .card h3{font-size:19px}
 .card p{color:var(--ink-soft);font-size:15px}
 .card .price{margin-top:auto;padding-top:12px;font-weight:800;font-size:18px}
@@ -293,7 +293,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,18,24,.85);
 .card:hover .more::after{transform:translateX(3px)}
 
 /* image placeholder (пока нет фото) */
-.ph{position:relative;background:linear-gradient(135deg,#dde4ea,#eef2f6);
+.ph{position:relative;background:linear-gradient(135deg,#e8ddcd,#f3ece0);
   background-size:cover;background-position:center;display:grid;place-items:center}
 .ph[data-img]{background-image:var(--img)}
 .ph .lbl{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
@@ -306,7 +306,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,18,24,.85);
 @media(max-width:520px){.svc{grid-template-columns:1fr}}
 /* двухколоночная: шаги 2x2 + резкое фото справа */
 .svc-split{display:grid;grid-template-columns:.92fr 1.08fr;gap:48px;align-items:stretch}
-.svc-photo{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);background:linear-gradient(135deg,#dde4ea,#eef2f6);min-height:420px}
+.svc-photo{position:relative;margin:0;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);background:linear-gradient(135deg,#e8ddcd,#f3ece0);min-height:420px}
 .svc-photo img{position:absolute;inset:0;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
 .svc-photo-lbl{position:absolute;inset:0;z-index:0;display:grid;place-items:center;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#a08f79}
 .svc-list{display:flex;flex-direction:column;justify-content:space-between}
@@ -369,12 +369,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(13,18,24,.85);
 .contact .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start}
 @media(max-width:880px){.contact .grid{grid-template-columns:1fr;gap:40px}}
 .contact h2{color:#fff}
-.contact .lead{color:#c2ccd4}
+.contact .lead{color:#d3c8b7}
 .channels{margin-top:30px;display:flex;flex-direction:column;gap:14px}
 .chan{display:flex;align-items:center;gap:16px;padding:16px 18px;border:1px solid var(--line-dark);
   border-radius:14px;transition:.2s border-color,.2s background}
 .chan:hover{border-color:var(--accent);background:rgba(194,145,95,.10)}
-.chan .ci{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;flex:none;background:#2b343d;color:var(--accent-2)}
+.chan .ci{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;flex:none;background:#3a3025;color:var(--accent-2)}
 .chan b{display:block;font-size:16px}
 .chan span{color:var(--muted);font-size:14px}
 form.lead-form{background:#fff;border-radius:var(--radius);padding:30px;color:var(--ink)}
@@ -436,7 +436,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 .htrack{display:flex;gap:22px;padding:0 6vw;will-change:transform}
 .hcard{flex:none;width:min(340px,74vw);background:var(--paper);
   border-radius:20px;overflow:hidden;box-shadow:var(--shadow-soft)}
-.hcard .im{aspect-ratio:4/3;background:#dde4ea;background-size:cover;background-position:center}
+.hcard .im{aspect-ratio:4/3;background:#e8ddcd;background-size:cover;background-position:center}
 .hcard .tx{padding:20px 22px 24px}
 .hcard h3{font-size:19px;margin-bottom:8px}
 .hcard p{color:var(--ink-soft);font-size:15px}
@@ -481,7 +481,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 /* закреплённая CTA-плашка (мобилка) — одна акцентная кнопка на скролле */
 .cta-bar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
   padding:11px 14px calc(11px + env(safe-area-inset-bottom,0px));
-  background:rgba(13,18,24,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  background:rgba(247,241,230,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
   border-top:1px solid var(--line);transform:translateY(130%);transition:transform .32s cubic-bezier(.2,.8,.2,1)}
 .cta-bar.show{transform:none}
 .cta-bar .btn{width:100%}
@@ -492,7 +492,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 }
 
 /* lightbox — фото на весь экран */
-.lb{position:fixed;inset:0;z-index:100;background:rgba(16,20,26,.94);display:none;align-items:center;justify-content:center;padding:28px}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(20,15,10,.93);display:none;align-items:center;justify-content:center;padding:28px}
 .lb.open{display:flex}
 .lb img{max-width:92vw;max-height:86vh;border-radius:10px;box-shadow:0 30px 90px -20px rgba(0,0,0,.8);cursor:default}
 .lb-btn{position:absolute;background:rgba(255,255,255,.14);border:0;color:#fff;cursor:pointer;display:grid;place-items:center;border-radius:50%;transition:.2s background}
@@ -502,45 +502,6 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 .lb-prev{left:20px}.lb-next{right:20px}
 .lb-count{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:#f0e8dc;font-size:14px;font-weight:600;letter-spacing:.05em}
 @media(max-width:600px){.lb-nav{width:44px;height:44px;font-size:26px}.lb-prev{left:10px}.lb-next{right:10px}}
-
-/* ============ ТЁМНАЯ HI-TECH ТЕМА — точечные фиксы ============ */
-body{color:#e9eef4}
-h1,h2,h3,h4{color:#f2f6fa}
-.btn--outline{color:#e9eef4}
-.btn--outline:hover{background:#e9eef4;color:#0d1218;border-color:#e9eef4}
-/* тёмный текст на ярком циане — читаемость + техничный вид */
-.btn--accent{color:#07161c;font-weight:700;box-shadow:0 0 0 1px rgba(143,168,181,.4),0 10px 34px -10px rgba(143,168,181,.5)}
-.btn--accent:hover{color:#07161c;box-shadow:0 0 0 1px rgba(143,168,181,.6),0 14px 40px -8px rgba(143,168,181,.7)}
-/* галочки преимуществ — тёмная плашка с циановой иконкой, а не светлый квадрат */
-.advitem .ac{background:rgba(143,168,181,.14);color:var(--accent);box-shadow:inset 0 0 0 1px rgba(143,168,181,.25)}
-/* плашки-заглушки на фото и подпись макро-фото — в тон тёмной теме */
-.ph .lbl{color:#8fa3ad;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
-.svc-photo-lbl{color:#6f7d87}
-/* карточки — hairline-рамка вместо тени (на тёмном тень не читается) */
-.card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.02),transparent),var(--paper)}
-.card:hover{border-color:rgba(143,168,181,.35)}
-/* плейсхолдеры фото — тёмные, не мигают светлым */
-.ph,.svc-photo,.hcard .im,.reveal-img{background-color:#141b22}
-.marquee-item{background-color:#141b22}
-/* форма — тёмная стеклянная панель */
-form.lead-form{background:linear-gradient(180deg,rgba(255,255,255,.03),transparent),var(--paper);color:#e9eef4;border:1px solid var(--line)}
-form.lead-form .fh{color:var(--ink-soft)}
-.field input,.field select,.field textarea{color:#e9eef4;border:1px solid var(--line)}
-.field input:focus,.field select:focus,.field textarea:focus{background:#1a222b;box-shadow:0 0 0 2px var(--accent)}
-.field input::placeholder,.field textarea::placeholder{color:#69737d}
-.ok-msg{background:rgba(143,168,181,.12);color:#cfdde4}
-.lb-count{color:#cdd9e0}
-/* eyebrow — техничная разрядка */
-.eyebrow{color:var(--accent);letter-spacing:.2em}
-/* хедер: тонкая линия снизу для чёткости на тёмном */
-header{border-bottom:1px solid var(--line)}
-/* полоски бургера были цвета --ink (почти чёрные) и не читались на тёмной шапке */
-.burger span{background:#e9eef4}
-/* подвал — графит вместо коричневого, логотип без бокса */
-footer{background:#0b1016;color:#9aa7b3}
-footer .top{border-bottom-color:rgba(255,255,255,.09)}
-footer .brand .logo{background:transparent}
-footer .bottom{color:#6b7680}
 </style>
 </head>
 <body>
@@ -551,7 +512,7 @@ footer .bottom{color:#6b7680}
 <header>
   <div class="wrap nav">
     <a href="#" class="brand" aria-label="СтеклА — конструкции из закалённого стекла">
-      <img src="img/logo-white.svg" alt="СтеклА" class="logo-img" width="140" height="56">
+      <img src="img/logo-black.svg" alt="СтеклА" class="logo-img" width="140" height="56">
     </a>
     <nav class="menu">
       <a href="#catalog">Конструкции</a>
@@ -561,7 +522,7 @@ footer .bottom{color:#6b7680}
       <a href="#contact">Контакты</a>
     </nav>
     <div class="right">
-      <a class="phone" href="tel:+79139899929">+7 913 989-99-29<small>Новосибирск, пн–вс 9.00–18.00</small></a>
+      <a class="phone" href="tel:+79139899929">+7 913 989-99-29<small>Новосибирск, пн–вс 9.00–20.00</small></a>
       <a href="#contact" class="btn btn--accent">Оставить заявку</a>
       <button class="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
@@ -589,6 +550,7 @@ footer .bottom{color:#6b7680}
       <a href="#catalog" data-cat="dush">Душевые перегородки</a>
       <a href="#catalog" data-cat="mezh">Межкомнатные перегородки</a>
       <a href="#catalog" data-cat="celno">Цельностеклянные перегородки</a>
+      <a href="#catalog" data-cat="dver">Стеклянные двери</a>
       <a href="#catalog" data-cat="perila">Стеклянные перила лестниц</a>
       <a href="#catalog" data-cat="terr">Остекление террас</a>
       <a href="#catalog" data-cat="kozyr">Стеклянные козырьки</a>
@@ -674,6 +636,14 @@ footer .bottom{color:#6b7680}
         <div class="body">
           <h3>Цельностеклянные перегородки</h3>
           <p>Панели во всю высоту без профиля — максимум света и воздуха.</p>
+          <a href="#contact" class="more">Рассчитать</a>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="ph catph" data-cat="dver" style="--img:url('img/g-dver-1.jpg')"><span class="lbl">двери</span></div>
+        <div class="body">
+          <h3>Стеклянные двери</h3>
+          <p>Цельностеклянные распашные и раздвижные двери — лёгкие и бесшумные.</p>
           <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
@@ -901,7 +871,7 @@ footer .bottom{color:#6b7680}
         </a>
         <a class="chan" href="tel:+79139899929">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-          <span><b>+7 913 989-99-29</b><span>Позвонить, пн–вс 9.00–18.00</span></span>
+          <span><b>+7 913 989-99-29</b><span>Позвонить, пн–вс 9.00–20.00</span></span>
         </a>
         <a class="chan" href="mailto:stekla_info@mail.ru">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3zM3 7l9 6 9-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
@@ -928,6 +898,7 @@ footer .bottom{color:#6b7680}
           <option>Душевые перегородки</option>
           <option>Межкомнатные перегородки</option>
           <option>Цельностеклянные перегородки</option>
+          <option>Стеклянные двери</option>
           <option>Стеклянные перила лестниц</option>
           <option>Остекление террас</option>
           <option>Стеклянные козырьки</option>
@@ -958,7 +929,7 @@ footer .bottom{color:#6b7680}
   <div class="wrap">
     <div class="top">
       <div class="col">
-        <img src="img/logo-white.svg" alt="СтеклА" style="height:52px;width:auto;margin-bottom:16px">
+        <img src="img/logo-footer.svg" alt="СтеклА" style="height:52px;width:auto;margin-bottom:16px">
         <p>Конструкции из закалённого стекла в Новосибирске. Замер, изготовление и монтаж под ключ.</p>
       </div>
       <div class="col">
@@ -966,6 +937,7 @@ footer .bottom{color:#6b7680}
         <p><a href="#catalog">Душевые перегородки</a></p>
         <p><a href="#catalog">Межкомнатные перегородки</a></p>
         <p><a href="#catalog">Цельностеклянные перегородки</a></p>
+        <p><a href="#catalog">Стеклянные двери</a></p>
         <p><a href="#catalog">Стеклянные перила лестниц</a></p>
         <p><a href="#catalog">Остекление террас</a></p>
         <p><a href="#catalog">Стеклянные козырьки</a></p>
@@ -979,7 +951,7 @@ footer .bottom{color:#6b7680}
         <p><a href="tel:+79139899929">+7 913 989-99-29</a></p>
         <p><a href="https://max.ru/u/f9LHodD0cOKJfU9q7vRUQ7HlTOAw7GGYHYRYHELlha74lchOGIXQSi6N_yo">MAX</a> / <a href="https://wa.me/79139899929">WhatsApp</a> / <a href="https://t.me/+79139899929">Telegram</a></p>
         <p><a href="mailto:stekla_info@mail.ru">stekla_info@mail.ru</a></p>
-        <p>Пн–вс 9.00–18.00, Новосибирск</p>
+        <p>Пн–вс 9.00–20.00, Новосибирск</p>
       </div>
     </div>
     <div class="bottom">
@@ -1077,7 +1049,7 @@ const RM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   if(mobile){
     // на мобилке нет sticky-скролла — авто-ротация по таймеру, полоски работают
     let k=0; apply(0);
-    setInterval(()=>{k=(k+1)%words.length; apply(k);}, 2000);
+    setInterval(()=>{k=(k+1)%words.length; apply(k);}, 4000);
   } else {
     const upd=()=>{
       const total=wrap.offsetHeight-innerHeight;if(total<=0)return;
@@ -1189,6 +1161,7 @@ f&&f.addEventListener('submit',async(ev)=>{
     dush:['img/shower-01.jpg','img/shower-02.jpg','img/shower-03.jpg','img/shower-04.jpg','img/shower-05.jpg','img/shower-06.jpg','img/shower-07.jpg','img/shower-08.jpg','img/shower-09.jpg','img/shower-10.jpg','img/shower-11.jpg','img/shower-12.jpg','img/shower-13.jpg','img/shower-14.jpg','img/shower-15.jpg'],
     mezh:['img/g-mezh-2.jpg','img/g-mezh-3.jpg','img/g-mezh-4.jpg'],
     celno:['img/g-celno-1.jpg','img/g-celno-2.jpg','img/g-celno-3.jpg','img/g-celno-4.jpg','img/g-celno-5.jpg'],
+    dver:['img/g-dver-1.jpg','img/g-dver-2.jpg','img/g-dver-3.jpg','img/g-dver-4.jpg','img/g-dver-5.jpg'],
     perila:['img/g-perila-1.jpg','img/g-perila-2.jpg','img/g-perila-3.jpg','img/g-perila-4.jpg','img/g-perila-5.jpg'],
     terr:['img/g-terr-1.jpg','img/g-terr-2.jpg','img/g-terr-3.jpg','img/g-terr-4.jpg','img/g-terr-5.jpg'],
     kozyr:['img/g-kozyr-1.jpg','img/g-kozyr-3.jpg','img/g-kozyr-4.jpg','img/g-kozyr-5.jpg'],

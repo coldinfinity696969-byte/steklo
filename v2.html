@@ -522,7 +522,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <a href="#contact">Контакты</a>
     </nav>
     <div class="right">
-      <a class="phone" href="tel:+79139899929">+7 913 989-99-29<small>Новосибирск, пн–вс 9.00–18.00</small></a>
+      <a class="phone" href="tel:+79139899929">+7 913 989-99-29<small>Новосибирск, пн–вс 9.00–20.00</small></a>
       <a href="#contact" class="btn btn--accent">Оставить заявку</a>
       <button class="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
@@ -550,6 +550,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
       <a href="#catalog" data-cat="dush">Душевые перегородки</a>
       <a href="#catalog" data-cat="mezh">Межкомнатные перегородки</a>
       <a href="#catalog" data-cat="celno">Цельностеклянные перегородки</a>
+      <a href="#catalog" data-cat="dver">Стеклянные двери</a>
       <a href="#catalog" data-cat="perila">Стеклянные перила лестниц</a>
       <a href="#catalog" data-cat="terr">Остекление террас</a>
       <a href="#catalog" data-cat="kozyr">Стеклянные козырьки</a>
@@ -635,6 +636,14 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <div class="body">
           <h3>Цельностеклянные перегородки</h3>
           <p>Панели во всю высоту без профиля — максимум света и воздуха.</p>
+          <a href="#contact" class="more">Рассчитать</a>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="ph catph" data-cat="dver" style="--img:url('img/g-dver-1.jpg')"><span class="lbl">двери</span></div>
+        <div class="body">
+          <h3>Стеклянные двери</h3>
+          <p>Цельностеклянные распашные и раздвижные двери — лёгкие и бесшумные.</p>
           <a href="#contact" class="more">Рассчитать</a>
         </div>
       </article>
@@ -862,7 +871,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         </a>
         <a class="chan" href="tel:+79139899929">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 4h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-          <span><b>+7 913 989-99-29</b><span>Позвонить, пн–вс 9.00–18.00</span></span>
+          <span><b>+7 913 989-99-29</b><span>Позвонить, пн–вс 9.00–20.00</span></span>
         </a>
         <a class="chan" href="mailto:stekla_info@mail.ru">
           <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 6h18v12H3zM3 7l9 6 9-6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
@@ -889,6 +898,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
           <option>Душевые перегородки</option>
           <option>Межкомнатные перегородки</option>
           <option>Цельностеклянные перегородки</option>
+          <option>Стеклянные двери</option>
           <option>Стеклянные перила лестниц</option>
           <option>Остекление террас</option>
           <option>Стеклянные козырьки</option>
@@ -927,6 +937,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <p><a href="#catalog">Душевые перегородки</a></p>
         <p><a href="#catalog">Межкомнатные перегородки</a></p>
         <p><a href="#catalog">Цельностеклянные перегородки</a></p>
+        <p><a href="#catalog">Стеклянные двери</a></p>
         <p><a href="#catalog">Стеклянные перила лестниц</a></p>
         <p><a href="#catalog">Остекление террас</a></p>
         <p><a href="#catalog">Стеклянные козырьки</a></p>
@@ -940,7 +951,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
         <p><a href="tel:+79139899929">+7 913 989-99-29</a></p>
         <p><a href="https://max.ru/u/f9LHodD0cOKJfU9q7vRUQ7HlTOAw7GGYHYRYHELlha74lchOGIXQSi6N_yo">MAX</a> / <a href="https://wa.me/79139899929">WhatsApp</a> / <a href="https://t.me/+79139899929">Telegram</a></p>
         <p><a href="mailto:stekla_info@mail.ru">stekla_info@mail.ru</a></p>
-        <p>Пн–вс 9.00–18.00, Новосибирск</p>
+        <p>Пн–вс 9.00–20.00, Новосибирск</p>
       </div>
     </div>
     <div class="bottom">
@@ -1038,7 +1049,7 @@ const RM=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
   if(mobile){
     // на мобилке нет sticky-скролла — авто-ротация по таймеру, полоски работают
     let k=0; apply(0);
-    setInterval(()=>{k=(k+1)%words.length; apply(k);}, 2000);
+    setInterval(()=>{k=(k+1)%words.length; apply(k);}, 4000);
   } else {
     const upd=()=>{
       const total=wrap.offsetHeight-innerHeight;if(total<=0)return;
@@ -1150,6 +1161,7 @@ f&&f.addEventListener('submit',async(ev)=>{
     dush:['img/shower-01.jpg','img/shower-02.jpg','img/shower-03.jpg','img/shower-04.jpg','img/shower-05.jpg','img/shower-06.jpg','img/shower-07.jpg','img/shower-08.jpg','img/shower-09.jpg','img/shower-10.jpg','img/shower-11.jpg','img/shower-12.jpg','img/shower-13.jpg','img/shower-14.jpg','img/shower-15.jpg'],
     mezh:['img/g-mezh-2.jpg','img/g-mezh-3.jpg','img/g-mezh-4.jpg'],
     celno:['img/g-celno-1.jpg','img/g-celno-2.jpg','img/g-celno-3.jpg','img/g-celno-4.jpg','img/g-celno-5.jpg'],
+    dver:['img/g-dver-1.jpg','img/g-dver-2.jpg','img/g-dver-3.jpg','img/g-dver-4.jpg','img/g-dver-5.jpg'],
     perila:['img/g-perila-1.jpg','img/g-perila-2.jpg','img/g-perila-3.jpg','img/g-perila-4.jpg','img/g-perila-5.jpg'],
     terr:['img/g-terr-1.jpg','img/g-terr-2.jpg','img/g-terr-3.jpg','img/g-terr-4.jpg','img/g-terr-5.jpg'],
     kozyr:['img/g-kozyr-1.jpg','img/g-kozyr-3.jpg','img/g-kozyr-4.jpg','img/g-kozyr-5.jpg'],
