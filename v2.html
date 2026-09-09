@@ -480,6 +480,18 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   .card .more{display:none}   /* на мобилке конверсию ведёт закреплённая плашка, карточки чистые */
 }
 
+/* ---------- бегущая лента работ (как у arkada, но авто) ---------- */
+.marquee{overflow:hidden;position:relative;margin-top:42px;
+  -webkit-mask:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+  mask:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+.marquee-track{display:flex;gap:18px;width:max-content;padding:6px 9px;animation:marquee 60s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-item{flex:none;width:min(360px,74vw);aspect-ratio:4/3;border-radius:18px;overflow:hidden;
+  background-size:cover;background-position:center;cursor:zoom-in;box-shadow:var(--shadow-soft);transition:.3s transform,.3s box-shadow}
+.marquee-item:hover{transform:translateY(-5px);box-shadow:var(--shadow-lift)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee-track{animation:none;flex-wrap:wrap;justify-content:center}}
+
 /* lightbox — фото на весь экран */
 .lb{position:fixed;inset:0;z-index:100;background:rgba(20,15,10,.93);display:none;align-items:center;justify-content:center;padding:28px}
 .lb.open{display:flex}
@@ -776,6 +788,45 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 </section>
 
 
+<!-- ================= НАШИ РАБОТЫ (бегущая лента) ================= -->
+<section class="section section--tight" id="projects">
+  <div class="wrap">
+    <div class="head reveal"><div>
+      <span class="eyebrow">Примеры решений</span>
+      <h2 style="margin-top:14px">Решения из стекла — для дома и бизнеса</h2>
+      <p class="lead">Перегородки, стеклянные перила, остекление террас, козырьки, облицовка и витрины — под ваш интерьер и задачу.</p>
+    </div></div>
+  </div>
+  <div class="marquee reveal">
+    <div class="marquee-track">
+      <div class="marquee-item" data-idx="0" style="--img:url('img/work-01.jpg')"></div>
+      <div class="marquee-item" data-idx="1" style="--img:url('img/work-02.jpg')"></div>
+      <div class="marquee-item" data-idx="2" style="--img:url('img/work-03.jpg')"></div>
+      <div class="marquee-item" data-idx="3" style="--img:url('img/work-04.jpg')"></div>
+      <div class="marquee-item" data-idx="4" style="--img:url('img/work-05.jpg')"></div>
+      <div class="marquee-item" data-idx="5" style="--img:url('img/work-06.jpg')"></div>
+      <div class="marquee-item" data-idx="6" style="--img:url('img/work-07.jpg')"></div>
+      <div class="marquee-item" data-idx="7" style="--img:url('img/work-08.jpg')"></div>
+      <div class="marquee-item" data-idx="8" style="--img:url('img/work-09.jpg')"></div>
+      <div class="marquee-item" data-idx="9" style="--img:url('img/work-10.jpg')"></div>
+      <div class="marquee-item" data-idx="10" style="--img:url('img/work-12.jpg')"></div>
+      <div class="marquee-item" data-idx="11" style="--img:url('img/work-13.jpg')"></div>
+      <div class="marquee-item" data-idx="0" aria-hidden="true" style="--img:url('img/work-01.jpg')"></div>
+      <div class="marquee-item" data-idx="1" aria-hidden="true" style="--img:url('img/work-02.jpg')"></div>
+      <div class="marquee-item" data-idx="2" aria-hidden="true" style="--img:url('img/work-03.jpg')"></div>
+      <div class="marquee-item" data-idx="3" aria-hidden="true" style="--img:url('img/work-04.jpg')"></div>
+      <div class="marquee-item" data-idx="4" aria-hidden="true" style="--img:url('img/work-05.jpg')"></div>
+      <div class="marquee-item" data-idx="5" aria-hidden="true" style="--img:url('img/work-06.jpg')"></div>
+      <div class="marquee-item" data-idx="6" aria-hidden="true" style="--img:url('img/work-07.jpg')"></div>
+      <div class="marquee-item" data-idx="7" aria-hidden="true" style="--img:url('img/work-08.jpg')"></div>
+      <div class="marquee-item" data-idx="8" aria-hidden="true" style="--img:url('img/work-09.jpg')"></div>
+      <div class="marquee-item" data-idx="9" aria-hidden="true" style="--img:url('img/work-10.jpg')"></div>
+      <div class="marquee-item" data-idx="10" aria-hidden="true" style="--img:url('img/work-12.jpg')"></div>
+      <div class="marquee-item" data-idx="11" aria-hidden="true" style="--img:url('img/work-13.jpg')"></div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= CONTACT + FORM ================= -->
 <section class="section contact" id="contact">
   <div class="wrap grid">
@@ -1051,10 +1102,16 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 (function(){
   const load=el=>{el.style.backgroundImage="var(--img)";el.setAttribute('data-img','');};
   if(!('IntersectionObserver' in window)){
-    document.querySelectorAll('.ph[style*="--img"]').forEach(load);return;
+    document.querySelectorAll('.ph[style*="--img"],.marquee-item[style*="--img"]').forEach(load);return;
   }
   const io=new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){load(e.target);o.unobserve(e.target);}}),{rootMargin:'600px'});
   document.querySelectorAll('.ph[style*="--img"]').forEach(el=>io.observe(el));
+  const marquee=document.querySelector('.marquee');
+  if(marquee){
+    const items=[...marquee.querySelectorAll('.marquee-item[style*="--img"]')];
+    const mio=new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){items.forEach(load);o.disconnect();}}),{rootMargin:'700px'});
+    mio.observe(marquee);
+  }
 })();
 // hero фон
 (function(){const b=document.getElementById('heroBg');if(!b)return;const m=b.style.getPropertyValue('--hero-img').match(/url\((['"]?)(.*?)\1\)/);if(!m)return;const i=new Image();i.onload=()=>b.classList.add('hasimg');i.src=m[2];})();
@@ -1073,7 +1130,7 @@ f&&f.addEventListener('submit',async(ev)=>{
 // lightbox: две галереи — душевые и работы (у каждой свой набор)
 (function(){
   const ALL=['img/shower-01.jpg','img/shower-02.jpg','img/shower-03.jpg','img/shower-04.jpg','img/shower-05.jpg','img/shower-06.jpg','img/shower-07.jpg','img/shower-08.jpg','img/shower-09.jpg','img/shower-10.jpg','img/shower-11.jpg','img/shower-12.jpg','img/shower-13.jpg','img/shower-14.jpg','img/shower-15.jpg'];
-  const WORKS=['img/work-01.jpg','img/work-02.jpg','img/work-03.jpg','img/work-04.jpg','img/work-05.jpg','img/work-06.jpg','img/work-07.jpg','img/work-08.jpg','img/work-09.jpg','img/work-10.jpg','img/work-11.jpg','img/work-12.jpg','img/work-13.jpg','img/work-14.jpg'];
+  const WORKS=['img/work-01.jpg','img/work-02.jpg','img/work-03.jpg','img/work-04.jpg','img/work-05.jpg','img/work-06.jpg','img/work-07.jpg','img/work-08.jpg','img/work-09.jpg','img/work-10.jpg','img/work-12.jpg','img/work-13.jpg'];
   const lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cnt=document.getElementById('lbCount');
   if(!lb)return;
   let arr=ALL, i=0;
@@ -1096,6 +1153,7 @@ f&&f.addEventListener('submit',async(ev)=>{
     tamb:['img/g-vitr-4.jpg','img/g-vitr-5.jpg']
   };
   document.querySelectorAll('#catalog .catph, #works .gallery .ph').forEach(t=>{t.style.cursor='zoom-in';t.addEventListener('click',()=>{const a=CATS[t.dataset.cat];if(a&&a.length)open(0,a);});});
+  document.querySelectorAll('#projects .marquee-item').forEach(t=>{t.addEventListener('click',()=>open(+t.dataset.idx||0,WORKS));});
   document.querySelectorAll('.hero2-types a[data-cat]').forEach(l=>{l.addEventListener('click',e=>{const a=CATS[l.dataset.cat];if(a&&a.length){e.preventDefault();open(0,a);}});});
   const all=document.getElementById('galleryAll');
   if(all)all.addEventListener('click',e=>{e.preventDefault();open(0,ALL);});
