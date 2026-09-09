@@ -484,7 +484,7 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
 .marquee{overflow:hidden;position:relative;margin-top:42px;
   -webkit-mask:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
   mask:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
-.marquee-track{display:flex;gap:18px;width:max-content;padding:6px 9px;animation:marquee 60s linear infinite}
+.marquee-track{display:flex;gap:18px;width:max-content;padding:6px 9px;animation:marquee 200s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
 .marquee-item{flex:none;width:min(360px,74vw);aspect-ratio:4/3;border-radius:18px;overflow:hidden;
   background-size:cover;background-position:center;cursor:zoom-in;box-shadow:var(--shadow-soft);transition:.3s transform,.3s box-shadow}
@@ -804,29 +804,99 @@ footer .bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wra
   <div class="marquee reveal">
     <div class="marquee-track">
       <div class="marquee-item" data-idx="0" style="--img:url('img/dush-real-1.jpg')"></div>
-      <div class="marquee-item" data-idx="1" style="--img:url('img/partition.jpg')"></div>
+      <div class="marquee-item" data-idx="1" style="--img:url('img/g-mezh-2.jpg')"></div>
       <div class="marquee-item" data-idx="2" style="--img:url('img/g-celno-1.jpg')"></div>
       <div class="marquee-item" data-idx="3" style="--img:url('img/g-dver-1.jpg')"></div>
       <div class="marquee-item" data-idx="4" style="--img:url('img/g-banya-1.jpg')"></div>
-      <div class="marquee-item" data-idx="5" style="--img:url('img/railing.jpg')"></div>
-      <div class="marquee-item" data-idx="6" style="--img:url('img/terrace.jpg')"></div>
-      <div class="marquee-item" data-idx="7" style="--img:url('img/canopy.jpg')"></div>
-      <div class="marquee-item" data-idx="8" style="--img:url('img/atrium.jpg')"></div>
-      <div class="marquee-item" data-idx="9" style="--img:url('img/cladding.jpg')"></div>
-      <div class="marquee-item" data-idx="10" style="--img:url('img/vitrine.jpg')"></div>
+      <div class="marquee-item" data-idx="5" style="--img:url('img/g-perila-1.jpg')"></div>
+      <div class="marquee-item" data-idx="6" style="--img:url('img/g-terr-1.jpg')"></div>
+      <div class="marquee-item" data-idx="7" style="--img:url('img/g-kozyr-1.jpg')"></div>
+      <div class="marquee-item" data-idx="8" style="--img:url('img/g-atrium-1.jpg')"></div>
+      <div class="marquee-item" data-idx="9" style="--img:url('img/g-oblic-1.jpg')"></div>
+      <div class="marquee-item" data-idx="10" style="--img:url('img/g-vitr-1.jpg')"></div>
       <div class="marquee-item" data-idx="11" style="--img:url('img/g-vitr-4.jpg')"></div>
+      <div class="marquee-item" data-idx="12" style="--img:url('img/dush-real-2.jpg')"></div>
+      <div class="marquee-item" data-idx="13" style="--img:url('img/g-mezh-3.jpg')"></div>
+      <div class="marquee-item" data-idx="14" style="--img:url('img/g-celno-2.jpg')"></div>
+      <div class="marquee-item" data-idx="15" style="--img:url('img/g-dver-2.jpg')"></div>
+      <div class="marquee-item" data-idx="16" style="--img:url('img/g-banya-2.jpg')"></div>
+      <div class="marquee-item" data-idx="17" style="--img:url('img/g-perila-2.jpg')"></div>
+      <div class="marquee-item" data-idx="18" style="--img:url('img/g-terr-2.jpg')"></div>
+      <div class="marquee-item" data-idx="19" style="--img:url('img/g-kozyr-3.jpg')"></div>
+      <div class="marquee-item" data-idx="20" style="--img:url('img/g-atrium-2.jpg')"></div>
+      <div class="marquee-item" data-idx="21" style="--img:url('img/g-oblic-2.jpg')"></div>
+      <div class="marquee-item" data-idx="22" style="--img:url('img/g-vitr-2.jpg')"></div>
+      <div class="marquee-item" data-idx="23" style="--img:url('img/g-vitr-5.jpg')"></div>
+      <div class="marquee-item" data-idx="24" style="--img:url('img/dush-real-3.jpg')"></div>
+      <div class="marquee-item" data-idx="25" style="--img:url('img/g-mezh-4.jpg')"></div>
+      <div class="marquee-item" data-idx="26" style="--img:url('img/g-celno-3.jpg')"></div>
+      <div class="marquee-item" data-idx="27" style="--img:url('img/g-dver-3.jpg')"></div>
+      <div class="marquee-item" data-idx="28" style="--img:url('img/g-banya-3.jpg')"></div>
+      <div class="marquee-item" data-idx="29" style="--img:url('img/g-perila-3.jpg')"></div>
+      <div class="marquee-item" data-idx="30" style="--img:url('img/g-terr-3.jpg')"></div>
+      <div class="marquee-item" data-idx="31" style="--img:url('img/g-kozyr-6.jpg')"></div>
+      <div class="marquee-item" data-idx="32" style="--img:url('img/g-atrium-3.jpg')"></div>
+      <div class="marquee-item" data-idx="33" style="--img:url('img/g-oblic-3.jpg')"></div>
+      <div class="marquee-item" data-idx="34" style="--img:url('img/g-vitr-3.jpg')"></div>
+      <div class="marquee-item" data-idx="35" style="--img:url('img/dush-real-4.jpg')"></div>
+      <div class="marquee-item" data-idx="36" style="--img:url('img/g-celno-4.jpg')"></div>
+      <div class="marquee-item" data-idx="37" style="--img:url('img/g-dver-4.jpg')"></div>
+      <div class="marquee-item" data-idx="38" style="--img:url('img/g-perila-4.jpg')"></div>
+      <div class="marquee-item" data-idx="39" style="--img:url('img/g-terr-4.jpg')"></div>
+      <div class="marquee-item" data-idx="40" style="--img:url('img/g-kozyr-7.jpg')"></div>
+      <div class="marquee-item" data-idx="41" style="--img:url('img/g-atrium-4.jpg')"></div>
+      <div class="marquee-item" data-idx="42" style="--img:url('img/g-oblic-4.jpg')"></div>
+      <div class="marquee-item" data-idx="43" style="--img:url('img/g-celno-5.jpg')"></div>
+      <div class="marquee-item" data-idx="44" style="--img:url('img/g-dver-5.jpg')"></div>
+      <div class="marquee-item" data-idx="45" style="--img:url('img/g-perila-5.jpg')"></div>
+      <div class="marquee-item" data-idx="46" style="--img:url('img/g-terr-5.jpg')"></div>
       <div class="marquee-item" data-idx="0" aria-hidden="true" style="--img:url('img/dush-real-1.jpg')"></div>
-      <div class="marquee-item" data-idx="1" aria-hidden="true" style="--img:url('img/partition.jpg')"></div>
+      <div class="marquee-item" data-idx="1" aria-hidden="true" style="--img:url('img/g-mezh-2.jpg')"></div>
       <div class="marquee-item" data-idx="2" aria-hidden="true" style="--img:url('img/g-celno-1.jpg')"></div>
       <div class="marquee-item" data-idx="3" aria-hidden="true" style="--img:url('img/g-dver-1.jpg')"></div>
       <div class="marquee-item" data-idx="4" aria-hidden="true" style="--img:url('img/g-banya-1.jpg')"></div>
-      <div class="marquee-item" data-idx="5" aria-hidden="true" style="--img:url('img/railing.jpg')"></div>
-      <div class="marquee-item" data-idx="6" aria-hidden="true" style="--img:url('img/terrace.jpg')"></div>
-      <div class="marquee-item" data-idx="7" aria-hidden="true" style="--img:url('img/canopy.jpg')"></div>
-      <div class="marquee-item" data-idx="8" aria-hidden="true" style="--img:url('img/atrium.jpg')"></div>
-      <div class="marquee-item" data-idx="9" aria-hidden="true" style="--img:url('img/cladding.jpg')"></div>
-      <div class="marquee-item" data-idx="10" aria-hidden="true" style="--img:url('img/vitrine.jpg')"></div>
+      <div class="marquee-item" data-idx="5" aria-hidden="true" style="--img:url('img/g-perila-1.jpg')"></div>
+      <div class="marquee-item" data-idx="6" aria-hidden="true" style="--img:url('img/g-terr-1.jpg')"></div>
+      <div class="marquee-item" data-idx="7" aria-hidden="true" style="--img:url('img/g-kozyr-1.jpg')"></div>
+      <div class="marquee-item" data-idx="8" aria-hidden="true" style="--img:url('img/g-atrium-1.jpg')"></div>
+      <div class="marquee-item" data-idx="9" aria-hidden="true" style="--img:url('img/g-oblic-1.jpg')"></div>
+      <div class="marquee-item" data-idx="10" aria-hidden="true" style="--img:url('img/g-vitr-1.jpg')"></div>
       <div class="marquee-item" data-idx="11" aria-hidden="true" style="--img:url('img/g-vitr-4.jpg')"></div>
+      <div class="marquee-item" data-idx="12" aria-hidden="true" style="--img:url('img/dush-real-2.jpg')"></div>
+      <div class="marquee-item" data-idx="13" aria-hidden="true" style="--img:url('img/g-mezh-3.jpg')"></div>
+      <div class="marquee-item" data-idx="14" aria-hidden="true" style="--img:url('img/g-celno-2.jpg')"></div>
+      <div class="marquee-item" data-idx="15" aria-hidden="true" style="--img:url('img/g-dver-2.jpg')"></div>
+      <div class="marquee-item" data-idx="16" aria-hidden="true" style="--img:url('img/g-banya-2.jpg')"></div>
+      <div class="marquee-item" data-idx="17" aria-hidden="true" style="--img:url('img/g-perila-2.jpg')"></div>
+      <div class="marquee-item" data-idx="18" aria-hidden="true" style="--img:url('img/g-terr-2.jpg')"></div>
+      <div class="marquee-item" data-idx="19" aria-hidden="true" style="--img:url('img/g-kozyr-3.jpg')"></div>
+      <div class="marquee-item" data-idx="20" aria-hidden="true" style="--img:url('img/g-atrium-2.jpg')"></div>
+      <div class="marquee-item" data-idx="21" aria-hidden="true" style="--img:url('img/g-oblic-2.jpg')"></div>
+      <div class="marquee-item" data-idx="22" aria-hidden="true" style="--img:url('img/g-vitr-2.jpg')"></div>
+      <div class="marquee-item" data-idx="23" aria-hidden="true" style="--img:url('img/g-vitr-5.jpg')"></div>
+      <div class="marquee-item" data-idx="24" aria-hidden="true" style="--img:url('img/dush-real-3.jpg')"></div>
+      <div class="marquee-item" data-idx="25" aria-hidden="true" style="--img:url('img/g-mezh-4.jpg')"></div>
+      <div class="marquee-item" data-idx="26" aria-hidden="true" style="--img:url('img/g-celno-3.jpg')"></div>
+      <div class="marquee-item" data-idx="27" aria-hidden="true" style="--img:url('img/g-dver-3.jpg')"></div>
+      <div class="marquee-item" data-idx="28" aria-hidden="true" style="--img:url('img/g-banya-3.jpg')"></div>
+      <div class="marquee-item" data-idx="29" aria-hidden="true" style="--img:url('img/g-perila-3.jpg')"></div>
+      <div class="marquee-item" data-idx="30" aria-hidden="true" style="--img:url('img/g-terr-3.jpg')"></div>
+      <div class="marquee-item" data-idx="31" aria-hidden="true" style="--img:url('img/g-kozyr-6.jpg')"></div>
+      <div class="marquee-item" data-idx="32" aria-hidden="true" style="--img:url('img/g-atrium-3.jpg')"></div>
+      <div class="marquee-item" data-idx="33" aria-hidden="true" style="--img:url('img/g-oblic-3.jpg')"></div>
+      <div class="marquee-item" data-idx="34" aria-hidden="true" style="--img:url('img/g-vitr-3.jpg')"></div>
+      <div class="marquee-item" data-idx="35" aria-hidden="true" style="--img:url('img/dush-real-4.jpg')"></div>
+      <div class="marquee-item" data-idx="36" aria-hidden="true" style="--img:url('img/g-celno-4.jpg')"></div>
+      <div class="marquee-item" data-idx="37" aria-hidden="true" style="--img:url('img/g-dver-4.jpg')"></div>
+      <div class="marquee-item" data-idx="38" aria-hidden="true" style="--img:url('img/g-perila-4.jpg')"></div>
+      <div class="marquee-item" data-idx="39" aria-hidden="true" style="--img:url('img/g-terr-4.jpg')"></div>
+      <div class="marquee-item" data-idx="40" aria-hidden="true" style="--img:url('img/g-kozyr-7.jpg')"></div>
+      <div class="marquee-item" data-idx="41" aria-hidden="true" style="--img:url('img/g-atrium-4.jpg')"></div>
+      <div class="marquee-item" data-idx="42" aria-hidden="true" style="--img:url('img/g-oblic-4.jpg')"></div>
+      <div class="marquee-item" data-idx="43" aria-hidden="true" style="--img:url('img/g-celno-5.jpg')"></div>
+      <div class="marquee-item" data-idx="44" aria-hidden="true" style="--img:url('img/g-dver-5.jpg')"></div>
+      <div class="marquee-item" data-idx="45" aria-hidden="true" style="--img:url('img/g-perila-5.jpg')"></div>
+      <div class="marquee-item" data-idx="46" aria-hidden="true" style="--img:url('img/g-terr-5.jpg')"></div>
     </div>
   </div>
 </section>
@@ -1134,7 +1204,7 @@ f&&f.addEventListener('submit',async(ev)=>{
 // lightbox: две галереи — душевые и работы (у каждой свой набор)
 (function(){
   const ALL=['img/shower-01.jpg','img/shower-02.jpg','img/shower-03.jpg','img/shower-04.jpg','img/shower-05.jpg','img/shower-06.jpg','img/shower-07.jpg','img/shower-08.jpg','img/shower-09.jpg','img/shower-10.jpg','img/shower-11.jpg','img/shower-12.jpg','img/shower-13.jpg','img/shower-14.jpg','img/shower-15.jpg'];
-  const WORKS=['img/dush-real-1.jpg','img/partition.jpg','img/g-celno-1.jpg','img/g-dver-1.jpg','img/g-banya-1.jpg','img/railing.jpg','img/terrace.jpg','img/canopy.jpg','img/atrium.jpg','img/cladding.jpg','img/vitrine.jpg','img/g-vitr-4.jpg'];
+  const WORKS=['img/dush-real-1.jpg','img/g-mezh-2.jpg','img/g-celno-1.jpg','img/g-dver-1.jpg','img/g-banya-1.jpg','img/g-perila-1.jpg','img/g-terr-1.jpg','img/g-kozyr-1.jpg','img/g-atrium-1.jpg','img/g-oblic-1.jpg','img/g-vitr-1.jpg','img/g-vitr-4.jpg','img/dush-real-2.jpg','img/g-mezh-3.jpg','img/g-celno-2.jpg','img/g-dver-2.jpg','img/g-banya-2.jpg','img/g-perila-2.jpg','img/g-terr-2.jpg','img/g-kozyr-3.jpg','img/g-atrium-2.jpg','img/g-oblic-2.jpg','img/g-vitr-2.jpg','img/g-vitr-5.jpg','img/dush-real-3.jpg','img/g-mezh-4.jpg','img/g-celno-3.jpg','img/g-dver-3.jpg','img/g-banya-3.jpg','img/g-perila-3.jpg','img/g-terr-3.jpg','img/g-kozyr-6.jpg','img/g-atrium-3.jpg','img/g-oblic-3.jpg','img/g-vitr-3.jpg','img/dush-real-4.jpg','img/g-celno-4.jpg','img/g-dver-4.jpg','img/g-perila-4.jpg','img/g-terr-4.jpg','img/g-kozyr-7.jpg','img/g-atrium-4.jpg','img/g-oblic-4.jpg','img/g-celno-5.jpg','img/g-dver-5.jpg','img/g-perila-5.jpg','img/g-terr-5.jpg'];
   const lb=document.getElementById('lb'),img=document.getElementById('lbImg'),cnt=document.getElementById('lbCount');
   if(!lb)return;
   let arr=ALL, i=0;
